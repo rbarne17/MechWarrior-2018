@@ -8,7 +8,8 @@
 package org.usfirst.frc.team4764.robot;
 
 import org.usfirst.frc.team4764.robot.commands.ExampleCommand;
-import org.usfirst.frc.team4764.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4764.robot.subsystems.Drive;
+
 import org.usfirst.frc.team4764.robot.subsystems.ExampleSubsystem;
 
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -32,7 +33,7 @@ public class Robot extends TimedRobot {
 
 	public static final ExampleSubsystem kExampleSubsystem
 			= new ExampleSubsystem();
-	public static final DriveTrain driveTrain = new DriveTrain();
+	public static final Drive drive = new Drive();
 	public static OI OperatorInput;
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -117,8 +118,8 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		
-		SmartDashboard.putNumber("Encoder Right", driveTrain.getEncoderRight());
-		SmartDashboard.putNumber("Encoder Left", driveTrain.getEncoderLeft());
+		SmartDashboard.putNumber("Encoder Right", drive.getEncoderRight());
+		SmartDashboard.putNumber("Encoder Left", drive.getEncoderLeft());
 		
 		SmartDashboard.putNumber("Percent Throttle", OperatorInput.getRightStickY());
 		SmartDashboard.putNumber("Percent Rotation", OperatorInput.getLeftStickX());

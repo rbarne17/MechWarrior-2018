@@ -19,7 +19,7 @@ public class DriveWithJoy extends Command
 	{
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
-		requires(Robot.driveTrain);
+		requires(Robot.drive);
 
 	}
 
@@ -38,7 +38,7 @@ public class DriveWithJoy extends Command
 
 
 //		Robot.driveTrain.driveByTank(Robot.OperatorInput.getLeftStickY(), Robot.OperatorInput.getRightStickY());
-		Robot.driveTrain.driveByArcade(Robot.OperatorInput.getRightStickY(), -Robot.OperatorInput.getLeftStickX());	
+		Robot.drive.driveByArcade(Robot.OperatorInput.getRightStickY(), -Robot.OperatorInput.getLeftStickX());	
 
 	}
 

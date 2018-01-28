@@ -12,11 +12,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class DriveTrain extends Subsystem {
+public class Drive extends Subsystem {
 	Spark m_Left = new Spark(RobotMap.DriveTrainLeftTalon1);
 	Spark m_Right = new Spark(RobotMap.DriveTrainRightTalon1);
 
-	public DriveTrain() {
+	public Drive() {
 		
 		m_Left.set( 0.0);
 		
