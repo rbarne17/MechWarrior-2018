@@ -8,6 +8,7 @@
 package org.usfirst.frc.team4764.robot;
 
 import org.usfirst.frc.team4764.robot.commands.DriveByInches;
+import org.usfirst.frc.team4764.robot.commands.GYROTURN;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.XboxController;
@@ -23,9 +24,11 @@ public class OI {
 	XboxController xbox = new XboxController(0);
 	
 	Button xButton = new JoystickButton(xbox, 1);
+	Button yButton = new JoystickButton(xbox, 4);
 
 	public OI() {
 		xButton.whenPressed(new DriveByInches(6 * Math.PI, 0.75));
+		yButton.whenPressed(new GYROTURN(.5, 90));
 	}
 	
 	
