@@ -7,8 +7,9 @@
 
 package org.usfirst.frc.team4764.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team4764.robot.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * An example command.  You can replace me with your own command.
