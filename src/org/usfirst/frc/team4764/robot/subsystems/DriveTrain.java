@@ -3,9 +3,9 @@ package org.usfirst.frc.team4764.robot.subsystems;
 import org.usfirst.frc.team4764.robot.commands.DriveWithJoy;
 import org.usfirst.frc.team4764.robot.RobotMap;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
+
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -13,26 +13,28 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class DriveTrain extends Subsystem {
-	TalonSRX motorLeft1 = new TalonSRX(RobotMap.DriveTrainLeftTalon1);
-	TalonSRX motorRight1 = new TalonSRX(RobotMap.DriveTrainRightTalon1);
+	Spark m_Left = new Spark(RobotMap.DriveTrainLeftTalon1);
+	Spark m_Right = new Spark(RobotMap.DriveTrainRightTalon1);
 
 	public DriveTrain() {
 		
-		motorLeft1.set(ControlMode.PercentOutput, 0.0);
+		m_Left.set( 0.0);
 		
-		motorRight1.set(ControlMode.PercentOutput,  0.0);
+		m_Right.set(0.0);
 		
 
 	}
 	public int getEncoderLeft()
 	{
-		return motorLeft1.getSensorCollection().getPulseWidthPosition();
+		// Return Encoder Values Need to be fixed
+		return m_Left.getSensorCollection().getPulseWidthPosition();
 	}
 
 	public int getEncoderRight()
 	{
 //		Value reversed for clarity
-		return -motorRight1.getSensorCollection().getPulseWidthPosition();
+		// Return Encoder Values Need to be fixed
+		return -m_Right.getSensorCollection().getPulseWidthPosition();
 	}
 
 	
@@ -46,9 +48,9 @@ public class DriveTrain extends Subsystem {
 	//Inputs are percentages of maxeperateimum motor output.
 	public void driveByTank (double leftSpeed, double rightSpeed)	
 	{
-		motorLeft1.set(ControlMode.PercentOutput, leftSpeed);
+		m_Left.set(leftSpeed);
 		
-		motorRight1.set(ControlMode.PercentOutput, rightSpeed);
+		m_Right.set(rightSpeed);
 		
 	}    
 
@@ -66,10 +68,10 @@ public class DriveTrain extends Subsystem {
 		SmartDashboard.putNumber("ACTUAL Percent Throttle", percentThrottle);
 		SmartDashboard.putNumber("ACTUAL Percent Rotation", percentRotationOutput);
 		
-		motorLeft1.set(ControlMode.PercentOutput,-percentThrottle - percentRotationOutput);
+		m_Left.set(-percentThrottle - percentRotationOutput);
 		
 
-		motorRight1.set(ControlMode.PercentOutput, percentThrottle - percentRotationOutput);
+		m_Right.set(percentThrottle - percentRotationOutput);
 		
 	}
 	public double scalingSpeed (double joystickValue) {
