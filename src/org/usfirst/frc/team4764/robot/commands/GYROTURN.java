@@ -31,11 +31,10 @@ public class GYROTURN extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double angle = gyro.getAngle();
-    	if (angle<0);{
+    	if (degrees<0);{
     	Robot.drive.driveByTank(-speed, speed);
     	}
-    	if(angle>0);
+    	if(degrees>0);
     	{
     		Robot.drive.driveByTank(speed, -speed);
     	}

@@ -98,7 +98,7 @@ public class Drive extends Subsystem {
 //		joystickValue is "x"
 		
 //		below is "a"
-		double scalingCutoff = .75;
+		double scalingCutoff =0;
 		
 //		below is "x^3"
 		double joystickValueToTheThird = Math.pow(joystickValue, 3);
