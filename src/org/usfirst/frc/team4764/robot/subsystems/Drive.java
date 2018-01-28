@@ -3,8 +3,7 @@ package org.usfirst.frc.team4764.robot.subsystems;
 import org.usfirst.frc.team4764.robot.commands.DriveWithJoy;
 import org.usfirst.frc.team4764.robot.RobotMap;
 
-
-
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -15,6 +14,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Drive extends Subsystem {
 	Spark m_Left = new Spark(RobotMap.DriveTrainLeftTalon1);
 	Spark m_Right = new Spark(RobotMap.DriveTrainRightTalon1);
+	Encoder LeftEncoder= (RobotMap.driveTrainLeftEncoder);
+	Encoder RightEncoder= (RobotMap.driveTrainRightEncoder);
 
 	public Drive() {
 		
@@ -27,14 +28,16 @@ public class Drive extends Subsystem {
 	public int getEncoderLeft()
 	{
 		// Return Encoder Values Need to be fixed
-		return m_Left.getSensorCollection().getPulseWidthPosition();
+		
+		return LeftEncoder.get();
 	}
 
 	public int getEncoderRight()
 	{
 //		Value reversed for clarity
 		// Return Encoder Values Need to be fixed
-		return -m_Right.getSensorCollection().getPulseWidthPosition();
+		
+		return RightEncoder.get();
 	}
 
 	

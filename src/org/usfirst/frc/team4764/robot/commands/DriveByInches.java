@@ -29,7 +29,7 @@ public class DriveByInches extends Command {
     	
 //    	4096 is the number of ticks per revolution
 //    	217.2995489 is our ticks per inch
-    	int radius = 6;
+    	int radius = 4;
     	_ticksToTravel = inchesToTravel * (4096/(2*Math.PI*radius));
     	if (inchesToTravel < 0)
     	{
