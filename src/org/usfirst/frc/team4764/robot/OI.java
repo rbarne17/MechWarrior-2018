@@ -27,7 +27,7 @@ public class OI {
 	Button yButton = new JoystickButton(xbox, 4);
 
 	public OI() {
-		xButton.whenPressed(new DriveByInches(6 * Math.PI, 0.75));
+		xButton.whenPressed(new DriveByInches(20, 0.5));
 		yButton.whenPressed(new GYROTURN(.5, 90));
 	}
 	
