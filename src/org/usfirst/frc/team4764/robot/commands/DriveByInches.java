@@ -19,6 +19,8 @@ public class DriveByInches extends Command {
 	private double _finalTickTargetRight;
 	private  Gyro gyro;
 	private double speed;
+	private double integral;
+	private double drive_angle;
 
 	   
 	
@@ -55,7 +57,10 @@ public class DriveByInches extends Command {
     	 double heading= 0;
     	 double error=heading-angle;
     	 double Kp = 0.03;
-    	 Robot.drive.driveByArcade(speed, Kp*error);
+    	 integral += (error*.02);
+    	 double Ki=0;
+    	 drive_angle = (Kp*error)+(Ki*integral);
+    	 Robot.drive.driveByArcade(speed,drive_angle );
     }
 
     // Make this return true when this Command no longer needs to run execute()
