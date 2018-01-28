@@ -20,7 +20,7 @@ public class DriveByInches extends Command {
 	private  Gyro gyro;
 	private double speed;
 
-	    double Kp = 0.03;
+	   
 	
 	
     public DriveByInches(double inchesToTravel, double speed) {
@@ -52,7 +52,10 @@ public class DriveByInches extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	 double angle = gyro.getAngle();
-    	 Robot.drive.driveByArcade(speed, -angle*Kp);
+    	 double heading= 0;
+    	 double error=heading-angle;
+    	 double Kp = 0.03;
+    	 Robot.drive.driveByArcade(speed, Kp*error);
     }
 
     // Make this return true when this Command no longer needs to run execute()
