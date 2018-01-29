@@ -3,6 +3,7 @@ package org.usfirst.frc.team4764.robot.commands;
 import org.usfirst.frc.team4764.robot.Robot;
 import org.usfirst.frc.team4764.robot.subsystems.Drive;
 
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.interfaces.Gyro;
@@ -12,7 +13,7 @@ import edu.wpi.first.wpilibj.interfaces.Gyro;
  */
 public class GYROTURN extends Command {
 	
-	private  AnalogGyro gyro;
+	private  ADXRS450_Gyro gyro;
 	private double speed;
 	private double degrees;
 
@@ -44,7 +45,7 @@ public class GYROTURN extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	gyro = new AnalogGyro(1);    
+    	gyro= new ADXRS450_Gyro();   
     	double angle = gyro.getAngle();
     	if (Math.abs(angle - degrees) == 0); 
     	{
