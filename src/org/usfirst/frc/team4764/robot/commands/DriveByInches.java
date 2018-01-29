@@ -4,6 +4,7 @@ import org.usfirst.frc.team4764.robot.Robot;
 import org.usfirst.frc.team4764.robot.Robot.driveTrain;
 import org.usfirst.frc.team4764.robot.subsystems.Drive;
 
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.interfaces.Gyro;
 
@@ -17,7 +18,7 @@ public class DriveByInches extends Command {
 	
 	private double _finalTickTargetLeft;
 	private double _finalTickTargetRight;
-	private  Gyro gyro;
+	private  AnalogGyro gyro;
 	private double speed;
 	private double integral;
 	private double drive_angle;
@@ -53,13 +54,14 @@ public class DriveByInches extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	 gyro = new AnalogGyro(1);    
     	 double angle = gyro.getAngle();
     	 double heading= 0;
     	 double error=heading-angle;
     	 double Kp = 0.03;
-    	 integral += (error*.02);
+    	 this.integral += (error*.02);
     	 double Ki=0;
-    	 drive_angle = (Kp*error)+(Ki*integral);
+    	 drive_angle = (Kp*error)+(Ki*this.integral);
     	 Robot.drive.driveByArcade(speed,drive_angle );
     }
 
