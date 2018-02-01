@@ -20,8 +20,8 @@ public final class RobotMap {
 	public static int DriveTrainRightTalon1 = 0;
 	public static int DriveTrainLeftTalon1 = 1;
 	
-	public static Encoder driveTrainLeftEncoder = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
-	public static Encoder driveTrainRightEncoder = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
+//	public static Encoder driveTrainLeftEncoder = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
+//	public static Encoder driveTrainRightEncoder = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
 	
 	
 }

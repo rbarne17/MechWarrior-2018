@@ -7,9 +7,10 @@
 
 package org.usfirst.frc.team4764.robot;
 
+import edu.wpi.first.wpilibj.GenericHID.Hand;
+
 import org.usfirst.frc.team4764.robot.commands.DriveByInches;
 
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
