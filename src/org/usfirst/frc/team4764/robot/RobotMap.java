@@ -17,8 +17,12 @@ import edu.wpi.first.wpilibj.Encoder;
  */
 public final class RobotMap {
 	
-	public static int DriveTrainRightTalon1 = 0;
-	public static int DriveTrainLeftTalon1 = 1;
+	public static final int DriveTrainLeftTalon1 = 0;
+	public static final int DriveTrainRightTalon1 = 1;
+	public static final int leftEncoderChannel1 = 0;
+	public static final int leftEncoderChannel2 = 1;
+	public static final int rightEncoderChannel1 = 3;
+	public static final int rightEncoderChannel2 = 2;
 	
 //	public static Encoder driveTrainLeftEncoder = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
 //	public static Encoder driveTrainRightEncoder = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
