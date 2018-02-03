@@ -1,7 +1,7 @@
 package org.usfirst.frc.team4764.robot.commands;
 
 import org.usfirst.frc.team4764.robot.Robot;
-import org.usfirst.frc.team4764.robot.subsystems.Drive;
+import org.usfirst.frc.team4764.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.interfaces.Gyro;
@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.interfaces.Gyro;
 /**
  *
  */
-public class GYROTURN extends Command {
+public class TurnWithGyro extends Command {
 	
 	private  Gyro gyro;
 	private double speed;
@@ -18,7 +18,7 @@ public class GYROTURN extends Command {
 	    
 	
 	
-    public GYROTURN(double speed, double degrees) {
+    public TurnWithGyro(double speed, double degrees) {
     	
     	requires(Robot.drive);
     }

@@ -8,7 +8,7 @@
 package org.usfirst.frc.team4764.robot;
 
 import org.usfirst.frc.team4764.robot.commands.ExampleCommand;
-import org.usfirst.frc.team4764.robot.subsystems.Drive;
+import org.usfirst.frc.team4764.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4764.robot.subsystems.ExampleSubsystem;
 
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -32,7 +32,7 @@ public class Robot extends TimedRobot {
 
 	public static final ExampleSubsystem kExampleSubsystem
 			= new ExampleSubsystem();
-	public static final Drive drive = new Drive();
+	public static final DriveTrain drive = new DriveTrain();
 	public static OI OperatorInput;
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();

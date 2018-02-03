@@ -23,6 +23,8 @@ public final class RobotMap {
 	public static final int leftEncoderChannel2 = 1;
 	public static final int rightEncoderChannel1 = 3;
 	public static final int rightEncoderChannel2 = 2;
+	public static final int rangefinder = 6;
+
 	
 //	public static Encoder driveTrainLeftEncoder = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
 //	public static Encoder driveTrainRightEncoder = new Encoder(0, 1, false, Encoder.EncodingType.k4X);

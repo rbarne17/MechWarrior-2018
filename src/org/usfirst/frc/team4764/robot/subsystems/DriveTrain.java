@@ -3,21 +3,29 @@ package org.usfirst.frc.team4764.robot.subsystems;
 import org.usfirst.frc.team4764.robot.RobotMap;
 import org.usfirst.frc.team4764.robot.commands.DriveWithJoy;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class Drive extends Subsystem {
-//	Spark m_Left = new Spark(RobotMap.DriveTrainLeftTalon1);
-//	Spark m_Right = new Spark(RobotMap.DriveTrainRightTalon1);
-//	Encoder LeftEncoder= (RobotMap.driveTrainLeftEncoder);
-//	Encoder RightEncoder= (RobotMap.driveTrainRightEncoder);
+public class DriveTrain extends Subsystem {
+	private Spark leftMotor = new Spark(RobotMap.DriveTrainLeftTalon1);
+	private Spark rightMotor = new Spark(RobotMap.DriveTrainRightTalon1);
+	private Gyro gyro;
+	private Encoder leftEncoder = new Encoder(RobotMap.leftEncoderChannel1, RobotMap.leftEncoderChannel2, true,
+			EncodingType.k4X);
+	private Encoder rightEncoder = new Encoder(RobotMap.rightEncoderChannel1, RobotMap.rightEncoderChannel2, true,
+			EncodingType.k4X);
+	private AnalogInput rangefinder = new AnalogInput(RobotMap.rangefinder);
 
-	public Drive() {
+
+	public DriveTrain() {
 		
 //		m_Left.set( 0.0);
 //		
@@ -29,8 +37,7 @@ public class Drive extends Subsystem {
 	{
 		// Return Encoder Values Need to be fixed
 		
-//		return LeftEncoder.get();
-		return 0;
+		return leftEncoder.get();
 	}
 
 	public int getEncoderRight()
@@ -38,9 +45,8 @@ public class Drive extends Subsystem {
 //		Value reversed for clarity
 		// Return Encoder Values Need to be fixed
 		
-//		return RightEncoder.get();
-		
-		return 0;
+		return rightEncoder.get();
+
 	}
 
 	
@@ -54,9 +60,9 @@ public class Drive extends Subsystem {
 	//Inputs are percentages of maxeperateimum motor output.
 	public void driveByTank (double leftSpeed, double rightSpeed)	
 	{
-//		m_Left.set(leftSpeed);
-//		
-//		m_Right.set(rightSpeed);
+		leftMotor.set(leftSpeed);
+		
+		rightMotor.set(rightSpeed);
 		
 	}    
 
@@ -74,10 +80,10 @@ public class Drive extends Subsystem {
 		SmartDashboard.putNumber("ACTUAL Percent Throttle", percentThrottle);
 		SmartDashboard.putNumber("ACTUAL Percent Rotation", percentRotationOutput);
 		
-//		m_Left.set(-percentThrottle - percentRotationOutput);
-//		
-//
-//		m_Right.set(percentThrottle - percentRotationOutput);
+		leftMotor.set(-percentThrottle - percentRotationOutput);
+		
+
+		rightMotor.set(percentThrottle - percentRotationOutput);
 		
 	}
 	public double scalingSpeed (double joystickValue) {
