@@ -7,10 +7,9 @@
 
 package org.usfirst.frc.team4764.robot;
 
-import org.usfirst.frc.team4764.robot.commands.ExampleCommand;
+import org.usfirst.frc.team4764.robot.commands.Drive;
+import org.usfirst.frc.team4764.robot.commands.DriveByInches;
 import org.usfirst.frc.team4764.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team4764.robot.subsystems.ExampleSubsystem;
-
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -30,8 +29,6 @@ public class Robot extends TimedRobot {
 
 	}
 
-	public static final ExampleSubsystem kExampleSubsystem
-			= new ExampleSubsystem();
 	public static final DriveTrain drive = new DriveTrain();
 	public static OI OperatorInput;
 	Command m_autonomousCommand;
@@ -44,7 +41,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		OperatorInput = new OI();
-		m_chooser.addDefault("Default Auto", new ExampleCommand());
+		m_chooser.addDefault("Default Auto", new Drive());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 	}

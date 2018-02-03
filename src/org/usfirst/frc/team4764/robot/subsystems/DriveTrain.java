@@ -27,9 +27,9 @@ public class DriveTrain extends Subsystem {
 
 	public DriveTrain() {
 		
-//		m_Left.set( 0.0);
-//		
-//		m_Right.set(0.0);
+		leftMotor.set( 0.0);
+		
+		rightMotor.set(0.0);
 		
 
 	}
