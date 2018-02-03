@@ -28,6 +28,9 @@ public final class RobotMap {
 	public static final int liftEncoderChannel1 = 0;
 	public static final int liftEncoderChannel2 = 1;
 	public static final int limitswitch = 1;
+	public static final int gripper=1;
+	public static final int gripperclose=1;
+	public static final int gripperopen=1;
 
 	
 //	public static Encoder driveTrainLeftEncoder = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
