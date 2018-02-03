@@ -3,16 +3,12 @@ package org.usfirst.frc.team4764.robot.commands;
 import org.usfirst.frc.team4764.robot.Robot;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
-import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.interfaces.Gyro;
-
 /**
  *
  */
 public class TurnWithGyro extends Command {
 	
-	private  ADXRS450_Gyro gyro;
 	private double speed;
 	private double degrees;
 
