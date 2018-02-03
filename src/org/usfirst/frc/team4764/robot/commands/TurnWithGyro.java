@@ -27,7 +27,7 @@ public class TurnWithGyro extends Command {
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
+    protected void execute(){
     	if (degrees<0);{
     	Robot.drive.driveByTank(-speed, speed);
     	}
@@ -35,8 +35,12 @@ public class TurnWithGyro extends Command {
     	{
     		Robot.drive.driveByTank(speed, -speed);
     	}
-    	 
+    	if(degrees==0);
+    	{
+    		Robot.drive.driveByTank(0,0);
+    	}
     }
+    
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
