@@ -71,8 +71,8 @@ public class DriveTrain extends Subsystem {
 	public void driveByArcade (double percentThrottle, double percentRotationOutput)
 	{
 		
-		percentThrottle = valueAfterDeadzoned(percentThrottle);
-		percentRotationOutput = valueAfterDeadzoned(percentRotationOutput);
+		percentThrottle = valueAfterDeadzone(percentThrottle);
+		percentRotationOutput = valueAfterDeadzone(percentRotationOutput);
 	
 		percentThrottle = scalingSpeed(percentThrottle);
 		percentRotationOutput = scalingSpeed(percentRotationOutput);
@@ -122,7 +122,7 @@ public class DriveTrain extends Subsystem {
 
 	}
 	
-	private double valueAfterDeadzoned (double currentValue) {
+	private double valueAfterDeadzone (double currentValue) {
 //		This is the deadzone. Change to change how sensitive the robot is.
 		double deadzone = 0.2;
 		if (Math.abs(currentValue) < deadzone)
