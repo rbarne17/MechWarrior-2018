@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class Drive extends Subsystem {
+public class DriveTrain extends Subsystem {
 	private Spark leftMotor = new Spark(RobotMap.DriveTrainLeftTalon1);
 	private Spark rightMotor = new Spark(RobotMap.DriveTrainRightTalon1);
 	private Gyro gyro;
@@ -25,7 +25,7 @@ public class Drive extends Subsystem {
 	private AnalogInput rangefinder = new AnalogInput(RobotMap.rangefinder);
 
 
-	public Drive() {
+	public DriveTrain() {
 		
 		leftMotor.set( 0.0);
 		
