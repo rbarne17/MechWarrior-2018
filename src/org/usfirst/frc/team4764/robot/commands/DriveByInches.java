@@ -55,7 +55,7 @@ public class DriveByInches extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	 gyro= new ADXRS450_Gyro();   
+    	 ADXRS450_Gyro gyro = new ADXRS450_Gyro();   
     	 double angle = gyro.getAngle();
     	 double heading= 0;
     	 double error=heading-angle;

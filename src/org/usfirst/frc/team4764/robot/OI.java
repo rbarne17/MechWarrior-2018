@@ -8,7 +8,7 @@
 package org.usfirst.frc.team4764.robot;
 
 import org.usfirst.frc.team4764.robot.commands.DriveByInches;
-import org.usfirst.frc.team4764.robot.commands.GYROTURN;
+import org.usfirst.frc.team4764.robot.commands.TurnWithGyro;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.XboxController;
@@ -28,7 +28,7 @@ public class OI {
 
 	public OI() {
 		xButton.whenPressed(new DriveByInches(20, 0.5));
-		yButton.whenPressed(new GYROTURN(.5, 90));
+		yButton.whenPressed(new TurnWithGyro(.5, 90));
 	}
 	
 	
