@@ -48,8 +48,11 @@ public class DriveByInches extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.drive.leftEncoder.reset();
+    	Robot.drive.rightEncoder.reset();
     	_finalTickTargetLeft = _ticksToTravel + Robot.drive.getEncoderLeft();
     	_finalTickTargetRight = _ticksToTravel + Robot.drive.getEncoderRight();
+    	
     	
     }
 

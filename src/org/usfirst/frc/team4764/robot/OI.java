@@ -13,6 +13,7 @@ import org.usfirst.frc.team4764.robot.commands.Lift;
 import org.usfirst.frc.team4764.robot.commands.LiftHome;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -25,6 +26,7 @@ public class OI {
 	
 	XboxController xbox = new XboxController(0);
 	XboxController xbox2= new XboxController(1);
+	Joystick stick1 = new Joystick(0);
 	
 	
 	Button xButton = new JoystickButton(xbox, 1);
@@ -41,7 +43,14 @@ public class OI {
 	}
 	
 	
-	
+	public double JoystickY()
+	{
+		return stick1.getY(Hand.kLeft);
+	}
+	public double JoystickX()
+	{
+		return stick1.getX(Hand.kLeft);
+	}
 	public double getLeftStickY ()
 	{
 		return xbox.getY(Hand.kLeft);

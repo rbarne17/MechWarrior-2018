@@ -18,9 +18,9 @@ public class DriveTrain extends Subsystem {
 	private Spark leftMotor = new Spark(RobotMap.DriveTrainLeftTalon1);
 	private Spark rightMotor = new Spark(RobotMap.DriveTrainRightTalon1);
 	private Gyro gyro;
-	private Encoder leftEncoder = new Encoder(RobotMap.leftEncoderChannel1, RobotMap.leftEncoderChannel2, true,
+	public Encoder leftEncoder = new Encoder(RobotMap.leftEncoderChannel1, RobotMap.leftEncoderChannel2, true,
 			EncodingType.k4X);
-	private Encoder rightEncoder = new Encoder(RobotMap.rightEncoderChannel1, RobotMap.rightEncoderChannel2, true,
+	public Encoder rightEncoder = new Encoder(RobotMap.rightEncoderChannel1, RobotMap.rightEncoderChannel2, true,
 			EncodingType.k4X);
 	private AnalogInput rangefinder = new AnalogInput(RobotMap.rangefinder);
 
