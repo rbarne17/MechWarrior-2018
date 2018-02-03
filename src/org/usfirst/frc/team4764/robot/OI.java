@@ -10,6 +10,7 @@ package org.usfirst.frc.team4764.robot;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 
 import org.usfirst.frc.team4764.robot.commands.DriveByInches;
+import org.usfirst.frc.team4764.robot.commands.TurnWithGyro;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -24,9 +25,11 @@ public class OI {
 	XboxController xbox = new XboxController(0);
 	
 	Button xButton = new JoystickButton(xbox, 1);
+	Button yButton = new JoystickButton(xbox, 4);
 
 	public OI() {
-		xButton.whenPressed(new DriveByInches(6 * Math.PI, 0.75));
+		xButton.whenPressed(new DriveByInches(20, 0.5));
+		yButton.whenPressed(new TurnWithGyro(.5, 90));
 	}
 	
 	

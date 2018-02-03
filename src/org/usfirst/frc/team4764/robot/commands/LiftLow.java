@@ -7,12 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class PickUpCube extends Command {
+public class LiftLow extends Command {
 
-    public PickUpCube() {
+    public LiftLow() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.drive); 
+    	requires(Robot.drive);
     }
 
     // Called just before this Command runs the first time
@@ -43,4 +43,3 @@ public class PickUpCube extends Command {
     	Robot.drive.doNothing();
     }
 }
->>>>>>> refs/heads/Jonathan

@@ -1,9 +1,10 @@
 package org.usfirst.frc.team4764.robot.commands;
 
 import org.usfirst.frc.team4764.robot.Robot;
-import org.usfirst.frc.team4764.robot.Robot.driveTrain;
 import org.usfirst.frc.team4764.robot.subsystems.DriveTrain;
 
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.interfaces.Gyro;
 
@@ -17,10 +18,12 @@ public class DriveByInches extends Command {
 	
 	private double _finalTickTargetLeft;
 	private double _finalTickTargetRight;
-	private  Gyro gyro;
+	private  ADXRS450_Gyro gyro;
 	private double speed;
+	private double integral;
+	private double drive_angle;
 
-	    double Kp = 0.03;
+	   
 	
 	
     public DriveByInches(double inchesToTravel, double speed) {
@@ -51,8 +54,15 @@ public class DriveByInches extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	 ADXRS450_Gyro gyro = new ADXRS450_Gyro();   
     	 double angle = gyro.getAngle();
-    	 Robot.drive.driveByArcade(speed, -angle*Kp);
+    	 double heading= 0;
+    	 double error=heading-angle;
+    	 double Kp = 0.03;
+    	 this.integral += (error*.02);
+    	 double Ki=0;
+    	 drive_angle = (Kp*error)+(Ki*this.integral);
+    	 Robot.drive.driveByArcade(speed,drive_angle );
     }
 
     // Make this return true when this Command no longer needs to run execute()
