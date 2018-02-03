@@ -43,4 +43,3 @@ public class PickUpCube extends Command {
     	Robot.drive.doNothing();
     }
 }
->>>>>>> refs/heads/Jonathan
