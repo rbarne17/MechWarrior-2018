@@ -10,6 +10,7 @@ package org.usfirst.frc.team4764.robot;
 import org.usfirst.frc.team4764.robot.commands.DriveByInches;
 import org.usfirst.frc.team4764.robot.commands.TurnWithGyro;
 import org.usfirst.frc.team4764.robot.commands.Lift;
+import org.usfirst.frc.team4764.robot.commands.LiftHome;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.XboxController;
@@ -34,7 +35,9 @@ public class OI {
 	public OI() {
 		xButton.whenPressed(new DriveByInches(20, 0.5));
 		yButton.whenPressed(new Lift(10,0.5));
-		aButton.whenPressed(new Lift(5,0.5));
+		bButton.whenPressed(new Lift(5,0.5));
+		aButton.whenPressed(new LiftHome(0.5));
+		
 	}
 	
 	
