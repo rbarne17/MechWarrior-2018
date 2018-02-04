@@ -33,14 +33,14 @@ public class TurnWithGyro extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute(){
-    	if (heading<0);{
+    	if (heading<_angle);{
     	Robot.drive.driveByTank(-speed, speed);
     	}
-    	if(heading>0);
+    	if(heading>_angle);
     	{
     		Robot.drive.driveByTank(speed, -speed);
     	}
-    	if(heading==0);
+    	if(heading==_angle);
     	{
     		Robot.drive.driveByTank(0,0);
     	}
