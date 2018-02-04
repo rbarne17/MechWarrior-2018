@@ -10,14 +10,19 @@ import edu.wpi.first.wpilibj.command.Command;
 public class TurnWithGyro extends Command {
 	
 	private double speed;
-	private double degrees;
-
+	private double _degrees;
+	private double heading;
+	private double _angle;
 	    
 	
 	
     public TurnWithGyro(double speed, double degrees) {
     	
     	requires(Robot.drive);
+    	ADXRS450_Gyro gyro = new ADXRS450_Gyro();  
+    	double angle = gyro.getAngle();
+    	_angle=angle;
+    	heading= angle+degrees;
     }
 
     // Called just before this Command runs the first time
@@ -28,14 +33,14 @@ public class TurnWithGyro extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute(){
-    	if (degrees<0);{
+    	if (heading<0);{
     	Robot.drive.driveByTank(-speed, speed);
     	}
-    	if(degrees>0);
+    	if(heading>0);
     	{
     		Robot.drive.driveByTank(speed, -speed);
     	}
-    	if(degrees==0);
+    	if(heading==0);
     	{
     		Robot.drive.driveByTank(0,0);
     	}
@@ -44,9 +49,8 @@ public class TurnWithGyro extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	ADXRS450_Gyro gyro = new ADXRS450_Gyro();  
-    	double angle = gyro.getAngle();
-    	if (Math.abs(angle - degrees) == 0); 
+    	
+    	if (Math.abs(heading-_angle) == 0); 
     	{
     		return true;
     	}
