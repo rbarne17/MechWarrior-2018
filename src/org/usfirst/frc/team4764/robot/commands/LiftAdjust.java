@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class DropCube extends Command {
+public class LiftAdjust extends Command {
 
-    public DropCube() {
+    public LiftAdjust() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.drive);

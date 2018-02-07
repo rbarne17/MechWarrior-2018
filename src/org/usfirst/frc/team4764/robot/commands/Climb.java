@@ -1,5 +1,13 @@
 package org.usfirst.frc.team4764.robot.commands;
 
-public class Climb {
+import edu.wpi.first.wpilibj.command.Command;
+
+public class Climb extends Command {
+
+	@Override
+	protected boolean isFinished() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }

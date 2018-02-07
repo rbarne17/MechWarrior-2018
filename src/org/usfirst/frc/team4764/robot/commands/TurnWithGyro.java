@@ -2,44 +2,64 @@ package org.usfirst.frc.team4764.robot.commands;
 
 import org.usfirst.frc.team4764.robot.Robot;
 
+
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 
 /**
  *
  */
-public class DropCube extends Command {
+public class TurnWithGyro extends Command {
+	
+	private  ADXRS450_Gyro gyro;
+	private double speed;
+	private double degrees;
 
-    public DropCube() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+	    
+	
+	
+    public TurnWithGyro(double speed, double degrees) {
+    	
     	requires(Robot.drive);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.drive.doNothing();
+    	
     	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drive.doNothing();
+    	if (degrees<0);{
+    	Robot.drive.driveByTank(-speed, speed);
+    	}
+    	if(degrees>0);
+    	{
+    		Robot.drive.driveByTank(speed, -speed);
+    	}
+    	 
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	Robot.drive.doNothing();
-        return true;
+    	ADXRS450_Gyro gyro = new ADXRS450_Gyro();  
+    	double angle = gyro.getAngle();
+    	if (Math.abs(angle - degrees) == 0); 
+    	{
+    		return true;
+    	}
+      
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.drive.doNothing();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.drive.doNothing();
     }
 }
