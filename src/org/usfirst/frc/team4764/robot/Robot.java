@@ -11,7 +11,9 @@ import org.usfirst.frc.team4764.robot.commands.Drive;
 import org.usfirst.frc.team4764.robot.commands.DriveByInches;
 import org.usfirst.frc.team4764.robot.commands.DriveWithJoy;
 import org.usfirst.frc.team4764.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team4764.robot.subsystems.DriveTrain;
+
+import org.usfirst.frc.team4764.robot.subsystems.Gripper;
+import org.usfirst.frc.team4764.robot.subsystems.Lift;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -36,8 +38,8 @@ public class Robot extends TimedRobot {
 
 	public static final DriveTrain drive = new DriveTrain();
 	public static OI OperatorInput;
-	public static Subsystem Gripper;
-	public static Subsystem Lift;
+	public static final Gripper gripper = new Gripper();
+	public static final Lift lift = new Lift();
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 

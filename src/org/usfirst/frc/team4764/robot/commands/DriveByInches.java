@@ -3,6 +3,7 @@ package org.usfirst.frc.team4764.robot.commands;
 import org.usfirst.frc.team4764.robot.Robot;
 import org.usfirst.frc.team4764.robot.subsystems.DriveTrain;
 
+
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.command.Command;
@@ -47,8 +48,11 @@ public class DriveByInches extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.drive.leftEncoder.reset();
+    	Robot.drive.rightEncoder.reset();
     	_finalTickTargetLeft = _ticksToTravel + Robot.drive.getEncoderLeft();
     	_finalTickTargetRight = _ticksToTravel + Robot.drive.getEncoderRight();
+    	
     	
     }
 
