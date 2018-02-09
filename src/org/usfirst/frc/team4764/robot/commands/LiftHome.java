@@ -15,7 +15,7 @@ public class LiftHome extends Command {
 	private double _speed;
     public LiftHome(double speed) {
         
-    	requires(Robot.lift);
+    	requires(Robot.Lift);
     	
     	_speed=speed;
     }
@@ -26,14 +26,14 @@ public class LiftHome extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lift.liftMotor.set(-_speed);
+    	Robot.Lift.liftMotor.set(-_speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	DigitalInput limitSwitch = new DigitalInput(RobotMap.limitswitch);
     	if(limitSwitch.get()) {
-    		Robot.lift.liftEncoder.reset();
+    		Robot.Lift.liftEncoder.reset();
     		return true;
     	}
     	
