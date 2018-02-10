@@ -37,9 +37,8 @@ public class Robot extends TimedRobot {
 	public static final Gripper Gripper = new Gripper();
 	public static final FlipityFlop FlipityFlop = new FlipityFlop();
 	public static OI OperatorInput;
-	public static FieldData FieldData;
-	Command autonomousCommand;
-	SendableChooser<Command> chooser = new SendableChooser<>();
+	public static Command AutonomousCommand;
+	SendableChooser<Command> m_commandChooser = new SendableChooser<>();
 	public static String AutonomousPathName;
 
 	/**
@@ -49,8 +48,8 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		OperatorInput = new OI();
-		chooser.addDefault("Default Auto", new DriveWithJoy());
-		SmartDashboard.putData("Auto mode", chooser);
+		m_commandChooser.addDefault("Default Auto", new DriveWithJoy());
+		SmartDashboard.putData("Auto mode", m_commandChooser);
 	}
 
 	/**
@@ -100,8 +99,8 @@ public class Robot extends TimedRobot {
 		 */
 
 		// schedule the autonomous command (example)
-		if (autonomousCommand != null) {
-			autonomousCommand.start();
+		if (AutonomousCommand != null) {
+			AutonomousCommand.start();
 		}
 	}
 
@@ -119,8 +118,8 @@ public class Robot extends TimedRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		if (autonomousCommand != null) {
-			autonomousCommand.cancel();
+		if (AutonomousCommand != null) {
+			AutonomousCommand.cancel();
 		}
 	}
 
