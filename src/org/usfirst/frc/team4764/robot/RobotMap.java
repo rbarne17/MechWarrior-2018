@@ -24,9 +24,9 @@ public final class RobotMap {
 	public static final int rightEncoderChannel1 = 3;
 	public static final int rightEncoderChannel2 = 2;
 	public static final int rangefinder = 6;
-	public static final int LiftMotor = 0;
-	public static final int liftEncoderChannel1 = 0;
-	public static final int liftEncoderChannel2 = 1;
+	public static final int LiftMotor = 2;
+	public static final int liftEncoderChannel1 = 4;
+	public static final int liftEncoderChannel2 = 5;
 	public static final int limitswitch = 1;
 	public static final int gripper=1;
 	public static final int gripperclose=1;
