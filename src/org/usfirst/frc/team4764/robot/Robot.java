@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team4764.robot;
 
+import org.usfirst.frc.team4764.robot.commands.AutonomousCommand;
 import org.usfirst.frc.team4764.robot.commands.Drive;
 import org.usfirst.frc.team4764.robot.commands.DriveByInches;
 import org.usfirst.frc.team4764.robot.commands.DriveWithJoy;
@@ -18,6 +19,7 @@ import org.usfirst.frc.team4764.robot.subsystems.FlipityFlop;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -37,9 +39,13 @@ public class Robot extends TimedRobot {
 	public static final Gripper Gripper = new Gripper();
 	public static final FlipityFlop FlipityFlop = new FlipityFlop();
 	public static OI OperatorInput;
-	public static Command AutonomousCommand;
+	public static CommandGroup autonomousCommand;
 	SendableChooser<Command> m_commandChooser = new SendableChooser<>();
-	public static String AutonomousPathName;
+	SendableChooser<String> m_ScoringMechanismChooser = new SendableChooser<>();
+	SendableChooser<String> m_allianceModeChooser = new SendableChooser<>();
+	public static String autonomousAllianceMode;
+	public static String autonomousScoringMechanism;
+	public static String autonomousCommandName;
 
 	/**
 	 * This function is run when the robot is first started up and should be used
@@ -50,6 +56,16 @@ public class Robot extends TimedRobot {
 		OperatorInput = new OI();
 		m_commandChooser.addDefault("Default Auto", new DriveWithJoy());
 		SmartDashboard.putData("Auto mode", m_commandChooser);
+
+		m_ScoringMechanismChooser.addObject("Switch", new String());
+		m_ScoringMechanismChooser.addObject("Switch", new String());
+		SmartDashboard.putData("Switch or Scale", m_ScoringMechanismChooser);
+
+		m_allianceModeChooser.addDefault("Score", new String());
+		m_allianceModeChooser.addObject("Wait/Score", new String());
+		m_allianceModeChooser.addObject("Defend", new String());
+		SmartDashboard.putData("Alliance Mode", m_allianceModeChooser);
+
 	}
 
 	/**
@@ -81,16 +97,133 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		switch (Integer.toString(FieldData.Location) + FieldData.AllianceOrder) {
-		case "1LLL":
-			AutonomousPathName = "1LLL";
-			break;
-		default:
-			AutonomousPathName = "";
-			break;
 
+		autonomousScoringMechanism = m_ScoringMechanismChooser.getSelected();
+		autonomousAllianceMode = m_allianceModeChooser.getSelected();
+
+		switch (FieldData.Location) {
+		case 1:
+			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Switch"
+					&& autonomousAllianceMode == "Score") {
+				autonomousCommandName = "OneLeftSwitch";
+			}
+			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Switch"
+					&& autonomousAllianceMode == "Wait/Score") {
+				autonomousCommandName = "OneLeftSwitchWait";
+			}
+			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Switch"
+					&& autonomousAllianceMode == "Defend") {
+				autonomousCommandName = "OneLeftSwitchDefend";
+			}
+			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Switch") {
+				autonomousCommandName = "OneRightSwitchDefend";
+			}
+			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Scale"
+					&& autonomousAllianceMode == "Score") {
+				autonomousCommandName = "OneLeftScale";
+			}
+			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Scale"
+					&& autonomousAllianceMode == "Wait/Score") {
+				autonomousCommandName = "OneLeftScaleWait";
+			}
+			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Scale"
+					&& autonomousAllianceMode == "Defend") {
+				autonomousCommandName = "OneLeftScaleDefend";
+			}
+			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Scale") {
+				autonomousCommandName = "OneRightScaleDefend";
+			}
+
+			;
+			break;
+		case 2:
+			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Switch"
+					&& autonomousAllianceMode == "Score") {
+				autonomousCommandName = "TwoLeftSwitch";
+			}
+			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Switch"
+					&& autonomousAllianceMode == "Wait/Score") {
+				autonomousCommandName = "TwoLeftSwitchWait";
+			}
+			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Switch"
+					&& autonomousAllianceMode == "Defend") {
+				autonomousCommandName = "TwoLeftSwitchDefend";
+			}
+			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Switch"
+					&& autonomousAllianceMode == "Score") {
+				autonomousCommandName = "TwoRightSwitch";
+			}
+			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Switch"
+					&& autonomousAllianceMode == "Wait/Score") {
+				autonomousCommandName = "TwoRightSwitchWait";
+			}
+			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Switch"
+					&& autonomousAllianceMode == "Defend") {
+				autonomousCommandName = "TwoRightSwitchDefend";
+			}
+			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Scale"
+					&& autonomousAllianceMode == "Score") {
+				autonomousCommandName = "TwoLeftScale";
+			}
+			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Scale"
+					&& autonomousAllianceMode == "Wait/Score") {
+				autonomousCommandName = "TwoLeftScaleWait";
+			}
+			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Scale"
+					&& autonomousAllianceMode == "Defend") {
+				autonomousCommandName = "TwoLeftScaleDefend";
+			}
+			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Scale"
+					&& autonomousAllianceMode == "Score") {
+				autonomousCommandName = "TwoRightScale";
+			}
+			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Scale"
+					&& autonomousAllianceMode == "Wait/Score") {
+				autonomousCommandName = "TwoRightScaleWait";
+			}
+			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Scale"
+					&& autonomousAllianceMode == "Defend") {
+				autonomousCommandName = "TwoRightScaleDefend";
+			}
+			;
+			break;
+		case 3:
+			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Switch"
+					&& autonomousAllianceMode == "Score") {
+				autonomousCommandName = "ThreeRightSwitch";
+			}
+			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Switch"
+					&& autonomousAllianceMode == "Wait/Score") {
+				autonomousCommandName = "ThreeRightSwitchWait";
+			}
+			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Switch"
+					&& autonomousAllianceMode == "Defend") {
+				autonomousCommandName = "ThreeRightSwitchDefend";
+			}
+			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Switch") {
+				autonomousCommandName = "ThreeLeftSwitchDefend";
+			}
+			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Scale"
+					&& autonomousAllianceMode == "Score") {
+				autonomousCommandName = "ThreeRightScale";
+			}
+			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Scale"
+					&& autonomousAllianceMode == "Wait/Score") {
+				autonomousCommandName = "ThreeRightScaleWait";
+			}
+			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Scale"
+					&& autonomousAllianceMode == "Defend") {
+				autonomousCommandName = "ThreeRightScaleDefend";
+			}
+			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Scale") {
+				autonomousCommandName = "ThreeLeftScaleDefend";
+			}
+
+			;
+			break;
 		}
-
+		
+		autonomousCommand = new AutonomousCommand(autonomousCommandName);
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
 		 * switch(autoSelected) { case "My Auto": autonomousCommand = new
@@ -99,8 +232,8 @@ public class Robot extends TimedRobot {
 		 */
 
 		// schedule the autonomous command (example)
-		if (AutonomousCommand != null) {
-			AutonomousCommand.start();
+		if (autonomousCommand != null) {
+			autonomousCommand.start();
 		}
 	}
 
@@ -118,8 +251,8 @@ public class Robot extends TimedRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		if (AutonomousCommand != null) {
-			AutonomousCommand.cancel();
+		if (autonomousCommand != null) {
+			autonomousCommand.cancel();
 		}
 	}
 
