@@ -101,121 +101,121 @@ public class Robot extends TimedRobot {
 		autonomousScoringMechanism = m_ScoringMechanismChooser.getSelected();
 		autonomousAllianceMode = m_allianceModeChooser.getSelected();
 
-		switch (FieldData.Location) {
+		switch (FieldData.location) {
 		case 1:
-			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Switch"
+			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Switch"
 					&& autonomousAllianceMode == "Score") {
 				autonomousCommandName = "OneLeftSwitch";
 			}
-			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Switch"
+			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Switch"
 					&& autonomousAllianceMode == "Wait/Score") {
 				autonomousCommandName = "OneLeftSwitchWait";
 			}
-			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Switch"
+			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Switch"
 					&& autonomousAllianceMode == "Defend") {
 				autonomousCommandName = "OneLeftSwitchDefend";
 			}
-			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Switch") {
+			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Switch") {
 				autonomousCommandName = "OneRightSwitchDefend";
 			}
-			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Scale"
+			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Scale"
 					&& autonomousAllianceMode == "Score") {
 				autonomousCommandName = "OneLeftScale";
 			}
-			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Scale"
+			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Scale"
 					&& autonomousAllianceMode == "Wait/Score") {
 				autonomousCommandName = "OneLeftScaleWait";
 			}
-			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Scale"
+			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Scale"
 					&& autonomousAllianceMode == "Defend") {
 				autonomousCommandName = "OneLeftScaleDefend";
 			}
-			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Scale") {
+			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Scale") {
 				autonomousCommandName = "OneRightScaleDefend";
 			}
 
 			;
 			break;
 		case 2:
-			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Switch"
+			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Switch"
 					&& autonomousAllianceMode == "Score") {
 				autonomousCommandName = "TwoLeftSwitch";
 			}
-			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Switch"
+			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Switch"
 					&& autonomousAllianceMode == "Wait/Score") {
 				autonomousCommandName = "TwoLeftSwitchWait";
 			}
-			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Switch"
+			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Switch"
 					&& autonomousAllianceMode == "Defend") {
 				autonomousCommandName = "TwoLeftSwitchDefend";
 			}
-			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Switch"
+			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Switch"
 					&& autonomousAllianceMode == "Score") {
 				autonomousCommandName = "TwoRightSwitch";
 			}
-			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Switch"
+			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Switch"
 					&& autonomousAllianceMode == "Wait/Score") {
 				autonomousCommandName = "TwoRightSwitchWait";
 			}
-			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Switch"
+			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Switch"
 					&& autonomousAllianceMode == "Defend") {
 				autonomousCommandName = "TwoRightSwitchDefend";
 			}
-			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Scale"
+			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Scale"
 					&& autonomousAllianceMode == "Score") {
 				autonomousCommandName = "TwoLeftScale";
 			}
-			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Scale"
+			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Scale"
 					&& autonomousAllianceMode == "Wait/Score") {
 				autonomousCommandName = "TwoLeftScaleWait";
 			}
-			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Scale"
+			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Scale"
 					&& autonomousAllianceMode == "Defend") {
 				autonomousCommandName = "TwoLeftScaleDefend";
 			}
-			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Scale"
+			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Scale"
 					&& autonomousAllianceMode == "Score") {
 				autonomousCommandName = "TwoRightScale";
 			}
-			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Scale"
+			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Scale"
 					&& autonomousAllianceMode == "Wait/Score") {
 				autonomousCommandName = "TwoRightScaleWait";
 			}
-			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Scale"
+			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Scale"
 					&& autonomousAllianceMode == "Defend") {
 				autonomousCommandName = "TwoRightScaleDefend";
 			}
 			;
 			break;
 		case 3:
-			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Switch"
+			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Switch"
 					&& autonomousAllianceMode == "Score") {
 				autonomousCommandName = "ThreeRightSwitch";
 			}
-			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Switch"
+			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Switch"
 					&& autonomousAllianceMode == "Wait/Score") {
 				autonomousCommandName = "ThreeRightSwitchWait";
 			}
-			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Switch"
+			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Switch"
 					&& autonomousAllianceMode == "Defend") {
 				autonomousCommandName = "ThreeRightSwitchDefend";
 			}
-			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Switch") {
+			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Switch") {
 				autonomousCommandName = "ThreeLeftSwitchDefend";
 			}
-			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Scale"
+			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Scale"
 					&& autonomousAllianceMode == "Score") {
 				autonomousCommandName = "ThreeRightScale";
 			}
-			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Scale"
+			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Scale"
 					&& autonomousAllianceMode == "Wait/Score") {
 				autonomousCommandName = "ThreeRightScaleWait";
 			}
-			if (FieldData.SwitchSide == 'R' && autonomousScoringMechanism == "Scale"
+			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Scale"
 					&& autonomousAllianceMode == "Defend") {
 				autonomousCommandName = "ThreeRightScaleDefend";
 			}
-			if (FieldData.SwitchSide == 'L' && autonomousScoringMechanism == "Scale") {
+			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Scale") {
 				autonomousCommandName = "ThreeLeftScaleDefend";
 			}
 
