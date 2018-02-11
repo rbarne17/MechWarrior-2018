@@ -4,25 +4,26 @@ import org.usfirst.frc.team4764.robot.Robot;
 
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
-import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.interfaces.Gyro;
-
 /**
  *
  */
 public class TurnWithGyro extends Command {
 	
-	private  ADXRS450_Gyro gyro;
 	private double speed;
-	private double degrees;
-
+	private double _degrees;
+	private double heading;
+	private double _angle;
 	    
 	
 	
     public TurnWithGyro(double speed, double degrees) {
     	
-    	requires(Robot.drive);
+    	requires(Robot.driveTrain);
+    	ADXRS450_Gyro gyro = new ADXRS450_Gyro();  
+    	double angle = gyro.getAngle();
+    	_angle=angle;
+    	heading= angle+degrees;
     }
 
     // Called just before this Command runs the first time
@@ -32,22 +33,25 @@ public class TurnWithGyro extends Command {
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    	if (degrees<0);{
-    	Robot.drive.driveByTank(-speed, speed);
+    protected void execute(){
+    	if (heading<_angle);{
+    	Robot.driveTrain.driveByTank(-speed, speed);
     	}
-    	if(degrees>0);
+    	if(heading>_angle);
     	{
-    		Robot.drive.driveByTank(speed, -speed);
+    		Robot.driveTrain.driveByTank(speed, -speed);
     	}
-    	 
+    	if(heading==_angle);
+    	{
+    		Robot.driveTrain.driveByTank(0,0);
+    	}
     }
+    
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	ADXRS450_Gyro gyro = new ADXRS450_Gyro();  
-    	double angle = gyro.getAngle();
-    	if (Math.abs(angle - degrees) == 0); 
+    	
+    	if (Math.abs(heading-_angle) == 0); 
     	{
     		return true;
     	}
