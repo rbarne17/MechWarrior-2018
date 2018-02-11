@@ -1,7 +1,7 @@
 package org.usfirst.frc.team4764.robot.commands;
 
 import org.usfirst.frc.team4764.robot.Robot;
-import org.usfirst.frc.team4764.robot.Robot.driveTrain;
+import org.usfirst.frc.team4764.robot.subsystems.DriveTrain;
 
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
@@ -43,15 +43,15 @@ public class DriveByInches extends Command {
     	{
     		_speed = speed;
     	}
-    	requires(Robot.drive);
+    	requires(Robot.driveTrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.drive.leftEncoder.reset();
-    	Robot.drive.rightEncoder.reset();
-    	_finalTickTargetLeft = _ticksToTravel + Robot.drive.getEncoderLeft();
-    	_finalTickTargetRight = _ticksToTravel + Robot.drive.getEncoderRight();
+    	Robot.driveTrain.leftEncoder.reset();
+    	Robot.driveTrain.rightEncoder.reset();
+    	_finalTickTargetLeft = _ticksToTravel + Robot.driveTrain.getEncoderLeft();
+    	_finalTickTargetRight = _ticksToTravel + Robot.driveTrain.getEncoderRight();
     	
     	
     }
@@ -66,13 +66,13 @@ public class DriveByInches extends Command {
     	 this.integral += (error*.02);
     	 double Ki=0;
     	 drive_angle = (Kp*error)+(Ki*this.integral);
-    	 Robot.drive.driveByArcade(speed,drive_angle );
+    	 Robot.driveTrain.driveByArcade(speed,drive_angle );
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (Math.abs(_finalTickTargetLeft - Robot.drive.getEncoderLeft()) <= 0 &&
-    			Math.abs(_finalTickTargetRight - Robot.drive.getEncoderRight()) <= 0)
+    	if (Math.abs(_finalTickTargetLeft - Robot.driveTrain.getEncoderLeft()) <= 0 &&
+    			Math.abs(_finalTickTargetRight - Robot.driveTrain.getEncoderRight()) <= 0)
     	{
     		return true;
     	}

@@ -123,7 +123,7 @@ public class DriveTrain extends Subsystem {
 	}
 	
 	private double valueAfterDeadzone (double currentValue) {
-//		This is the deadzone. Change to change how sensitive the robot is.
+//		This is the deadzone. Adjust to change how sensitive the robot is.
 		double deadzone = 0.2;
 		if (Math.abs(currentValue) < deadzone)
 		{
@@ -135,3 +135,4 @@ public class DriveTrain extends Subsystem {
 		}
 	}
 }
+

@@ -50,6 +50,5 @@ public class Gripper extends Subsystem {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
+
 }

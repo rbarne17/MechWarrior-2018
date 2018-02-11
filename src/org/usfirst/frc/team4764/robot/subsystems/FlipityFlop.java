@@ -9,6 +9,12 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
+
+
+
+import edu.wpi.first.wpilibj.command.Subsystem;
+
+
 public class FlipityFlop extends Subsystem {
 	
 	Solenoid level= new Solenoid(RobotMap.solenoidlevel);
@@ -17,8 +23,8 @@ public class FlipityFlop extends Subsystem {
 
 	public FlipityFlop() {
 		
-		level.set(true);
-		down.set(true);
+//		level.set(true);
+//		down.set(true);
 		
 
 	}
@@ -51,6 +57,10 @@ public class FlipityFlop extends Subsystem {
 		// TODO Auto-generated method stub
 		
 	}
+
 	
 	
 }
+
+
+

@@ -79,6 +79,5 @@ public class Lift extends Subsystem {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
+
 }
