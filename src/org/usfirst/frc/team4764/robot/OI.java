@@ -55,11 +55,11 @@ public class OI {
 	
 	public double JoystickY()
 	{
-		return stick1.getY(Hand.kLeft);
+		return stick1.getY();
 	}
 	public double JoystickX()
 	{
-		return stick1.getX(Hand.kLeft);
+		return stick1.getX();
 	}
 	public double getLeftStickY ()
 	{

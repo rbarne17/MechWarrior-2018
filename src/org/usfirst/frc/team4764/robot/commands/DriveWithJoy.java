@@ -40,10 +40,10 @@ public class DriveWithJoy extends Command
 //		Robot.driveTrain.driveByTank(Robot.OperatorInput.getLeftStickY(), Robot.OperatorInput.getRightStickY());
 
 	
-		Robot.driveTrain.driveByArcade(Robot.operatorInput.JoystickY(), -Robot.operatorInput.JoystickX());
+//		Robot.driveTrain.driveByArcade(Robot.operatorInput.JoystickY(), Robot.operatorInput.JoystickX());
 
 	
-		Robot.driveTrain.driveByArcade(Robot.operatorInput.JoystickY(), -Robot.operatorInput.JoystickX());
+		Robot.driveTrain.driveByArcade(Robot.operatorInput.JoystickY(), Robot.operatorInput.JoystickX());
 
 	}
 
