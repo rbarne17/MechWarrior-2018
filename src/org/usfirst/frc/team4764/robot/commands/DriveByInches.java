@@ -43,15 +43,15 @@ public class DriveByInches extends Command {
     	{
     		_speed = speed;
     	}
-    	requires(Robot.DriveTrain);
+    	requires(Robot.driveTrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.DriveTrain.leftEncoder.reset();
-    	Robot.DriveTrain.rightEncoder.reset();
-    	_finalTickTargetLeft = _ticksToTravel + Robot.DriveTrain.getEncoderLeft();
-    	_finalTickTargetRight = _ticksToTravel + Robot.DriveTrain.getEncoderRight();
+    	Robot.driveTrain.leftEncoder.reset();
+    	Robot.driveTrain.rightEncoder.reset();
+    	_finalTickTargetLeft = _ticksToTravel + Robot.driveTrain.getEncoderLeft();
+    	_finalTickTargetRight = _ticksToTravel + Robot.driveTrain.getEncoderRight();
     	
     	
     }
@@ -66,13 +66,13 @@ public class DriveByInches extends Command {
     	 this.integral += (error*.02);
     	 double Ki=0;
     	 drive_angle = (Kp*error)+(Ki*this.integral);
-    	 Robot.DriveTrain.driveByArcade(speed,drive_angle );
+    	 Robot.driveTrain.driveByArcade(speed,drive_angle );
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (Math.abs(_finalTickTargetLeft - Robot.DriveTrain.getEncoderLeft()) <= 0 &&
-    			Math.abs(_finalTickTargetRight - Robot.DriveTrain.getEncoderRight()) <= 0)
+    	if (Math.abs(_finalTickTargetLeft - Robot.driveTrain.getEncoderLeft()) <= 0 &&
+    			Math.abs(_finalTickTargetRight - Robot.driveTrain.getEncoderRight()) <= 0)
     	{
     		return true;
     	}

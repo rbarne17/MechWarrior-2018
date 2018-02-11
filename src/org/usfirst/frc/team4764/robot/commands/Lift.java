@@ -16,7 +16,7 @@ public class Lift extends Command {
     public Lift(double Inches, double speed) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.Lift);
+    	requires(Robot.lift);
     	 int ticksperrev=4096;
     	int radius=4;
     	_ticksToTravel= Inches*(ticksperrev/(2*Math.PI*radius));
@@ -26,17 +26,17 @@ public class Lift extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	
-    	finalticks=Robot.Lift.getEncoderLift()+_ticksToTravel;
+    	finalticks=Robot.lift.getEncoderLift()+_ticksToTravel;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.Lift.liftMotor.set(_speed);
+    	Robot.lift.liftMotor.set(_speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (Math.abs(finalticks - Robot.Lift.getEncoderLift()) <= 0) 
+    	if (Math.abs(finalticks - Robot.lift.getEncoderLift()) <= 0) 
     	{
     		return true;
     	}

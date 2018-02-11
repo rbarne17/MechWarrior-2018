@@ -19,7 +19,7 @@ public class TurnWithGyro extends Command {
 	
     public TurnWithGyro(double speed, double degrees) {
     	
-    	requires(Robot.DriveTrain);
+    	requires(Robot.driveTrain);
     	ADXRS450_Gyro gyro = new ADXRS450_Gyro();  
     	double angle = gyro.getAngle();
     	_angle=angle;
@@ -35,15 +35,15 @@ public class TurnWithGyro extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute(){
     	if (heading<_angle);{
-    	Robot.DriveTrain.driveByTank(-speed, speed);
+    	Robot.driveTrain.driveByTank(-speed, speed);
     	}
     	if(heading>_angle);
     	{
-    		Robot.DriveTrain.driveByTank(speed, -speed);
+    		Robot.driveTrain.driveByTank(speed, -speed);
     	}
     	if(heading==_angle);
     	{
-    		Robot.DriveTrain.driveByTank(0,0);
+    		Robot.driveTrain.driveByTank(0,0);
     	}
     }
     

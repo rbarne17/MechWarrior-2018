@@ -34,11 +34,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends TimedRobot {
 
-	public static final DriveTrain DriveTrain = new DriveTrain();
-	public static final Lift Lift = new Lift();
-	public static final Gripper Gripper = new Gripper();
-	public static final FlipityFlop FlipityFlop = new FlipityFlop();
-	public static OI OperatorInput;
+	public static final DriveTrain driveTrain = new DriveTrain();
+	public static final Lift lift = new Lift();
+	public static final Gripper gripper = new Gripper();
+	public static final FlipityFlop flipityFlop = new FlipityFlop();
+	public static OI operatorInput;
 	public static CommandGroup autonomousCommand;
 	SendableChooser<Command> m_commandChooser = new SendableChooser<>();
 	SendableChooser<String> m_ScoringMechanismChooser = new SendableChooser<>();
@@ -53,7 +53,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
-		OperatorInput = new OI();
+		operatorInput = new OI();
 		m_commandChooser.addDefault("Default Auto", new DriveWithJoy());
 		SmartDashboard.putData("Auto mode", m_commandChooser);
 
@@ -262,11 +262,11 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 
-		SmartDashboard.putNumber("Encoder Right", DriveTrain.getEncoderRight());
-		SmartDashboard.putNumber("Encoder Left", DriveTrain.getEncoderLeft());
+		SmartDashboard.putNumber("Encoder Right", driveTrain.getEncoderRight());
+		SmartDashboard.putNumber("Encoder Left", driveTrain.getEncoderLeft());
 
-		SmartDashboard.putNumber("Percent Throttle", OperatorInput.getRightStickY());
-		SmartDashboard.putNumber("Percent Rotation", OperatorInput.getLeftStickX());
+		SmartDashboard.putNumber("Percent Throttle", operatorInput.getRightStickY());
+		SmartDashboard.putNumber("Percent Rotation", operatorInput.getLeftStickX());
 
 		Scheduler.getInstance().run();
 	}
