@@ -12,6 +12,7 @@ import org.usfirst.frc.team4764.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4764.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team4764.robot.subsystems.Gripper;
 import org.usfirst.frc.team4764.robot.subsystems.Lift;
+import org.usfirst.frc.team4764.robot.subsystems.FlipityFlop;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -40,6 +41,7 @@ public class Robot extends TimedRobot {
 	public static OI OperatorInput;
 	public static final Gripper gripper = new Gripper();
 	public static final Lift lift = new Lift();
+	public static final FlipityFlop pinrelease = new FlipityFlop();
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 

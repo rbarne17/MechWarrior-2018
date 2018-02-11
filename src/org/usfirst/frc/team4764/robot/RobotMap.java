@@ -31,6 +31,8 @@ public final class RobotMap {
 	public static final int gripper=1;
 	public static final int gripperclose=1;
 	public static final int gripperopen=1;
+	public static final int solenoidlevel=1;
+	public static final int solenoiddown=1;
 
 	
 //	public static Encoder driveTrainLeftEncoder = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
