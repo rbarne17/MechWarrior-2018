@@ -31,8 +31,8 @@ public final class RobotMap {
 	public static final int gripper=1;
 	public static final int gripperclose=1;
 	public static final int gripperopen=1;
-	public static final int solenoidlevel=20;
-	public static final int solenoiddown=10;
+	public static final int solenoidlevel=7;
+	public static final int solenoiddown=8;
 
 
 	
