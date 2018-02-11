@@ -24,15 +24,15 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 	
-	XboxController xbox = new XboxController(0);
+	XboxController xbox = new XboxController(2);
 	XboxController xbox2= new XboxController(1);
 	Joystick stick1 = new Joystick(0);
 	
 	
-	Button xButton = new JoystickButton(xbox, 1);
-	Button yButton = new JoystickButton(xbox, 4);
-	Button bButton = new JoystickButton(xbox, 3);
-	Button aButton = new JoystickButton(xbox, 2);
+	Button xButton = new JoystickButton(xbox2, 1);
+	Button yButton = new JoystickButton(xbox2, 4);
+	Button bButton = new JoystickButton(xbox2, 3);
+	Button aButton = new JoystickButton(xbox2, 2);
 
 	public OI() {
 		xButton.whenPressed(new DriveByInches(20, 0.5));
