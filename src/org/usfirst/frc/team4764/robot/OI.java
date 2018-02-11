@@ -8,9 +8,11 @@
 package org.usfirst.frc.team4764.robot;
 
 import org.usfirst.frc.team4764.robot.commands.DriveByInches;
+import org.usfirst.frc.team4764.robot.commands.DropCube;
 import org.usfirst.frc.team4764.robot.commands.TurnWithGyro;
 import org.usfirst.frc.team4764.robot.commands.Lift;
 import org.usfirst.frc.team4764.robot.commands.LiftHome;
+import org.usfirst.frc.team4764.robot.commands.PickUpCube;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.Joystick;
@@ -29,16 +31,22 @@ public class OI {
 	Joystick stick1 = new Joystick(0);
 	
 	
-	Button xButton = new JoystickButton(xbox2, 1);
-	Button yButton = new JoystickButton(xbox2, 4);
-	Button bButton = new JoystickButton(xbox2, 3);
-	Button aButton = new JoystickButton(xbox2, 2);
+	Button xButton2 = new JoystickButton(xbox2, 1);
+	Button yButton2 = new JoystickButton(xbox2, 4);
+	Button bButton2 = new JoystickButton(xbox2, 3);
+	Button aButton2 = new JoystickButton(xbox2, 2);
+	Button rbumper2= new JoystickButton(xbox2,6);
+	Button lbumper2= new JoystickButton(xbox2, 5);
 
 	public OI() {
-		xButton.whenPressed(new DriveByInches(20, 0.5));
-		yButton.whenPressed(new Lift(10,0.5));
-		bButton.whenPressed(new Lift(5,0.5));
-		aButton.whenPressed(new LiftHome(0.5));
+		xButton2.whenPressed(new DriveByInches(20, 0.5));
+		yButton2.whenPressed(new Lift(10,0.5));
+		bButton2.whenPressed(new Lift(5,0.5));
+		aButton2.whenPressed(new LiftHome(0.5));
+		rbumper2.whenPressed(new DropCube());
+		lbumper2.whenPressed(new PickUpCube());
+		
+		
 		
 	}
 	
