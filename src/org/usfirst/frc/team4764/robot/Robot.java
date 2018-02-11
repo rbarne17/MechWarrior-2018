@@ -62,7 +62,7 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putData("Switch or Scale", m_ScoringMechanismChooser);
 
 		m_allianceModeChooser.addDefault("Score", new String());
-		m_allianceModeChooser.addObject("Wait/Score", new String());
+		m_allianceModeChooser.addObject("WaitScore", new String());
 		m_allianceModeChooser.addObject("Defend", new String());
 		SmartDashboard.putData("Alliance Mode", m_allianceModeChooser);
 
@@ -101,128 +101,13 @@ public class Robot extends TimedRobot {
 		autonomousScoringMechanism = m_ScoringMechanismChooser.getSelected();
 		autonomousAllianceMode = m_allianceModeChooser.getSelected();
 
-		switch (FieldData.location) {
-		case 1:
-			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Switch"
-					&& autonomousAllianceMode == "Score") {
-				autonomousCommandName = "OneLeftSwitch";
-			}
-			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Switch"
-					&& autonomousAllianceMode == "Wait/Score") {
-				autonomousCommandName = "OneLeftSwitchWait";
-			}
-			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Switch"
-					&& autonomousAllianceMode == "Defend") {
-				autonomousCommandName = "OneLeftSwitchDefend";
-			}
-			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Switch") {
-				autonomousCommandName = "OneRightSwitchDefend";
-			}
-			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Scale"
-					&& autonomousAllianceMode == "Score") {
-				autonomousCommandName = "OneLeftScale";
-			}
-			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Scale"
-					&& autonomousAllianceMode == "Wait/Score") {
-				autonomousCommandName = "OneLeftScaleWait";
-			}
-			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Scale"
-					&& autonomousAllianceMode == "Defend") {
-				autonomousCommandName = "OneLeftScaleDefend";
-			}
-			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Scale") {
-				autonomousCommandName = "OneRightScaleDefend";
-			}
-
-			;
-			break;
-		case 2:
-			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Switch"
-					&& autonomousAllianceMode == "Score") {
-				autonomousCommandName = "TwoLeftSwitch";
-			}
-			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Switch"
-					&& autonomousAllianceMode == "Wait/Score") {
-				autonomousCommandName = "TwoLeftSwitchWait";
-			}
-			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Switch"
-					&& autonomousAllianceMode == "Defend") {
-				autonomousCommandName = "TwoLeftSwitchDefend";
-			}
-			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Switch"
-					&& autonomousAllianceMode == "Score") {
-				autonomousCommandName = "TwoRightSwitch";
-			}
-			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Switch"
-					&& autonomousAllianceMode == "Wait/Score") {
-				autonomousCommandName = "TwoRightSwitchWait";
-			}
-			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Switch"
-					&& autonomousAllianceMode == "Defend") {
-				autonomousCommandName = "TwoRightSwitchDefend";
-			}
-			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Scale"
-					&& autonomousAllianceMode == "Score") {
-				autonomousCommandName = "TwoLeftScale";
-			}
-			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Scale"
-					&& autonomousAllianceMode == "Wait/Score") {
-				autonomousCommandName = "TwoLeftScaleWait";
-			}
-			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Scale"
-					&& autonomousAllianceMode == "Defend") {
-				autonomousCommandName = "TwoLeftScaleDefend";
-			}
-			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Scale"
-					&& autonomousAllianceMode == "Score") {
-				autonomousCommandName = "TwoRightScale";
-			}
-			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Scale"
-					&& autonomousAllianceMode == "Wait/Score") {
-				autonomousCommandName = "TwoRightScaleWait";
-			}
-			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Scale"
-					&& autonomousAllianceMode == "Defend") {
-				autonomousCommandName = "TwoRightScaleDefend";
-			}
-			;
-			break;
-		case 3:
-			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Switch"
-					&& autonomousAllianceMode == "Score") {
-				autonomousCommandName = "ThreeRightSwitch";
-			}
-			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Switch"
-					&& autonomousAllianceMode == "Wait/Score") {
-				autonomousCommandName = "ThreeRightSwitchWait";
-			}
-			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Switch"
-					&& autonomousAllianceMode == "Defend") {
-				autonomousCommandName = "ThreeRightSwitchDefend";
-			}
-			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Switch") {
-				autonomousCommandName = "ThreeLeftSwitchDefend";
-			}
-			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Scale"
-					&& autonomousAllianceMode == "Score") {
-				autonomousCommandName = "ThreeRightScale";
-			}
-			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Scale"
-					&& autonomousAllianceMode == "Wait/Score") {
-				autonomousCommandName = "ThreeRightScaleWait";
-			}
-			if (FieldData.switchSide == 'R' && autonomousScoringMechanism == "Scale"
-					&& autonomousAllianceMode == "Defend") {
-				autonomousCommandName = "ThreeRightScaleDefend";
-			}
-			if (FieldData.switchSide == 'L' && autonomousScoringMechanism == "Scale") {
-				autonomousCommandName = "ThreeLeftScaleDefend";
-			}
-
-			;
-			break;
+		if ((FieldData.location == 1 && (FieldData.scaleSide == 'R' || FieldData.switchSide == 'R'))
+				|| (FieldData.location == 3 && (FieldData.scaleSide == 'L' || FieldData.switchSide == 'L'))) {
+			autonomousAllianceMode = "Defend";
 		}
-		
+
+		autonomousCommandName = FieldData.locationString + autonomousScoringMechanism + autonomousAllianceMode;
+
 		autonomousCommand = new AutonomousCommand(autonomousCommandName);
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
