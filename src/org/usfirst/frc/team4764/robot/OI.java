@@ -55,7 +55,7 @@ public class OI {
 	
 	public double JoystickY()
 	{
-		return stick1.getY();
+		return -stick1.getY();
 	}
 	public double JoystickX()
 	{

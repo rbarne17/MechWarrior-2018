@@ -58,11 +58,15 @@ public class DriveTrain extends Subsystem {
 
 	//Drives the robot using s inputs for the left and right side motors.
 	//Inputs are percentages of maxeperateimum motor output.
-	public void driveByTank (double leftSpeed, double rightSpeed)	
+	public void driveByTank (double LeftpercentThrottle, double RightpercentThrottle)	
 	{
-		leftMotor.set(leftSpeed);
+		LeftpercentThrottle = valueAfterDeadzone(LeftpercentThrottle);
+		LeftpercentThrottle = scalingSpeed(LeftpercentThrottle);
+		RightpercentThrottle = valueAfterDeadzone(RightpercentThrottle);
+		RightpercentThrottle = scalingSpeed(RightpercentThrottle);
+		leftMotor.set(-LeftpercentThrottle);
 		
-		rightMotor.set(rightSpeed);
+		rightMotor.set(-RightpercentThrottle);
 		
 	}    
 

@@ -37,13 +37,13 @@ public class DriveWithJoy extends Command
 //		rightStickYValue = Robot.OperatorInput.getRightStickY();
 
 
-//		Robot.driveTrain.driveByTank(Robot.OperatorInput.getLeftStickY(), Robot.OperatorInput.getRightStickY());
+		Robot.driveTrain.driveByTank(-Robot.operatorInput.getRightStickY(), Robot.operatorInput.getLeftStickY());
 
 	
 //		Robot.driveTrain.driveByArcade(Robot.operatorInput.JoystickY(), Robot.operatorInput.JoystickX());
 
 	
-		Robot.driveTrain.driveByArcade(Robot.operatorInput.JoystickY(), Robot.operatorInput.JoystickX());
+//		Robot.driveTrain.driveByArcade(-Robot.operatorInput.getLeftStickY(), Robot.operatorInput.getLeftStickX());
 
 	}
 
