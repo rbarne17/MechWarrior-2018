@@ -1,4 +1,4 @@
-package org.usfirst.frc.team4764.robot.commands;
+ package org.usfirst.frc.team4764.robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -24,21 +24,30 @@ public class AutonomousCommand extends CommandGroup {
 	public AutonomousCommand(String autonomousCommandName) {
 		switch (autonomousCommandName) {
 		case "OneLeftSwitchScore":
+			//? ft to drive foward
 			;
 			break;
 		case "OneLeftSwitchWaitScore":
+			//? ft to drive foward
 			;
 			break;
 		case "OneRightSwitchDefend":
+			//? ft to drive foward
 			;
 			break;
 		case "OneLeftScaleScore":
+			//Drive 13.5 ft straight
+			// raise lifter 5.5 ft high
 			;
 			break;
 		case "OneLeftScaleWaitScore":
+			//Drive 13.5 ft straight
+			//raise lifter 5.5 ft high
 			;
 			break;
 		case "OneRightScaleDefend":
+			//raise lifter 5.5 ft high
+			//Drive 13.5 ft straight
 			;
 			break;
 		case "TwoLeftSwitchScore":
