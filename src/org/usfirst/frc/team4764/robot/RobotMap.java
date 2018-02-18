@@ -37,12 +37,6 @@ public final class RobotMap {
 	public static final int liftEncoderChannel1 = 4;
 	public static final int liftEncoderChannel2 = 5;
 
-	// public static final int solenoidlevel=6;
-	// public static final int solenoiddown=7;
 
-	// public static Encoder driveTrainLeftEncoder = new Encoder(0, 1, false,
-	// Encoder.EncodingType.k4X);
-	// public static Encoder driveTrainRightEncoder = new Encoder(0, 1, false,
-	// Encoder.EncodingType.k4X);
 
 }

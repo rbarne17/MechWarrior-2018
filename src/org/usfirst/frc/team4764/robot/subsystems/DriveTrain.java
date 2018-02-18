@@ -23,126 +23,114 @@ public class DriveTrain extends Subsystem {
 	public Encoder rightEncoder = new Encoder(RobotMap.rightEncoderChannel1, RobotMap.rightEncoderChannel2, true,
 			EncodingType.k4X);
 
-
 	public DriveTrain() {
-		
-		leftMotor.set( 0.0);
-		
+
+		leftMotor.set(0.0);
+
 		rightMotor.set(0.0);
-		
 
 	}
-	public int getEncoderLeft()
-	{
+
+	public int getEncoderLeft() {
 		// Return Encoder Values Need to be fixed
-		
+
 		return leftEncoder.get();
 	}
 
-	public int getEncoderRight()
-	{
-//		Value reversed for clarity
+	public int getEncoderRight() {
+		// Value reversed for clarity
 		// Return Encoder Values Need to be fixed
-		
+
 		return rightEncoder.get();
 
 	}
 
-	
-
 	public void initDefaultCommand() {
-		
+
 		setDefaultCommand(new DriveWithJoy());
 	}
 
-	//Drives the robot using s inputs for the left and right side motors.
-	//Inputs are percentages of maxeperateimum motor output.
-	public void driveByTank (double LeftpercentThrottle, double RightpercentThrottle)	
-	{
+	// Drives the robot using s inputs for the left and right side motors.
+	// Inputs are percentages of maxeperateimum motor output.
+	public void driveByTank(double LeftpercentThrottle, double RightpercentThrottle) {
 		LeftpercentThrottle = valueAfterDeadzone(LeftpercentThrottle);
 		LeftpercentThrottle = scalingSpeed(LeftpercentThrottle);
 		RightpercentThrottle = valueAfterDeadzone(RightpercentThrottle);
 		RightpercentThrottle = scalingSpeed(RightpercentThrottle);
 		leftMotor.set(-LeftpercentThrottle);
-		
-		rightMotor.set(-RightpercentThrottle);
-		
-	}    
 
-	//Controls speed and direction of the robot.
+		rightMotor.set(-RightpercentThrottle);
+
+	}
+
+	// Controls speed and direction of the robot.
 	// -1 = full reverse; 1 = full forward
-	public void driveByArcade (double percentThrottle, double percentRotationOutput)
-	{
-		
+	public void driveByArcade(double percentThrottle, double percentRotationOutput) {
+
 		percentThrottle = valueAfterDeadzone(percentThrottle);
 		percentRotationOutput = valueAfterDeadzone(percentRotationOutput);
-	
+
 		percentThrottle = scalingSpeed(percentThrottle);
 		percentRotationOutput = scalingSpeed(percentRotationOutput);
-		
+
 		SmartDashboard.putNumber("ACTUAL Percent Throttle", percentThrottle);
 		SmartDashboard.putNumber("ACTUAL Percent Rotation", percentRotationOutput);
-		
+
 		leftMotor.set(-percentThrottle - percentRotationOutput);
-		
 
 		rightMotor.set(percentThrottle - percentRotationOutput);
-		
-	}
-	public double scalingSpeed (double joystickValue) {
-//		TODO: Find better scaling system
-//		Here's a simple algorithm to add sensitivity adjustment to the joystick:
-//
-//		x' = a * x^3 + (1-a) * x
-//
-//		x is a joystick output ranging from -1 to +1
-//
-//		x' is the sensitivity-adjusted output (also will be -1 to +1)
-//
-//		"a" is a variable ranging from 0 to +1
-//
-//		When a=0, you get x' = x
-//
-//		When a=1, you get x' = x^3 which gives very fine control of small outputs
-//
-//		When a is between 0 and 1, you get something in between.
-		
-//		joystickValue is "x"
-		
-//		below is "a"
-		double scalingCutoff = .75;
-		
-//		below is "x^3"
-		double joystickValueToTheThird = Math.pow(joystickValue, 3);
-		
-//		x'   = a               x^3                     +  (1-a)               x
-		return scalingCutoff * joystickValueToTheThird + ((1-scalingCutoff) * joystickValue);
+
 	}
 
-	public void reset () 
-	{
+	public double scalingSpeed(double joystickValue) {
+		// TODO: Find better scaling system
+		// Here's a simple algorithm to add sensitivity adjustment to the joystick:
+		//
+		// x' = a * x^3 + (1-a) * x
+		//
+		// x is a joystick output ranging from -1 to +1
+		//
+		// x' is the sensitivity-adjusted output (also will be -1 to +1)
+		//
+		// "a" is a variable ranging from 0 to +1
+		//
+		// When a=0, you get x' = x
+		//
+		// When a=1, you get x' = x^3 which gives very fine control of small outputs
+		//
+		// When a is between 0 and 1, you get something in between.
+
+		// joystickValue is "x"
+
+		// below is "a"
+		double scalingCutoff = .75;
+
+		// below is "x^3"
+		double joystickValueToTheThird = Math.pow(joystickValue, 3);
+
+		// x' = a x^3 + (1-a) x
+		return scalingCutoff * joystickValueToTheThird + ((1 - scalingCutoff) * joystickValue);
+	}
+
+	public void reset() {
 		driveByTank(0.0, 0.0);
 		encoderReset();
 
 	}
-	
+
 	public void encoderReset() {
 		leftEncoder.reset();
 		rightEncoder.reset();
-		
+
 	}
-	
-	private double valueAfterDeadzone (double currentValue) {
-//		This is the deadzone. Adjust to change how sensitive the robot is.
+
+	private double valueAfterDeadzone(double currentValue) {
+		// This is the deadzone. Adjust to change how sensitive the robot is.
 		double deadzone = 0.2;
-		if (Math.abs(currentValue) < deadzone)
-		{
+		if (Math.abs(currentValue) < deadzone) {
 			return 0;
-		}
-		else
-		{
+		} else {
 			return currentValue;
 		}
 	}
 }
-
