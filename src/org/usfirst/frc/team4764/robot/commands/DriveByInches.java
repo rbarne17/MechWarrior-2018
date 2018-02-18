@@ -23,19 +23,22 @@ public class DriveByInches extends Command {
 	private double speed;
 	private double integral;
 	private double drive_angle;
+	private double ticksper1foot;
+	private int ticksper2feet;
 
 	   
 	
 	
-    public DriveByInches(double inchesToTravel, double speed) {
+    public DriveByInches(double feetToTravel, double speed) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	
 //    	4096 is the number of ticks per revolution
 //    	217.2995489 is our ticks per inch
-    	int radius = 4;
-    	_ticksToTravel = inchesToTravel * (4096/(2*Math.PI*radius));
-    	if (inchesToTravel < 0)
+    	ticksper2feet=330;
+    	ticksper1foot=ticksper2feet/2;
+    	_ticksToTravel = feetToTravel * ticksper1foot;
+    	if (feetToTravel < 0)
     	{
     		_speed = -speed;
     	}
