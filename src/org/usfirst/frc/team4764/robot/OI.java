@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 
 import org.usfirst.frc.team4764.robot.commands.DriveByInches;
 import org.usfirst.frc.team4764.robot.commands.DropCube;
-import org.usfirst.frc.team4764.robot.commands.TurnWithGyro;
+import org.usfirst.frc.team4764.robot.commands.Turn;
 import org.usfirst.frc.team4764.robot.commands.Lift;
 import org.usfirst.frc.team4764.robot.commands.LiftHome;
 import org.usfirst.frc.team4764.robot.commands.PickUpCube;

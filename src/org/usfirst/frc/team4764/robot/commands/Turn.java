@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class TurnWithGyro extends Command {
+public class Turn extends Command {
 	
 	private double speed;
 	private double _degrees;
@@ -17,13 +17,11 @@ public class TurnWithGyro extends Command {
 	    
 	
 	
-    public TurnWithGyro(double speed, double degrees) {
+    public Turn(double speed, double degrees) {
     	
     	requires(Robot.driveTrain);
-    	ADXRS450_Gyro gyro = new ADXRS450_Gyro();  
-    	double angle = gyro.getAngle();
-    	_angle=angle;
-    	heading= angle+degrees;
+    	double heading = Robot.driveTrain.getHeading();
+
     }
 
     // Called just before this Command runs the first time
