@@ -41,7 +41,7 @@ public class OI {
 	Button lbumper2= new JoystickButton(xbox2, 5);
 
 	public OI() {
-		xButton2.whenPressed(new DriveByInches(2, 0.1));
+		xButton2.whenPressed(new DriveByInches(5, 0.5));
 		yButton2.whenPressed(new Lift(10,0.5));
 		bButton2.whenPressed(new Lift(5,0.5));
 		aButton2.whenPressed(new LiftHome(0.5));
