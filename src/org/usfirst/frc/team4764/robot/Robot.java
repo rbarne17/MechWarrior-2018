@@ -115,7 +115,7 @@ public class Robot extends TimedRobot {
 
 		autonomousCommandName = FieldData.locationString + autonomousScoringMechanism + autonomousAllianceMode;
 
-		OI.autonomousCommand = (Command) OI.autoPathChooser.getSelected();
+		autonomousCommand = new AutonomousCommand(autonomousCommandName);
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
 		 * switch(autoSelected) { case "My Auto": autonomousCommand = new
@@ -124,8 +124,8 @@ public class Robot extends TimedRobot {
 		 */
 
 		// schedule the autonomous command (example)
-		if (oi.autonomousCommand != null) {
-			oi.autonomousCommand.start();
+		if (autonomousCommand != null) {
+			autonomousCommand.start();
 		}
 	}
 
@@ -147,7 +147,7 @@ public class Robot extends TimedRobot {
 			autonomousCommand.cancel();
 		}
 		
-		
+		driveTrain.reset();
 	}
 
 	/**
