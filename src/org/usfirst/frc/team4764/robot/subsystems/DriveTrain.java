@@ -111,7 +111,7 @@ public class DriveTrain extends Subsystem {
 //		joystickValue is "x"
 		
 //		below is "a"
-		double scalingCutoff = .75;
+		double scalingCutoff = .8;
 		
 //		below is "x^3"
 		double joystickValueToTheThird = Math.pow(joystickValue, 3);

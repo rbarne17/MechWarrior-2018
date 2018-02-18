@@ -21,8 +21,8 @@ public final class RobotMap {
 	public static final int DriveTrainRightTalon1 = 1;
 	public static final int leftEncoderChannel1 = 0;
 	public static final int leftEncoderChannel2 = 1;
-	public static final int rightEncoderChannel1 = 3;
-	public static final int rightEncoderChannel2 = 2;
+	public static final int rightEncoderChannel1 = 2;
+	public static final int rightEncoderChannel2 = 3;
 	public static final int rangefinder = 6;
 	public static final int LiftMotor = 2;
 	public static final int liftEncoderChannel1 = 4;
