@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Gripper extends Subsystem {
 	Relay gripperRelay = new Relay(RobotMap.gripperMotor);
 	
+	
 
 	public Gripper() {
 		

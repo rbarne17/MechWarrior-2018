@@ -82,30 +82,31 @@ public class DriveTrain extends Subsystem {
 
 	}
 
-	public double scalingSpeed(double joystickValue) {
-		// TODO: Find better scaling system
-		// Here's a simple algorithm to add sensitivity adjustment to the joystick:
-		//
-		// x' = a * x^3 + (1-a) * x
-		//
-		// x is a joystick output ranging from -1 to +1
-		//
-		// x' is the sensitivity-adjusted output (also will be -1 to +1)
-		//
-		// "a" is a variable ranging from 0 to +1
-		//
-		// When a=0, you get x' = x
-		//
-		// When a=1, you get x' = x^3 which gives very fine control of small outputs
-		//
-		// When a is between 0 and 1, you get something in between.
+	public double scalingSpeed (double joystickValue) {
+//		TODO: Find better scaling system
+//		Here's a simple algorithm to add sensitivity adjustment to the joystick:
+//
+//		x' = a * x^3 + (1-a) * x
+//
+//		x is a joystick output ranging from -1 to +1
+//
+//		x' is the sensitivity-adjusted output (also will be -1 to +1)
+//
+//		"a" is a variable ranging from 0 to +1
+//
+//		When a=0, you get x' = x
+//
+//		When a=1, you get x' = x^3 which gives very fine control of small outputs
+//
+//		When a is between 0 and 1, you get something in between.
+		
+//		joystickValue is "x"
+		
+//		below is "a"
+		double scalingCutoff = .8;
+		
+//		below is "x^3"
 
-		// joystickValue is "x"
-
-		// below is "a"
-		double scalingCutoff = .75;
-
-		// below is "x^3"
 		double joystickValueToTheThird = Math.pow(joystickValue, 3);
 
 		// x' = a x^3 + (1-a) x

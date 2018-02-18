@@ -20,22 +20,24 @@ public class DriveByInches extends Command {
 	private double _finalTickTargetLeft;
 	private double _finalTickTargetRight;
 	private  ADXRS450_Gyro gyro;
-	private double speed;
 	private double integral;
 	private double drive_angle;
+	private double ticksper1foot;
+	private int ticksper2feet;
 
 	   
 	
 	
-    public DriveByInches(double inchesToTravel, double speed) {
+    public DriveByInches(double feetToTravel, double speed) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	
 //    	4096 is the number of ticks per revolution
 //    	217.2995489 is our ticks per inch
-    	int radius = 4;
-    	_ticksToTravel = inchesToTravel * (4096/(2*Math.PI*radius));
-    	if (inchesToTravel < 0)
+    	ticksper2feet=332;
+    	ticksper1foot=ticksper2feet/2;
+    	_ticksToTravel = feetToTravel * ticksper1foot;
+    	if (feetToTravel < 0)
     	{
     		_speed = -speed;
     	}
@@ -58,15 +60,16 @@ public class DriveByInches extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	 ADXRS450_Gyro gyro = new ADXRS450_Gyro();   
+    /*	 ADXRS450_Gyro gyro = new ADXRS450_Gyro();   
     	 double angle = gyro.getAngle();
     	 double heading= 0;
     	 double error=heading-angle;
     	 double Kp = 0.03;
     	 this.integral += (error*.02);
     	 double Ki=0;
-    	 drive_angle = (Kp*error)+(Ki*this.integral);
-    	 Robot.driveTrain.driveByArcade(speed,drive_angle );
+    	 drive_angle = (Kp*error)+(Ki*this.integral);*/
+    	 drive_angle=0;
+    	 Robot.driveTrain.driveByArcade(_speed,drive_angle );
     }
 
     // Make this return true when this Command no longer needs to run execute()

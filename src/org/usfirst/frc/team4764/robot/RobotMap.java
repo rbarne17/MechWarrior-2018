@@ -7,8 +7,6 @@
 
 package org.usfirst.frc.team4764.robot;
 
-import edu.wpi.first.wpilibj.Encoder;
-
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -34,6 +32,7 @@ public final class RobotMap {
 	public static final int leftEncoderChannel2 = 1;
 	public static final int rightEncoderChannel1 = 3;
 	public static final int rightEncoderChannel2 = 2;
+
 	public static final int liftEncoderChannel1 = 4;
 	public static final int liftEncoderChannel2 = 5;
 

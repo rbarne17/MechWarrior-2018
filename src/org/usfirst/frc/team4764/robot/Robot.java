@@ -16,6 +16,7 @@ import org.usfirst.frc.team4764.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4764.robot.subsystems.Gripper;
 import org.usfirst.frc.team4764.robot.subsystems.Lift;
 import org.usfirst.frc.team4764.robot.subsystems.FlipityFlop;
+import org.usfirst.frc.team4764.robot.OI;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -24,6 +25,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -113,7 +115,7 @@ public class Robot extends TimedRobot {
 
 		autonomousCommandName = FieldData.locationString + autonomousScoringMechanism + autonomousAllianceMode;
 
-		autonomousCommand = new AutonomousCommand(autonomousCommandName);
+		OI.autonomousCommand = (Command) OI.autoPathChooser.getSelected();
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
 		 * switch(autoSelected) { case "My Auto": autonomousCommand = new
@@ -122,8 +124,8 @@ public class Robot extends TimedRobot {
 		 */
 
 		// schedule the autonomous command (example)
-		if (autonomousCommand != null) {
-			autonomousCommand.start();
+		if (oi.autonomousCommand != null) {
+			oi.autonomousCommand.start();
 		}
 	}
 
