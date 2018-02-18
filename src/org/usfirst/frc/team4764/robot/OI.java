@@ -21,6 +21,9 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -31,6 +34,9 @@ public class OI {
 	XboxController xbox = new XboxController(2);
 	XboxController xbox2= new XboxController(1);
 	Joystick stick1 = new Joystick(0);
+	public Command autonomousCommand;
+	public SendableChooser<Command> autoPathChooser;
+	final String DriveFeet = "DriveFeet";
 	
 	
 	Button xButton2 = new JoystickButton(xbox2, 1);
@@ -48,6 +54,14 @@ public class OI {
 		rbumper2.whenPressed(new DropCube());
 		lbumper2.whenPressed(new PickUpCube());
 		
+		
+		
+		
+		autoPathChooser = new SendableChooser<>();
+		autoPathChooser.addObject(DriveFeet, new DriveByInches(5, 0.5));
+		SmartDashboard.putData(Robot.driveTrain);
+		SmartDashboard.putData("Auto choices", autoPathChooser);
+		SmartDashboard.putData("DriveFeet", new DriveByInches(5, 0.5));
 		
 		
 		
