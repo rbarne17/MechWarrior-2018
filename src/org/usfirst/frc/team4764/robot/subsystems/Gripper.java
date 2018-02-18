@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Gripper extends Subsystem {
-	Relay gripperRelay = new Relay(RobotMap.gripper);
+	Relay gripperRelay = new Relay(RobotMap.gripperMotor);
 	
 
 	public Gripper() {
@@ -25,7 +25,7 @@ public class Gripper extends Subsystem {
 
 	//Drives the robot using s inputs for the left and right side motors.
 	//Inputs are percentages of maxeperateimum motor output.
-	public void Gripperopen() {
+	public void openGripper() {
 		gripperRelay.set(Relay.Value.kForward);
 	}
 		
@@ -35,12 +35,12 @@ public class Gripper extends Subsystem {
 
 	//Controls speed and direction of the robot.
 	// -1 = full reverse; 1 = full forward
-	public void Gripperclose() {
+	public void closeGripper() {
 		gripperRelay.set(Relay.Value.kReverse);
 		
 		}
 	
-	public void doNothing () 
+	public void reset () 
 	{
 		gripperRelay.set(Relay.Value.kOff);
 

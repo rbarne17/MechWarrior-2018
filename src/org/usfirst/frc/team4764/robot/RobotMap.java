@@ -16,28 +16,33 @@ import edu.wpi.first.wpilibj.Encoder;
  * floating around.
  */
 public final class RobotMap {
-	
-	public static final int DriveTrainLeftTalon1 = 0;
-	public static final int DriveTrainRightTalon1 = 1;
+
+	// speed controllers
+	public static final int driveTrainMotorLeft = 0;
+	public static final int driveTrainMotorRight = 1;
+	public static final int LiftMotor = 2;
+	public static final int gripperMotor=1;
+
+
+	// limit switches
+	public static final int liftLimitSwitch = 1;
+	public static final int gripperLimitSwitchClose=1;
+	public static final int gripperLimitSwitchOpen=1;
+
+	// encoders
 	public static final int leftEncoderChannel1 = 0;
 	public static final int leftEncoderChannel2 = 1;
 	public static final int rightEncoderChannel1 = 3;
 	public static final int rightEncoderChannel2 = 2;
-	public static final int rangefinder = 6;
-	public static final int LiftMotor = 2;
 	public static final int liftEncoderChannel1 = 4;
 	public static final int liftEncoderChannel2 = 5;
-	public static final int limitswitch = 1;
-	public static final int gripper=1;
-	public static final int gripperclose=1;
-	public static final int gripperopen=1;
-//	public static final int solenoidlevel=6;
-//	public static final int solenoiddown=7;
 
+	// public static final int solenoidlevel=6;
+	// public static final int solenoiddown=7;
 
-	
-//	public static Encoder driveTrainLeftEncoder = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
-//	public static Encoder driveTrainRightEncoder = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
-	
-	
+	// public static Encoder driveTrainLeftEncoder = new Encoder(0, 1, false,
+	// Encoder.EncodingType.k4X);
+	// public static Encoder driveTrainRightEncoder = new Encoder(0, 1, false,
+	// Encoder.EncodingType.k4X);
+
 }

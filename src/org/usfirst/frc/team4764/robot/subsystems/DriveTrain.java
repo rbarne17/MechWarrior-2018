@@ -15,14 +15,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class DriveTrain extends Subsystem {
-	private Spark leftMotor = new Spark(RobotMap.DriveTrainLeftTalon1);
-	private Spark rightMotor = new Spark(RobotMap.DriveTrainRightTalon1);
+	private Spark leftMotor = new Spark(RobotMap.driveTrainMotorLeft);
+	private Spark rightMotor = new Spark(RobotMap.driveTrainMotorRight);
 	private Gyro gyro;
 	public Encoder leftEncoder = new Encoder(RobotMap.leftEncoderChannel1, RobotMap.leftEncoderChannel2, true,
 			EncodingType.k4X);
 	public Encoder rightEncoder = new Encoder(RobotMap.rightEncoderChannel1, RobotMap.rightEncoderChannel2, true,
 			EncodingType.k4X);
-	private AnalogInput rangefinder = new AnalogInput(RobotMap.rangefinder);
 
 
 	public DriveTrain() {
@@ -120,10 +119,17 @@ public class DriveTrain extends Subsystem {
 		return scalingCutoff * joystickValueToTheThird + ((1-scalingCutoff) * joystickValue);
 	}
 
-	public void doNothing () 
+	public void reset () 
 	{
 		driveByTank(0.0, 0.0);
+		encoderReset();
 
+	}
+	
+	public void encoderReset() {
+		leftEncoder.reset();
+		rightEncoder.reset();
+		
 	}
 	
 	private double valueAfterDeadzone (double currentValue) {

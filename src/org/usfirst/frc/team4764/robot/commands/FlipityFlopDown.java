@@ -9,23 +9,23 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class GripperDown extends Command {
+public class FlipityFlopDown extends Command {
 
-    public GripperDown() {
+    public FlipityFlopDown() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.pinrelease);
+    	requires(Robot.flipityFlop);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.pinrelease.doNothing();;
+    	Robot.flipityFlop.reset();
     	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.pinrelease.Gripperdown();
+    	Robot.flipityFlop.setDown();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -38,12 +38,12 @@ public class GripperDown extends Command {
     	
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.pinrelease.doNothing();
+    	Robot.flipityFlop.reset();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.pinrelease.doNothing();
+    	Robot.flipityFlop.reset();
     }
 }

@@ -19,18 +19,18 @@ public class DropCube extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.gripper.doNothing();;
+    	Robot.gripper.reset();;
     	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.gripper.Gripperopen();
+    	Robot.gripper.openGripper();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	DigitalInput gripperopen= new DigitalInput(RobotMap.gripperopen);
+    	DigitalInput gripperopen= new DigitalInput(RobotMap.gripperLimitSwitchOpen);
     	if (gripperopen.get()){
     		
         return true;
@@ -40,12 +40,11 @@ public class DropCube extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveTrain.doNothing();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.driveTrain.doNothing();
+    	Robot.driveTrain.reset();
     }
 }
