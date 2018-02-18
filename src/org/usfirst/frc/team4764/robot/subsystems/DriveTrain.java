@@ -3,6 +3,7 @@ package org.usfirst.frc.team4764.robot.subsystems;
 import org.usfirst.frc.team4764.robot.RobotMap;
 import org.usfirst.frc.team4764.robot.commands.DriveWithJoy;
 
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
@@ -17,7 +18,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class DriveTrain extends Subsystem {
 	private Spark leftMotor = new Spark(RobotMap.driveTrainMotorLeft);
 	private Spark rightMotor = new Spark(RobotMap.driveTrainMotorRight);
-	private Gyro gyro;
+	private ADXRS450_Gyro gyro = new ADXRS450_Gyro();  
+
 	public Encoder leftEncoder = new Encoder(RobotMap.leftEncoderChannel1, RobotMap.leftEncoderChannel2, true,
 			EncodingType.k4X);
 	public Encoder rightEncoder = new Encoder(RobotMap.rightEncoderChannel1, RobotMap.rightEncoderChannel2, true,
@@ -116,6 +118,7 @@ public class DriveTrain extends Subsystem {
 	public void reset() {
 		driveByTank(0.0, 0.0);
 		encoderReset();
+		gyro.reset();
 
 	}
 
@@ -123,6 +126,10 @@ public class DriveTrain extends Subsystem {
 		leftEncoder.reset();
 		rightEncoder.reset();
 
+	}
+	
+	public double getHeading() {
+		return gyro.getAngle();
 	}
 
 	private double valueAfterDeadzone(double currentValue) {
@@ -134,4 +141,6 @@ public class DriveTrain extends Subsystem {
 			return currentValue;
 		}
 	}
+	
+	
 }
