@@ -47,9 +47,7 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		operatorInput = new OI();
 		dashboard = new Dashboard();
-
 		dashboard.robotInit();
-
 	}
 
 	/**
