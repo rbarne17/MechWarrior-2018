@@ -24,9 +24,9 @@ public final class RobotMap {
 
 
 	// limit switches
-	public static final int liftLimitSwitch = 1;
-	public static final int gripperLimitSwitchClose=1;
-	public static final int gripperLimitSwitchOpen=1;
+	public static final int liftLimitSwitch = 6;
+	public static final int gripperLimitSwitchClose=7;
+	public static final int gripperLimitSwitchOpen=8;
 
 	// encoders
 	public static final int leftEncoderChannel1 = 0;

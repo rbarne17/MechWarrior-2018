@@ -12,9 +12,9 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Lift extends Subsystem {
-	Spark liftMotor = new Spark(RobotMap.liftMotor);
-	DigitalInput limitSwitch = new DigitalInput(RobotMap.liftLimitSwitch);
-	public Encoder liftEncoder = new Encoder(RobotMap.liftEncoderChannel1, RobotMap.liftEncoderChannel2, true,
+	private Spark liftMotor = new Spark(RobotMap.liftMotor);
+	private DigitalInput limitSwitch = new DigitalInput(RobotMap.liftLimitSwitch);
+	private Encoder liftEncoder = new Encoder(RobotMap.liftEncoderChannel1, RobotMap.liftEncoderChannel2, true,
 			EncodingType.k4X);
 	private double _ticksToTravel;
 	private double finalticks;
