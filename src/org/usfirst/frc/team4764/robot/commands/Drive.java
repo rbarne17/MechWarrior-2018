@@ -29,6 +29,19 @@ public class Drive extends Command {
 		requires(Robot.driveTrain);
 	}
 
+	public Drive(int inchesToTravel, double speed) {
+		// Use requires() here to declare subsystem dependencies
+		// eg. requires(chassis);
+
+		m_ticksToTravel = inchesToTravel * Robot.driveTrain.ticksPerFoot/12;
+		if (inchesToTravel < 0) {
+			m_speed = -speed;
+		} else {
+			m_speed = speed;
+		}
+		requires(Robot.driveTrain);
+	}
+
 	// Called just before this Command runs the first time
 	protected void initialize() {
 		Robot.driveTrain.leftEncoder.reset();
