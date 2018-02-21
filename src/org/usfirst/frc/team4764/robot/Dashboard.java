@@ -30,7 +30,7 @@ public class Dashboard {
 
 		m_commandChooser.addDefault("Default Auto", new DriveWithJoy());
 
-		m_ScoringMechanismChooser.addObject("Switch", new String());
+		m_ScoringMechanismChooser.addDefault("Switch", new String());
 		m_ScoringMechanismChooser.addObject("Scale", new String());
 
 		m_allianceModeChooser.addDefault("Score", new String());
