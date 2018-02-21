@@ -24,17 +24,7 @@ public class LiftAdjust extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 
-<<<<<<< HEAD
-    	Robot.lift.liftAdjust(Robot.operatorInput.getLeftStickY2());
-=======
-    	Robot.lift.LiftAdjust(Robot.operatorInput.getLeftStickY2());
->>>>>>> refs/heads/Jonathan
-
-<<<<<<< HEAD
-//    	Robot.lift.liftAdjust(Robot.operatorInput.getRightStickX2());
-=======
-    	//Robot.lift.LiftAdjust(Robot.operatorInput.getRightStickX2());
->>>>>>> refs/heads/Jonathan
+    	Robot.lift.liftAdjust(Robot.operatorInput.getXboxLeftStickY());
 
     }
     
