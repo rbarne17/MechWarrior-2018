@@ -26,6 +26,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
  * project.
  */
 public class Robot extends TimedRobot {
+	public static OI oi;
 
 	public static final DriveTrain driveTrain = new DriveTrain();
 	public static final Lift lift = new Lift();
@@ -136,7 +137,6 @@ public class Robot extends TimedRobot {
 	public void teleopPeriodic() {
 
 		dashboard.teleopPeriodic();
-
 		Scheduler.getInstance().run();
 	}
 

@@ -17,6 +17,7 @@ public class Dashboard {
 	SendableChooser<Command> m_autoPathChooser = new SendableChooser<>();
 
 	public void robotInit() {
+		
 		m_commandChooser = new SendableChooser<>();
 		m_ScoringMechanismChooser = new SendableChooser<>();
 		m_allianceModeChooser = new SendableChooser<>();

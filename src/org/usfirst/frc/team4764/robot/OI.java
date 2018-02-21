@@ -11,19 +11,13 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 
 import org.usfirst.frc.team4764.robot.commands.Drive;
 import org.usfirst.frc.team4764.robot.commands.DropCube;
-import org.usfirst.frc.team4764.robot.commands.Turn;
 import org.usfirst.frc.team4764.robot.commands.Lift;
 import org.usfirst.frc.team4764.robot.commands.LiftHome;
-import org.usfirst.frc.team4764.robot.commands.PickUpCube;
 
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -31,24 +25,22 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class OI {
 
-	XboxController xbox = new XboxController(2);
-	XboxController xbox2 = new XboxController(1);
+	XboxController xbox = new XboxController(1);
 	Joystick stick1 = new Joystick(0);
 
-	Button xButton2 = new JoystickButton(xbox2, 1);
-	Button yButton2 = new JoystickButton(xbox2, 4);
-	Button bButton2 = new JoystickButton(xbox2, 3);
-	Button aButton2 = new JoystickButton(xbox2, 2);
-	Button rbumper2 = new JoystickButton(xbox2, 6);
-	Button lbumper2 = new JoystickButton(xbox2, 5);
+	Button xboxXButton = new JoystickButton(xbox, 1);
+	Button xboxYButton = new JoystickButton(xbox, 4);
+	Button xboxBButton = new JoystickButton(xbox, 3);
+	Button xboxAButton = new JoystickButton(xbox, 2);
+	Button xboxRBumper = new JoystickButton(xbox, 6);
+	Button xboxLBumper = new JoystickButton(xbox, 5);
 
 	public OI() {
-		xButton2.whenPressed(new Drive(5, 0.5));
-		yButton2.whenPressed(new Lift(10, 0.5));
-		bButton2.whenPressed(new Lift(5, 0.5));
-		aButton2.whenPressed(new LiftHome(0.5));
-		rbumper2.whenPressed(new DropCube());
-		lbumper2.whenPressed(new PickUpCube());
+		xboxXButton.whenPressed(new Drive(5, 0.5));
+		xboxYButton.whenPressed(new Lift(10, 0.5));
+		xboxBButton.whenPressed(new Lift(5, 0.5));
+		xboxAButton.whenPressed(new LiftHome(0.5));
+		xboxRBumper.whenPressed(new DropCube());
 
 	}
 
@@ -60,35 +52,19 @@ public class OI {
 		return stick1.getX();
 	}
 
-	public double getLeftStickY() {
-		return xbox.getY(Hand.kLeft);
-	}
-
-	public double getRightStickY() {
-		return xbox.getY(Hand.kRight);
-	}
-
-	public double getLeftStickX() {
-		return xbox.getX(Hand.kLeft);
-	}
-
-	public double getRightStickX() {
+	public double getRightStickX2() {
 		return xbox.getX(Hand.kRight);
 	}
 
-	public double getRightStickX2() {
-		return xbox2.getX(Hand.kRight);
-	}
-
 	public double getLeftStickY2() {
-		return xbox2.getY(Hand.kLeft);
+		return xbox.getY(Hand.kLeft);
 	}
 
 	public double getRightStickY2() {
-		return xbox2.getY(Hand.kRight);
+		return xbox.getY(Hand.kRight);
 	}
 
 	public double getLeftStickX2() {
-		return xbox2.getX(Hand.kLeft);
+		return xbox.getX(Hand.kLeft);
 	}
 }
