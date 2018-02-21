@@ -14,12 +14,18 @@ public class Dashboard {
 	SendableChooser<String> m_ScoringMechanismChooser = new SendableChooser<>();
 	SendableChooser<String> m_allianceModeChooser = new SendableChooser<>();
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
-	SendableChooser<Command> autoPathChooser = new SendableChooser<>();
+	SendableChooser<Command> m_autoPathChooser = new SendableChooser<>();
 
 	public void robotInit() {
-		autoPathChooser.addObject(DriveFeet, new Drive(5, 0.5));
+		m_commandChooser = new SendableChooser<>();
+		m_ScoringMechanismChooser = new SendableChooser<>();
+		m_allianceModeChooser = new SendableChooser<>();
+		m_chooser = new SendableChooser<>();
+		m_autoPathChooser = new SendableChooser<>();
+
+		m_autoPathChooser.addObject(DriveFeet, new Drive(5, 0.5));
 		SmartDashboard.putData(Robot.driveTrain);
-		SmartDashboard.putData("Auto choices", autoPathChooser);
+		SmartDashboard.putData("Auto choices", m_autoPathChooser);
 		SmartDashboard.putData("DriveFeet", new Drive(5, 0.5));
 
 		m_commandChooser.addDefault("Default Auto", new DriveWithJoy());
