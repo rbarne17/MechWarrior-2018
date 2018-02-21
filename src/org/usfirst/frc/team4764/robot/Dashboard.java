@@ -17,7 +17,7 @@ public class Dashboard {
 	SendableChooser<Command> m_autoPathChooser = new SendableChooser<>();
 
 	public void robotInit() {
-		
+
 		m_commandChooser = new SendableChooser<>();
 		m_ScoringMechanismChooser = new SendableChooser<>();
 		m_allianceModeChooser = new SendableChooser<>();
@@ -58,11 +58,15 @@ public class Dashboard {
 		SmartDashboard.putNumber("DriveTrain Encoder Right", Robot.driveTrain.getEncoderRight());
 		SmartDashboard.putNumber("DriveTrain Encoder Left", Robot.driveTrain.getEncoderLeft());
 		SmartDashboard.putNumber("Lift Encoder", Robot.lift.getEncoderLift());
-		
-		
 
 		SmartDashboard.putNumber("Percent Throttle", Robot.operatorInput.getJoystickY());
-		SmartDashboard.putNumber("Percent Rotation", Robot.operatorInput.getJoystickX());	
+		SmartDashboard.putNumber("Percent Rotation", Robot.operatorInput.getJoystickX());
+
+		SmartDashboard.putNumber("TEST:ACTUAL Percent Throttle",
+				Robot.driveTrain.scalingSpeed(Robot.operatorInput.getJoystickY()));
+		SmartDashboard.putNumber("TEST:ACTUAL Percent Rotation",
+				Robot.driveTrain.scalingSpeed(Robot.operatorInput.getJoystickX()));
+
 	}
 
 	public void autonomousPeriodic() {
