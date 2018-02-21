@@ -16,6 +16,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class DriveTrain extends Subsystem {
+	
+	public final int ticksPerFoot=166;
+
 	private Spark leftMotor = new Spark(RobotMap.driveTrainMotorLeft);
 	private Spark rightMotor = new Spark(RobotMap.driveTrainMotorRight);
 	private ADXRS450_Gyro gyro = new ADXRS450_Gyro();  

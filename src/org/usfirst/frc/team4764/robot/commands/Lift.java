@@ -10,37 +10,33 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 
 public class Lift extends Command {
-	private double _ticksToTravel;
-	private double finalticks;
-	private double _speed;
-    public Lift(double Inches, double speed) {
+	private double m_ticksToTravel;
+	private double m_finalticks;
+	private double m_speed;
+
+    public Lift(double inches, double speed) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.lift);
-    	 int ticksperrev=4096;
-    	int radius=4;
-    	_ticksToTravel= Inches*(ticksperrev/(2*Math.PI*radius));
-    	_speed=speed;
+    	
+    	m_ticksToTravel= inches*(Robot.lift.m_ticksPerInch);
+    	m_speed=speed;
     	
     }
     // Called just before this Command runs the first time
     protected void initialize() {
     	
-    	finalticks=Robot.lift.getEncoderLift()+_ticksToTravel;
+    	m_finalticks=Robot.lift.getEncoderLift()+ m_ticksToTravel;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lift.liftAdjust(_speed);
+    	Robot.lift.liftAdjust(m_speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (Math.abs(finalticks - Robot.lift.getEncoderLift()) <= 0) 
-    	{
-    		return true;
-    	}
-        return false;
+    	return (Math.abs(m_finalticks - Robot.lift.getEncoderLift()) <= 0);
     }
     
 

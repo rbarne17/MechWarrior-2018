@@ -12,12 +12,15 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Lift extends Subsystem {
+	public final int m_ticksPerFoot=166;
+	public final int m_ticksPerInch = 14;
+	
 	private Spark liftMotor = new Spark(RobotMap.liftMotor);
 	private DigitalInput limitSwitch = new DigitalInput(RobotMap.liftLimitSwitch);
 	private Encoder liftEncoder = new Encoder(RobotMap.liftEncoderChannel1, RobotMap.liftEncoderChannel2, true,
 			EncodingType.k4X);
-	private double _ticksToTravel;
-	private double finalticks;
+	private double m_ticksToTravel;
+	private double m_finalTicks;
 
 	public Lift() {
 
@@ -30,24 +33,6 @@ public class Lift extends Subsystem {
 		return liftEncoder.get();
 	}
 
-	// Drives the robot using s inputs for the left and right side motors.
-	// Inputs are percentages of maxeperateimum motor output.
-	public void LiftHigh(double speed) {
-		int ticksperrev = 4096;
-		int radius = 4;
-		int Inches = 10;
-		_ticksToTravel = Inches * (ticksperrev / (2 * Math.PI * radius));
-		finalticks = liftEncoder.get() + _ticksToTravel;
-		if (liftEncoder.get() < finalticks) {
-			liftMotor.set(speed);
-		}
-		if (liftEncoder.get() > finalticks) {
-			liftMotor.set(-speed);
-		} else {
-			liftMotor.set(0);
-		}
-
-	}
 
 	// Controls speed and direction of the robot.
 	// -1 = full reverse; 1 = full forward

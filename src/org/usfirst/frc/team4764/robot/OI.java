@@ -9,7 +9,7 @@ package org.usfirst.frc.team4764.robot;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 
-import org.usfirst.frc.team4764.robot.commands.DriveByInches;
+import org.usfirst.frc.team4764.robot.commands.Drive;
 import org.usfirst.frc.team4764.robot.commands.DropCube;
 import org.usfirst.frc.team4764.robot.commands.Turn;
 import org.usfirst.frc.team4764.robot.commands.Lift;
@@ -47,7 +47,7 @@ public class OI {
 	Button lbumper2= new JoystickButton(xbox2, 5);
 
 	public OI() {
-		xButton2.whenPressed(new DriveByInches(5, 0.5));
+		xButton2.whenPressed(new Drive(5, 0.5));
 		yButton2.whenPressed(new Lift(10,0.5));
 		bButton2.whenPressed(new Lift(5,0.5));
 		aButton2.whenPressed(new LiftHome(0.5));
@@ -58,10 +58,10 @@ public class OI {
 		
 		
 		autoPathChooser = new SendableChooser<>();
-		autoPathChooser.addObject(DriveFeet, new DriveByInches(5, 0.5));
+		autoPathChooser.addObject(DriveFeet, new Drive(5, 0.5));
 		SmartDashboard.putData(Robot.driveTrain);
 		SmartDashboard.putData("Auto choices", autoPathChooser);
-		SmartDashboard.putData("DriveFeet", new DriveByInches(5, 0.5));
+		SmartDashboard.putData("DriveFeet", new Drive(5, 0.5));
 		
 		
 		
