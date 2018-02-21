@@ -39,7 +39,6 @@ public class Robot extends TimedRobot {
 	public static String autonomousScoringMechanism;
 	public static String autonomousCommandName;
 
-
 	/**
 	 * This function is run when the robot is first started up and should be used
 	 * for any initialization code.
@@ -48,6 +47,8 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		operatorInput = new OI();
 		dashboard = new Dashboard();
+
+		dashboard.robotInit();
 
 	}
 
@@ -104,7 +105,7 @@ public class Robot extends TimedRobot {
 		if (autonomousCommand != null) {
 			autonomousCommand.start();
 		}
-		
+
 	}
 
 	/**
@@ -126,7 +127,7 @@ public class Robot extends TimedRobot {
 		if (autonomousCommand != null) {
 			autonomousCommand.cancel();
 		}
-		
+
 		driveTrain.reset();
 	}
 
@@ -135,7 +136,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		
+
 		dashboard.teleopPeriodic();
 
 		Scheduler.getInstance().run();

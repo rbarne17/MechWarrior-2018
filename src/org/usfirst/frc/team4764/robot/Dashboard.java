@@ -54,8 +54,11 @@ public class Dashboard {
 	public void teleopPeriodic()
 
 	{
-		SmartDashboard.putNumber("Encoder Right", Robot.driveTrain.getEncoderRight());
-		SmartDashboard.putNumber("Encoder Left", Robot.driveTrain.getEncoderLeft());
+		SmartDashboard.putNumber("DriveTrain Encoder Right", Robot.driveTrain.getEncoderRight());
+		SmartDashboard.putNumber("DriveTrain Encoder Left", Robot.driveTrain.getEncoderLeft());
+		SmartDashboard.putNumber("Lift Encoder", Robot.lift.getEncoderLift());
+		
+		
 
 		SmartDashboard.putNumber("Percent Throttle", Robot.operatorInput.getRightStickY());
 		SmartDashboard.putNumber("Percent Rotation", Robot.operatorInput.getLeftStickX());
