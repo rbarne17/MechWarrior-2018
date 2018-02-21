@@ -80,7 +80,7 @@ public class AutonomousCommand extends CommandGroup {
 			//turn 90 degrees to the right
 			//raise lifter 5.5 ft high
 			//drive foward 1ft
-			//drop cube
+			//drop cube.
 			;
 			break;
 		case "TwoLeftScaleWaitScore":
