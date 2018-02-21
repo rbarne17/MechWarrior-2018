@@ -61,9 +61,8 @@ public class Dashboard {
 		
 		
 
-		SmartDashboard.putNumber("Percent Throttle", Robot.operatorInput.getRightStickY());
-		SmartDashboard.putNumber("Percent Rotation", Robot.operatorInput.getLeftStickX());
-
+		SmartDashboard.putNumber("Percent Throttle", Robot.operatorInput.getJoystickY());
+		SmartDashboard.putNumber("Percent Rotation", Robot.operatorInput.getJoystickX());	
 	}
 
 	public void autonomousPeriodic() {

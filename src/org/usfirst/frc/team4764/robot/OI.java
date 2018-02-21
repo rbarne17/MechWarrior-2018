@@ -26,7 +26,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 
 	XboxController xbox = new XboxController(1);
-	Joystick stick1 = new Joystick(0);
+	Joystick joystick = new Joystick(0);
 
 	Button xboxXButton = new JoystickButton(xbox, 1);
 	Button xboxYButton = new JoystickButton(xbox, 4);
@@ -44,27 +44,28 @@ public class OI {
 
 	}
 
-	public double JoystickY() {
-		return -stick1.getY();
+	public double getJoystickY() {
+		return -joystick.getY();
 	}
 
-	public double JoystickX() {
-		return stick1.getX();
+	public double getJoystickX() {
+		return joystick.getX();
 	}
 
-	public double getRightStickX2() {
+	public double getXboxLeftStickX() {
+		return xbox.getX(Hand.kLeft);
+	}
+
+	public double getXboxRightStickX() {
 		return xbox.getX(Hand.kRight);
 	}
 
-	public double getLeftStickY2() {
+	public double getXboxLeftStickY() {
 		return xbox.getY(Hand.kLeft);
 	}
 
-	public double getRightStickY2() {
+	public double getXboxRightStickY() {
 		return xbox.getY(Hand.kRight);
 	}
 
-	public double getLeftStickX2() {
-		return xbox.getX(Hand.kLeft);
-	}
 }
