@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4764.robot;
 
+import org.usfirst.frc.team4764.robot.commands.Drive;
 import org.usfirst.frc.team4764.robot.commands.DriveWithJoy;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -8,12 +9,19 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Dashboard {
 
+	final String DriveFeet = "DriveFeet";
 	SendableChooser<Command> m_commandChooser = new SendableChooser<>();
 	SendableChooser<String> m_ScoringMechanismChooser = new SendableChooser<>();
 	SendableChooser<String> m_allianceModeChooser = new SendableChooser<>();
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
+	SendableChooser<Command> autoPathChooser = new SendableChooser<>();
 
 	public void robotInit() {
+		autoPathChooser.addObject(DriveFeet, new Drive(5, 0.5));
+		SmartDashboard.putData(Robot.driveTrain);
+		SmartDashboard.putData("Auto choices", autoPathChooser);
+		SmartDashboard.putData("DriveFeet", new Drive(5, 0.5));
+
 		m_commandChooser.addDefault("Default Auto", new DriveWithJoy());
 
 		m_ScoringMechanismChooser.addObject("Switch", new String());
@@ -30,7 +38,7 @@ public class Dashboard {
 	}
 
 	public void teleopInit() {
-		
+
 	}
 
 	public void autonomousInit() {

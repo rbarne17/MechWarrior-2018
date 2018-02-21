@@ -30,83 +30,65 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	
+
 	XboxController xbox = new XboxController(2);
-	XboxController xbox2= new XboxController(1);
+	XboxController xbox2 = new XboxController(1);
 	Joystick stick1 = new Joystick(0);
-	public Command autonomousCommand;
-	public SendableChooser<Command> autoPathChooser;
-	final String DriveFeet = "DriveFeet";
-	
-	
+
 	Button xButton2 = new JoystickButton(xbox2, 1);
 	Button yButton2 = new JoystickButton(xbox2, 4);
 	Button bButton2 = new JoystickButton(xbox2, 3);
 	Button aButton2 = new JoystickButton(xbox2, 2);
-	Button rbumper2= new JoystickButton(xbox2,6);
-	Button lbumper2= new JoystickButton(xbox2, 5);
+	Button rbumper2 = new JoystickButton(xbox2, 6);
+	Button lbumper2 = new JoystickButton(xbox2, 5);
 
 	public OI() {
 		xButton2.whenPressed(new Drive(5, 0.5));
-		yButton2.whenPressed(new Lift(10,0.5));
-		bButton2.whenPressed(new Lift(5,0.5));
+		yButton2.whenPressed(new Lift(10, 0.5));
+		bButton2.whenPressed(new Lift(5, 0.5));
 		aButton2.whenPressed(new LiftHome(0.5));
 		rbumper2.whenPressed(new DropCube());
 		lbumper2.whenPressed(new PickUpCube());
-		
-		
-		
-		
-		autoPathChooser = new SendableChooser<>();
-		autoPathChooser.addObject(DriveFeet, new Drive(5, 0.5));
-		SmartDashboard.putData(Robot.driveTrain);
-		SmartDashboard.putData("Auto choices", autoPathChooser);
-		SmartDashboard.putData("DriveFeet", new Drive(5, 0.5));
-		
-		
-		
+
 	}
-	
-	
-	public double JoystickY()
-	{
+
+	public double JoystickY() {
 		return -stick1.getY();
 	}
-	public double JoystickX()
-	{
+
+	public double JoystickX() {
 		return stick1.getX();
 	}
-	public double getLeftStickY ()
-	{
+
+	public double getLeftStickY() {
 		return xbox.getY(Hand.kLeft);
 	}
-	public double getRightStickY()
-	{
+
+	public double getRightStickY() {
 		return xbox.getY(Hand.kRight);
 	}
 
-	public double getLeftStickX()
-	{
+	public double getLeftStickX() {
 		return xbox.getX(Hand.kLeft);
 	}
-	public double getRightStickX()
-	{
+
+	public double getRightStickX() {
 		return xbox.getX(Hand.kRight);
 	}
-	public double getRightStickX2(){
+
+	public double getRightStickX2() {
 		return xbox2.getX(Hand.kRight);
 	}
-	public double getLeftStickY2()
-	{
+
+	public double getLeftStickY2() {
 		return xbox2.getY(Hand.kLeft);
 	}
-	public double getRightStickY2()
-	{
+
+	public double getRightStickY2() {
 		return xbox2.getY(Hand.kRight);
 	}
 
-	public double getLeftStickX2()
-	{
+	public double getLeftStickX2() {
 		return xbox2.getX(Hand.kLeft);
 	}
 }
