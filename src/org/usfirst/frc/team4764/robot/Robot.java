@@ -8,10 +8,6 @@
 package org.usfirst.frc.team4764.robot;
 
 import org.usfirst.frc.team4764.robot.commands.AutonomousCommand;
-import org.usfirst.frc.team4764.robot.commands.Drive;
-import org.usfirst.frc.team4764.robot.commands.DriveByInches;
-import org.usfirst.frc.team4764.robot.commands.DriveWithJoy;
-
 import org.usfirst.frc.team4764.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4764.robot.subsystems.Gripper;
 import org.usfirst.frc.team4764.robot.subsystems.Lift;
@@ -19,13 +15,8 @@ import org.usfirst.frc.team4764.robot.subsystems.FlipityFlop;
 import org.usfirst.frc.team4764.robot.OI;
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -38,17 +29,12 @@ public class Robot extends TimedRobot {
 
 	public static final DriveTrain driveTrain = new DriveTrain();
 	public static final Lift lift = new Lift();
-
-	Command m_autonomousCommand;
-	SendableChooser<Command> m_chooser = new SendableChooser<>();
-
 	public static final Gripper gripper = new Gripper();
 	public static final FlipityFlop flipityFlop = new FlipityFlop();
 	public static OI operatorInput;
+	public static Dashboard dashboard;
+
 	public static CommandGroup autonomousCommand;
-	SendableChooser<Command> m_commandChooser = new SendableChooser<>();
-	SendableChooser<String> m_ScoringMechanismChooser = new SendableChooser<>();
-	SendableChooser<String> m_allianceModeChooser = new SendableChooser<>();
 	public static String autonomousAllianceMode;
 	public static String autonomousScoringMechanism;
 	public static String autonomousCommandName;
@@ -61,17 +47,6 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		operatorInput = new OI();
-		m_commandChooser.addDefault("Default Auto", new DriveWithJoy());
-		SmartDashboard.putData("Auto mode", m_commandChooser);
-
-		m_ScoringMechanismChooser.addObject("Switch", new String());
-		m_ScoringMechanismChooser.addObject("Switch", new String());
-		SmartDashboard.putData("Switch or Scale", m_ScoringMechanismChooser);
-
-		m_allianceModeChooser.addDefault("Score", new String());
-		m_allianceModeChooser.addObject("WaitScore", new String());
-		m_allianceModeChooser.addObject("Defend", new String());
-		SmartDashboard.putData("Alliance Mode", m_allianceModeChooser);
 
 	}
 
@@ -105,14 +80,15 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 
-		autonomousScoringMechanism = m_ScoringMechanismChooser.getSelected();
-		autonomousAllianceMode = m_allianceModeChooser.getSelected();
+		autonomousScoringMechanism = dashboard.m_ScoringMechanismChooser.getSelected();
+		autonomousAllianceMode = dashboard.m_allianceModeChooser.getSelected();
 
 		if ((FieldData.location == 1 && (FieldData.scaleSide == 'R' || FieldData.switchSide == 'R'))
 				|| (FieldData.location == 3 && (FieldData.scaleSide == 'L' || FieldData.switchSide == 'L'))) {
 			autonomousAllianceMode = "Defend";
 		}
 
+		dashboard.autonomousInit();
 		autonomousCommandName = FieldData.locationString + autonomousScoringMechanism + autonomousAllianceMode;
 
 		autonomousCommand = new AutonomousCommand(autonomousCommandName);
@@ -127,6 +103,7 @@ public class Robot extends TimedRobot {
 		if (autonomousCommand != null) {
 			autonomousCommand.start();
 		}
+		
 	}
 
 	/**
@@ -134,6 +111,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
+		dashboard.autonomousPeriodic();
 		Scheduler.getInstance().run();
 	}
 
@@ -143,6 +121,7 @@ public class Robot extends TimedRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
+		dashboard.teleopInit();
 		if (autonomousCommand != null) {
 			autonomousCommand.cancel();
 		}
@@ -155,12 +134,8 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-
-		SmartDashboard.putNumber("Encoder Right", driveTrain.getEncoderRight());
-		SmartDashboard.putNumber("Encoder Left", driveTrain.getEncoderLeft());
-
-		SmartDashboard.putNumber("Percent Throttle", operatorInput.getRightStickY());
-		SmartDashboard.putNumber("Percent Rotation", operatorInput.getLeftStickX());
+		
+		dashboard.teleopPeriodic();
 
 		Scheduler.getInstance().run();
 	}
