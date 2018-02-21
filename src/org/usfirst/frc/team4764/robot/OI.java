@@ -31,7 +31,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class OI {
 	
-	XboxController xbox = new XboxController(2);
 	XboxController xbox2= new XboxController(1);
 	Joystick stick1 = new Joystick(0);
 	public Command autonomousCommand;
@@ -62,7 +61,7 @@ public class OI {
 		SmartDashboard.putData(Robot.driveTrain);
 		SmartDashboard.putData("Auto choices", autoPathChooser);
 		SmartDashboard.putData("DriveFeet", new DriveByInches(5, 0.5));
-		
+		SmartDashboard.putData("Run DriveFeet", new DriveByInches(5, 0.5));
 		
 		
 	}
@@ -76,23 +75,7 @@ public class OI {
 	{
 		return stick1.getX();
 	}
-	public double getLeftStickY ()
-	{
-		return xbox.getY(Hand.kLeft);
-	}
-	public double getRightStickY()
-	{
-		return xbox.getY(Hand.kRight);
-	}
-
-	public double getLeftStickX()
-	{
-		return xbox.getX(Hand.kLeft);
-	}
-	public double getRightStickX()
-	{
-		return xbox.getX(Hand.kRight);
-	}
+	
 	public double getRightStickX2(){
 		return xbox2.getX(Hand.kRight);
 	}

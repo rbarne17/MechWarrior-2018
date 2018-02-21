@@ -35,6 +35,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  * project.
  */
 public class Robot extends TimedRobot {
+	public static OI oi;
 
 	public static final DriveTrain driveTrain = new DriveTrain();
 	public static final Lift lift = new Lift();
@@ -116,7 +117,7 @@ public class Robot extends TimedRobot {
 
 		autonomousCommandName = FieldData.locationString + autonomousScoringMechanism + autonomousAllianceMode;
 
-		OI.autonomousCommand = (Command) OI.autoPathChooser.getSelected();
+		oi.autonomousCommand = (Command) oi.autoPathChooser.getSelected();
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
 		 * switch(autoSelected) { case "My Auto": autonomousCommand = new
@@ -158,8 +159,8 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Encoder Right", driveTrain.getEncoderRight());
 		SmartDashboard.putNumber("Encoder Left", driveTrain.getEncoderLeft());
 
-		SmartDashboard.putNumber("Percent Throttle", operatorInput.getRightStickY());
-		SmartDashboard.putNumber("Percent Rotation", operatorInput.getLeftStickX());
+		SmartDashboard.putNumber("Percent Throttle", operatorInput.JoystickY());
+		SmartDashboard.putNumber("Percent Rotation", operatorInput.JoystickX());
 
 		Scheduler.getInstance().run();
 	}
