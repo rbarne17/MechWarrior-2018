@@ -8,9 +8,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class LiftAdjust extends Command {
+public class LiftWithJoy extends Command {
 
-    public LiftAdjust(double speed) {
+    public LiftWithJoy() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.lift);

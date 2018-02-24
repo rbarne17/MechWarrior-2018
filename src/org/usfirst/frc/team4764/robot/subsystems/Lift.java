@@ -1,6 +1,8 @@
 package org.usfirst.frc.team4764.robot.subsystems;
 
 import org.usfirst.frc.team4764.robot.RobotMap;
+import org.usfirst.frc.team4764.robot.commands.DriveWithJoy;
+import org.usfirst.frc.team4764.robot.commands.LiftWithJoy;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
@@ -12,9 +14,9 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Lift extends Subsystem {
-	public final int m_ticksPerFoot=166;
+	public final int m_ticksPerFoot = 166;
 	public final int m_ticksPerInch = 14;
-	
+
 	private Spark liftMotor = new Spark(RobotMap.liftMotor);
 	private DigitalInput limitSwitch = new DigitalInput(RobotMap.liftLimitSwitch);
 	private Encoder liftEncoder = new Encoder(RobotMap.liftEncoderChannel1, RobotMap.liftEncoderChannel2, true,
@@ -32,7 +34,6 @@ public class Lift extends Subsystem {
 		// Return Encoder Values Need to be fixed
 		return liftEncoder.get();
 	}
-
 
 	// Controls speed and direction of the robot.
 	// -1 = full reverse; 1 = full forward
@@ -55,7 +56,7 @@ public class Lift extends Subsystem {
 		encoderReset();
 
 	}
-	
+
 	private void encoderReset() {
 		liftEncoder.reset();
 	}
@@ -63,6 +64,7 @@ public class Lift extends Subsystem {
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
+		setDefaultCommand(new LiftWithJoy());
 
 	}
 
