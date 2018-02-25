@@ -24,10 +24,10 @@ public class Dashboard {
 		m_chooser = new SendableChooser<>();
 		m_autoPathChooser = new SendableChooser<>();
 
-		m_autoPathChooser.addObject(DriveFeet, new Drive(5, 0.75));
+		m_autoPathChooser.addObject(DriveFeet, new Drive(5, 0.5));
 		SmartDashboard.putData(Robot.driveTrain);
 		SmartDashboard.putData("Auto choices", m_autoPathChooser);
-		SmartDashboard.putData("DriveFeet", new Drive(5, 0.75));
+		SmartDashboard.putData("DriveFeet", new Drive(5, 0.5));
 
 		m_commandChooser.addDefault("Default Auto", new DriveWithJoy());
 

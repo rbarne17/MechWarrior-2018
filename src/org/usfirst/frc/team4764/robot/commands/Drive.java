@@ -24,9 +24,9 @@ public class Drive extends Command {
 
 		m_ticksToTravel = feetToTravel * Robot.driveTrain.ticksPerFoot;
 		if (feetToTravel < 0) {
-			m_speed = -speed;
-		} else {
 			m_speed = speed;
+		} else {
+			m_speed = -speed;
 		}
 		requires(Robot.driveTrain);
 	}
