@@ -2,6 +2,7 @@ package org.usfirst.frc.team4764.robot.commands;
 
 import org.usfirst.frc.team4764.robot.Robot;
 
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -15,6 +16,7 @@ public class Drive extends Command {
 	private double m_finalTickTargetLeft;
 	private double m_finalTickTargetRight;
 	private double m_driveAngle;
+	private double integral;
 
 	public Drive(double feetToTravel, double speed) {
 		// Use requires() here to declare subsystem dependencies
@@ -53,7 +55,14 @@ public class Drive extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		m_driveAngle = 0;
+	 ADXRS450_Gyro gyro = new ADXRS450_Gyro();   
+   	 double angle = gyro.getAngle();
+   	 double heading= 0;
+   	 double error=heading-angle;
+   	 double Kp = 0.03;
+   	 this.integral += (error*.02);
+   	 double Ki=0;
+   	 m_driveAngle = (Kp*error)+(Ki*this.integral);
 		Robot.driveTrain.driveByArcade(m_speed, m_driveAngle);
 	}
 
