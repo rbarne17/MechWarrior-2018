@@ -53,6 +53,14 @@ public class Drive extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
+   	 double angle = Robot.driveTrain.getHeading();
+   	 double heading= 0;
+   	 double error=heading-angle;
+   	 double Kp = 0.03;
+   	 this.integral += (error*.02);
+   	 double Ki=0;
+   	 drive_angle = (Kp*error)+(Ki*this.integral);*/
+   	 drive_angle=0;
 		m_driveAngle = 0;
 		Robot.driveTrain.driveByArcade(m_speed, m_driveAngle);
 	}
