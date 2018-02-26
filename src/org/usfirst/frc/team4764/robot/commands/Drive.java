@@ -10,17 +10,13 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class Drive extends Command {
 
-	private double _ticksToTravel;
-	private double _speed;
-
-	private double m_integral;
-
 	private double m_ticksToTravel;
 	private double m_speed;
 
 	private double m_finalTickTargetLeft;
 	private double m_finalTickTargetRight;
 	private double m_driveAngle;
+	private double integral;
 
 	public Drive(double feetToTravel, double speed) {
 		// Use requires() here to declare subsystem dependencies
@@ -28,9 +24,9 @@ public class Drive extends Command {
 
 		m_ticksToTravel = feetToTravel * Robot.driveTrain.ticksPerFoot;
 		if (feetToTravel < 0) {
-			m_speed = -speed;
-		} else {
 			m_speed = speed;
+		} else {
+			m_speed = -speed;
 		}
 		requires(Robot.driveTrain);
 	}
@@ -39,7 +35,7 @@ public class Drive extends Command {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 
-		m_ticksToTravel = inchesToTravel * Robot.driveTrain.ticksPerFoot / 12;
+		m_ticksToTravel = inchesToTravel * Robot.driveTrain.ticksPerFoot/12;
 		if (inchesToTravel < 0) {
 			m_speed = -speed;
 		} else {
@@ -59,19 +55,18 @@ public class Drive extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		double angle = Robot.driveTrain.getHeading();
-		double heading = 0;
-		double error = heading - angle;
-		double Kp = 0.03;
-		this.m_integral += (error * .02);
-		double Ki = 0;
-		m_driveAngle = (Kp * error) + (Ki * this.m_integral);
-		m_driveAngle = 0;
-		m_driveAngle = 0;
+	 ADXRS450_Gyro gyro = new ADXRS450_Gyro();   
+   	 double angle = gyro.getAngle();
+   	 double heading= 0;
+   	 double error=heading-angle;
+   	 double Kp = 0.03;
+   	 this.integral += (error*.02);
+   	 double Ki=0;
+   	 m_driveAngle = (Kp*error)+(Ki*this.integral);
 		Robot.driveTrain.driveByArcade(m_speed, m_driveAngle);
 	}
 
-	// Make this return true when this Command no longer needs to run execute()
+	// Make this return true when this Command no longer needs to run execu    te()
 	protected boolean isFinished() {
 		return (Math.abs(m_finalTickTargetLeft - Robot.driveTrain.getEncoderLeft()) <= 0
 				&& Math.abs(m_finalTickTargetRight - Robot.driveTrain.getEncoderRight()) <= 0);
