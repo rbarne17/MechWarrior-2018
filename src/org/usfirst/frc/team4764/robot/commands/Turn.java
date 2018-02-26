@@ -3,7 +3,6 @@ package org.usfirst.frc.team4764.robot.commands;
 import org.usfirst.frc.team4764.robot.Robot;
 
 
-import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.command.Command;
 /**
  *
