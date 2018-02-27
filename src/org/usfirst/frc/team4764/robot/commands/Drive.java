@@ -16,7 +16,7 @@ public class Drive extends Command {
 	private double m_finalTickTargetLeft;
 	private double m_finalTickTargetRight;
 	private double m_driveAngle;
-	private double integral;
+	private double m_integral;
 
 	public Drive(double feetToTravel, double speed) {
 		// Use requires() here to declare subsystem dependencies
@@ -59,9 +59,9 @@ public class Drive extends Command {
    	 double heading= 0;
    	 double error= heading-angle;
    	 double Kp = 0.03;
-   	 this.integral += (error*.02);
+   	 this.m_integral += (error*.02);
    	 double Ki=0;
-   	 m_driveAngle = (Kp*error)+(Ki*this.integral);
+   	 m_driveAngle = (Kp*error)+(Ki*this.m_integral);
 		Robot.driveTrain.driveByArcade(m_speed, m_driveAngle);
 	}
 
