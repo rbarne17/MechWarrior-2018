@@ -17,11 +17,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class DriveTrain extends Subsystem {
 	
-	public final int ticksPerFoot=166;
+	public final int ticksPerFoot=135;
 
 	private Spark leftMotor = new Spark(RobotMap.driveTrainMotorLeft);
 	private Spark rightMotor = new Spark(RobotMap.driveTrainMotorRight);
-	private ADXRS450_Gyro gyro = new ADXRS450_Gyro();  
+	public ADXRS450_Gyro gyro = new ADXRS450_Gyro();  
 
 	public Encoder leftEncoder = new Encoder(RobotMap.leftEncoderChannel1, RobotMap.leftEncoderChannel2, true,
 			EncodingType.k4X);

@@ -9,9 +9,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class FlipityFlopDown extends Command {
+public class FlipityFlopUp extends Command {
 
-    public FlipityFlopDown() {
+    public FlipityFlopUp() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.flipityFlop);
@@ -25,16 +25,17 @@ public class FlipityFlopDown extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.flipityFlop.setDown();
+    	Robot.flipityFlop.setUp();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	{
+    	if (Robot.flipityFlop.flopUp.get()){
     		
-        return true;
-    	}
-       }
+            return true;
+           }
+        	return false;
+        }
     	
     // Called once after isFinished returns true
     protected void end() {

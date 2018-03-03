@@ -24,10 +24,10 @@ public class Dashboard {
 		m_chooser = new SendableChooser<>();
 		m_autoPathChooser = new SendableChooser<>();
 
-		m_autoPathChooser.addObject(DriveFeet, new Drive(5, 0.5));
+		m_autoPathChooser.addObject(DriveFeet, new Drive(4.0, 0.7));
 		SmartDashboard.putData(Robot.driveTrain);
 		SmartDashboard.putData("Auto choices", m_autoPathChooser);
-		SmartDashboard.putData("DriveFeet", new Drive(5, 0.5));
+		SmartDashboard.putData("DriveFeet", new Drive(4.0, 0.7));
 
 		m_commandChooser.addDefault("Default Auto", new DriveWithJoy());
 
@@ -61,6 +61,7 @@ public class Dashboard {
 
 		SmartDashboard.putNumber("Percent Throttle", Robot.operatorInput.getJoystickY());
 		SmartDashboard.putNumber("Percent Rotation", Robot.operatorInput.getJoystickX());
+		SmartDashboard.putNumber("GyroHeading", Robot.driveTrain.getHeading());
 
 		SmartDashboard.putNumber("TEST:ACTUAL Percent Throttle",
 				Robot.driveTrain.scalingSpeed(Robot.operatorInput.getJoystickY()));
