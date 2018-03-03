@@ -16,7 +16,7 @@ public class Turn extends Command {
 	    
 	
 	
-    public Turn(double speed, double degrees) {
+    public Turn(double degrees, double speed) {
     	
     	requires(Robot.driveTrain);
     	double heading = Robot.driveTrain.getHeading();

@@ -9,9 +9,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class FlipityFlopDown extends Command {
+public class FlipityFlopUp extends Command {
 
-    public FlipityFlopDown() {
+    public FlipityFlopUp() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.flipityFlop);

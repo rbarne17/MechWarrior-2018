@@ -23,8 +23,10 @@ public class FlipityFlop extends Subsystem {
 	public void setDown() {
 
 	}
-	
-	
+
+	public void setUp() {
+
+	}
 
 	public void reset() {
 
