@@ -30,11 +30,11 @@ public class FlipityFlopUp extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (Robot.flipityFlop.flopUp.get()){
-    		
+    	//if (Robot.flipityFlop.flopUp.get()){
+    	{	
             return true;
            }
-        	return false;
+        	//return false;
         }
     	
     // Called once after isFinished returns true

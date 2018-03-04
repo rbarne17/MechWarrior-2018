@@ -17,9 +17,9 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class FlipityFlop extends Subsystem {
-	Spark flopMotor = new Spark(RobotMap.gripperMotor);
-	public DigitalOutput flopUp = new DigitalOutput(RobotMap.flopUp);
-	public DigitalOutput flopLevel = new DigitalOutput(RobotMap.flopLevel);
+	Spark flopMotor = new Spark(RobotMap.flipityFlopMotor);
+	//public DigitalOutput flopUp = new DigitalOutput(RobotMap.flopUp);
+	//public DigitalOutput flopLevel = new DigitalOutput(RobotMap.flopLevel);
 
 
 	public FlipityFlop() {

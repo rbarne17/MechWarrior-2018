@@ -31,11 +31,13 @@ public class PickUpCube extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	
-    	if (Robot.gripper.gripperLimitSwitchClose.get()){
-    		
+    	//if (Robot.gripper.gripperLimitSwitchClose.get())
+    	if(1==2);
+    	{
+    	
         return true;
        }
-    	return false;
+    
     }
 
     // Called once after isFinished returns true
