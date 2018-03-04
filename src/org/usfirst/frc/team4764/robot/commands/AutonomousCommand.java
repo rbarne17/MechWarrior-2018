@@ -34,10 +34,15 @@ public class AutonomousCommand extends CommandGroup {
 			break;
 		case "OneLeftScaleScore":
 			//drive foward 275ft
+			new Drive(275.0,0.7);
 			//raise the lifter 5.5 high
+			new Lift(5.5,0.7);
 			//turn 90 degrees to the right
+			new Turn(90,0.7);
 			//drive foward 1ft
+			new Drive(1.2,0.7);
 			//drop the cube
+			new DropCube();
 			;
 			break;
 		case "OneLeftScaleWaitScore":

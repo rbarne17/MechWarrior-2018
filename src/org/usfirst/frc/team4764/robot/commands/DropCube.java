@@ -14,7 +14,7 @@ public class DropCube extends Command {
     public DropCube() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.gripper);
+    	
     }
 
     // Called just before this Command runs the first time
@@ -30,8 +30,8 @@ public class DropCube extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	DigitalInput gripperopen= new DigitalInput(RobotMap.gripperLimitSwitchOpen);
-    	if (gripperopen.get()){
+    	
+    	if (Robot.gripper.gripperLimitSwitchOpen.get()){
     		
         return true;
        }
