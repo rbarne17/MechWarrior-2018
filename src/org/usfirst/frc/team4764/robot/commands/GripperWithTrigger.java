@@ -6,9 +6,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class GripperWithJoy extends Command {
+public class GripperWithTrigger extends Command {
 
-    public GripperWithJoy() {
+    public GripperWithTrigger() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.gripper);
@@ -22,7 +22,7 @@ public class GripperWithJoy extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 
-    	Robot.gripper.gripperAdjust(Robot.operatorInput.getXboxRightStickY());
+    	Robot.gripper.gripperAdjust(Robot.operatorInput.getXboxLeftTrigger());
 
     }
     
