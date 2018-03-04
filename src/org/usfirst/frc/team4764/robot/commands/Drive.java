@@ -2,7 +2,6 @@ package org.usfirst.frc.team4764.robot.commands;
 
 import org.usfirst.frc.team4764.robot.Robot;
 
-import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -48,17 +47,18 @@ public class Drive extends Command {
 	protected void initialize() {
 		Robot.driveTrain.leftEncoder.reset();
 		Robot.driveTrain.rightEncoder.reset();
-		m_finalTickTargetLeft = m_ticksToTravel + Robot.driveTrain.getEncoderLeft();
-		m_finalTickTargetRight = m_ticksToTravel + Robot.driveTrain.getEncoderRight();
+		Robot.driveTrain.gyro.reset();
+		m_finalTickTargetLeft = m_ticksToTravel - Robot.driveTrain.getEncoderLeft();
+		m_finalTickTargetRight = m_ticksToTravel - Robot.driveTrain.getEncoderRight();
+		
 
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
    	 double angle = Robot.driveTrain.getHeading();
-   	 double heading= 0;
-   	 double error= heading-angle;
-   	 double Kp = 0.03;
+   	 double error=angle;
+   	 double Kp = 0.3;
    	 this.m_integral += (error*.02);
    	 double Ki=0;
    	 m_driveAngle = (Kp*error)+(Ki*this.m_integral);
@@ -67,8 +67,8 @@ public class Drive extends Command {
 
 	// Make this return true when this Command no longer needs to run execu te()
 	protected boolean isFinished() {
-		return (Math.abs(m_finalTickTargetLeft - Robot.driveTrain.getEncoderLeft()) <= 0
-				&& Math.abs(m_finalTickTargetRight - Robot.driveTrain.getEncoderRight()) <= 0);
+		return m_finalTickTargetLeft + Robot.driveTrain.getEncoderLeft() <= 0
+				&& m_finalTickTargetRight + Robot.driveTrain.getEncoderRight() <= 0;
 	}
 
 	// Called once after isFinished returns true

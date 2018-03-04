@@ -49,7 +49,7 @@ public class Dashboard {
 		m_allianceModeChooser.addDefault("Score", new String());
 		m_allianceModeChooser.addObject("WaitScore", new String());
 		m_allianceModeChooser.addObject("Defend", new String());
-
+		
 		SmartDashboard.putData("Switch or Scale", m_ScoringMechanismChooser);
 		SmartDashboard.putData("Alliance Mode", m_allianceModeChooser);
 
@@ -72,6 +72,7 @@ public class Dashboard {
 
 		SmartDashboard.putNumber("Percent Throttle", Robot.operatorInput.getJoystickY());
 		SmartDashboard.putNumber("Percent Rotation", Robot.operatorInput.getJoystickX());
+		SmartDashboard.putNumber("GyroHeading", Robot.driveTrain.getHeading());
 
 		SmartDashboard.putNumber("TEST:ACTUAL Percent Throttle",
 				Robot.driveTrain.scalingSpeed(Robot.operatorInput.getJoystickY()));

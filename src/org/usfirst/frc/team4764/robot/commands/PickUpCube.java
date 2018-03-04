@@ -30,8 +30,8 @@ public class PickUpCube extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	DigitalInput gripperclose= new DigitalInput(RobotMap.gripperLimitSwitchClose);
-    	if (gripperclose.get()){
+    	
+    	if (Robot.gripper.gripperLimitSwitchClose.get()){
     		
         return true;
        }
