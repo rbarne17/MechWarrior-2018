@@ -8,40 +8,39 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class FlipityFlopLevel extends Command {
 
-    public FlipityFlopLevel() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	requires(Robot.flipityFlop);
-    }
+	public FlipityFlopLevel() {
+		// Use requires() here to declare subsystem dependencies
+		// eg. requires(chassis);
+		requires(Robot.flipityFlop);
+	}
 
-    // Called just before this Command runs the first time
-    protected void initialize() {
-    	Robot.flipityFlop.reset();
-    	
-    }
+	// Called just before this Command runs the first time
+	protected void initialize() {
+		Robot.flipityFlop.reset();
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    	Robot.flipityFlop.setLevel();
-    }
+	}
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-    	if (Robot.flipityFlop.flopLevel.get()){
-    		
-            return true;
-           }
-        	return false;
-        }
+	// Called repeatedly when this Command is scheduled to run
+	protected void execute() {
+		Robot.flipityFlop.setLevel();
+	}
 
-    // Called once after isFinished returns true
-    protected void end() {
-    	Robot.flipityFlop.reset();
-    }
+	// Make this return true when this Command no longer needs to run execute()
+	protected boolean isFinished() {
+		if (Robot.flipityFlop.flopLevel.get()) {
+			return true;
+		}
+		return false;
+	}
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    	Robot.flipityFlop.reset();
-    }
+	// Called once after isFinished returns true
+	protected void end() {
+		Robot.flipityFlop.reset();
+	}
+
+	// Called when another command which requires one or more of the same
+	// subsystems is scheduled to run
+	protected void interrupted() {
+		Robot.flipityFlop.reset();
+	}
 }
