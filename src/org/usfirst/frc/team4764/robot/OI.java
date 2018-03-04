@@ -67,14 +67,17 @@ public class OI {
 	public double getXboxRightStickY() {
 		return xbox.getY(Hand.kRight);
 	}
-	
+
 	public double getXboxLeftTrigger() {
 		return xbox.getTriggerAxis(Hand.kLeft);
 	}
-	
+
 	public double getXboxRightTrigger() {
-		return xbox.getTriggerAxis(Hand.kLeft);
+		return xbox.getTriggerAxis(Hand.kRight);
 	}
+	
+	public double getXboxTrigger() {
+		return getXboxLeftTrigger()- getXboxRightTrigger();
 	}
 
 }
