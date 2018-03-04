@@ -19,8 +19,8 @@ public class DriveTrain extends Subsystem {
 	
 	public final int ticksPerFoot=135;
 
-	private Spark leftMotor = new Spark(RobotMap.driveTrainMotorLeft);
-	private Spark rightMotor = new Spark(RobotMap.driveTrainMotorRight);
+	public Spark leftMotor = new Spark(RobotMap.driveTrainMotorLeft);
+	public Spark rightMotor = new Spark(RobotMap.driveTrainMotorRight);
 	public ADXRS450_Gyro gyro = new ADXRS450_Gyro();  
 
 	public Encoder leftEncoder = new Encoder(RobotMap.leftEncoderChannel1, RobotMap.leftEncoderChannel2, true,
@@ -58,13 +58,8 @@ public class DriveTrain extends Subsystem {
 	// Drives the robot using s inputs for the left and right side motors.
 	// Inputs are percentages of maxeperateimum motor output.
 	public void driveByTank(double LeftpercentThrottle, double RightpercentThrottle) {
-		LeftpercentThrottle = valueAfterDeadzone(LeftpercentThrottle);
-		LeftpercentThrottle = scalingSpeed(LeftpercentThrottle);
-		RightpercentThrottle = valueAfterDeadzone(RightpercentThrottle);
-		RightpercentThrottle = scalingSpeed(RightpercentThrottle);
-		leftMotor.set(-LeftpercentThrottle);
-
-		rightMotor.set(-RightpercentThrottle);
+				leftMotor.set(LeftpercentThrottle);
+				rightMotor.set(RightpercentThrottle);
 
 	}
 

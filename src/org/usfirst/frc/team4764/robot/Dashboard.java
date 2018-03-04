@@ -2,6 +2,8 @@ package org.usfirst.frc.team4764.robot;
 
 import org.usfirst.frc.team4764.robot.commands.Drive;
 import org.usfirst.frc.team4764.robot.commands.DriveWithJoy;
+import org.usfirst.frc.team4764.robot.commands.TurnLeft;
+import org.usfirst.frc.team4764.robot.commands.TurnRight;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -10,6 +12,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Dashboard {
 
 	final String DriveFeet = "DriveFeet";
+	final String TurnHeadingRight = "TurnHeadingRight";
+	final String TurnHeadingLeft = "TurnHeadingLeft";
 	SendableChooser<Command> m_commandChooser = new SendableChooser<>();
 	SendableChooser<String> m_ScoringMechanismChooser = new SendableChooser<>();
 	SendableChooser<String> m_allianceModeChooser = new SendableChooser<>();
@@ -25,11 +29,14 @@ public class Dashboard {
 		m_autoPathChooser = new SendableChooser<>();
 
 		m_autoPathChooser.addObject(DriveFeet, new Drive(4.0, 0.7));
+		m_autoPathChooser.addObject("TurnHeadingRight", new TurnRight(90,0.4));
+		m_autoPathChooser.addObject("TurnHeadingLeft", new TurnLeft(90,0.4));
 		SmartDashboard.putData(Robot.driveTrain);
 		SmartDashboard.putData("Auto choices", m_autoPathChooser);
 		SmartDashboard.putData("DriveFeet", new Drive(4.0, 0.7));
-
-		m_commandChooser.addDefault("Default Auto", new DriveWithJoy());
+		SmartDashboard.putData("TurnHeadingRight", new TurnRight(90,0.4));
+		SmartDashboard.putData("TurnHeadingLeft", new TurnLeft(90,0.4));
+	
 
 		m_ScoringMechanismChooser.addDefault("Switch", new String());
 		m_ScoringMechanismChooser.addObject("Scale", new String());

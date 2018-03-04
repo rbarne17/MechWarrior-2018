@@ -11,8 +11,11 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 
 import org.usfirst.frc.team4764.robot.commands.Drive;
 import org.usfirst.frc.team4764.robot.commands.DropCube;
+import org.usfirst.frc.team4764.robot.commands.FlipityFlopLevel;
+import org.usfirst.frc.team4764.robot.commands.FlipityFlopUp;
 import org.usfirst.frc.team4764.robot.commands.Lift;
 import org.usfirst.frc.team4764.robot.commands.LiftHome;
+import org.usfirst.frc.team4764.robot.commands.PickUpCube;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
@@ -36,11 +39,11 @@ public class OI {
 	Button xboxLBumper = new JoystickButton(xbox, 5);
 
 	public OI() {
-		xboxXButton.whenPressed(new Drive(5, 0.5));
-		xboxYButton.whenPressed(new Lift(10, 0.5));
-		xboxBButton.whenPressed(new Lift(5, 0.5));
-		xboxAButton.whenPressed(new LiftHome(0.5));
-		xboxRBumper.whenPressed(new DropCube());
+		xboxXButton.whenPressed(new PickUpCube());
+		xboxYButton.whenPressed(new DropCube());
+		xboxBButton.whenPressed(new FlipityFlopUp());
+		xboxAButton.whenPressed(new FlipityFlopLevel());
+		
 
 	}
 

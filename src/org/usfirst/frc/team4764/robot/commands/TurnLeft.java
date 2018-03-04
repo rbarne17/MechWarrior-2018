@@ -7,53 +7,55 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class Turn extends Command {
+public class TurnLeft extends Command {
 	
-	private double speed;
-	private double _degrees;
-	private double heading;
+	private double _speed;
 	private double _angle;
+	private double _heading;
+	
 	    
 	
 	
-    public Turn(double speed, double degrees) {
+    public TurnLeft(double degrees, double speed) {
     	
     	requires(Robot.driveTrain);
-    	double heading = Robot.driveTrain.getHeading();
+    	_angle=degrees;
+    	_speed=speed;
+    	
 
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.driveTrain.gyro.reset();
+    	
     	
     	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute(){
-    	if (heading<_angle);{
-    	Robot.driveTrain.driveByTank(-speed, speed);
+    	double heading=Robot.driveTrain.getHeading();
+    	if(_angle-heading<60){
+    		Robot.driveTrain.leftMotor.set(-_speed/2);
+    		Robot.driveTrain.rightMotor.set(-_speed/2);
     	}
-    	if(heading>_angle);
-    	{
-    		Robot.driveTrain.driveByTank(speed, -speed);
+    	else {
+    		Robot.driveTrain.leftMotor.set(-_speed);
+    		Robot.driveTrain.rightMotor.set(-_speed);
     	}
-    	if(heading==_angle);
-    	{
-    		Robot.driveTrain.driveByTank(0,0);
-    	}
+    	
+    	
+    	
     }
     
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	
-    	if (Math.abs(heading-_angle) == 0); 
-    	{
-    		return true;
+    	double heading=Robot.driveTrain.getHeading();
+    	return ((_angle-heading)>=0);
     	}
-      
-    }
+    	
 
     // Called once after isFinished returns true
     protected void end() {
