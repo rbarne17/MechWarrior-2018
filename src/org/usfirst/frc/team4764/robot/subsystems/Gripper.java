@@ -1,7 +1,6 @@
 package org.usfirst.frc.team4764.robot.subsystems;
 
 import org.usfirst.frc.team4764.robot.RobotMap;
-import org.usfirst.frc.team4764.robot.commands.FlopWithJoy;
 import org.usfirst.frc.team4764.robot.commands.GripperWithJoy;
 
 import edu.wpi.first.wpilibj.DigitalOutput;

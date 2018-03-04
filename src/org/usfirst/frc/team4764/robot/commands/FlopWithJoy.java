@@ -22,7 +22,7 @@ public class FlopWithJoy extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 
-    	Robot.flipityFlop.FlopAdjust(Robot.operatorInput.getXboxLeftStickY());
+    	Robot.flipityFlop.flopAdjust(Robot.operatorInput.getXboxLeftStickY());
 
     }
     

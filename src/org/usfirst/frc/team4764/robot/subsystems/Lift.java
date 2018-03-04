@@ -1,7 +1,6 @@
 package org.usfirst.frc.team4764.robot.subsystems;
 
 import org.usfirst.frc.team4764.robot.RobotMap;
-import org.usfirst.frc.team4764.robot.commands.DriveWithJoy;
 import org.usfirst.frc.team4764.robot.commands.LiftWithJoy;
 
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -18,7 +17,7 @@ public class Lift extends Subsystem {
 	public final int m_ticksPerInch = 14;
 
 	private Spark liftMotor = new Spark(RobotMap.liftMotor);
-	private DigitalInput limitSwitch = new DigitalInput(RobotMap.liftLimitSwitch);
+	private DigitalInput limitSwitch = new DigitalInput(RobotMap.liftLimitSwitchHome);
 	private Encoder liftEncoder = new Encoder(RobotMap.liftEncoderChannel1, RobotMap.liftEncoderChannel2, true,
 			EncodingType.k4X);
 	private double m_ticksToTravel;
