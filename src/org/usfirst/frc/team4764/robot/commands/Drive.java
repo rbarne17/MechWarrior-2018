@@ -18,10 +18,10 @@ public class Drive extends Command {
 	private double m_driveAngle;
 	private double integral;
 
-	public Drive(double feetToTravel, double speed) {
+	public Drive(double feetToTravel) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
-
+		double speed = 0.7;
 		m_ticksToTravel = feetToTravel * Robot.driveTrain.ticksPerFoot;
 		if (feetToTravel < 0) {
 			m_speed = speed;

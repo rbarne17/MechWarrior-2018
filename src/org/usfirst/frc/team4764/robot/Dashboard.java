@@ -28,12 +28,12 @@ public class Dashboard {
 		m_chooser = new SendableChooser<>();
 		m_autoPathChooser = new SendableChooser<>();
 
-		m_autoPathChooser.addObject(DriveFeet, new Drive(4.0, 0.7));
+		m_autoPathChooser.addObject(DriveFeet, new Drive(4.0));
 		m_autoPathChooser.addObject("TurnHeadingRight", new TurnRight(90,0.4));
 		m_autoPathChooser.addObject("TurnHeadingLeft", new TurnLeft(90,0.4));
 		SmartDashboard.putData(Robot.driveTrain);
 		SmartDashboard.putData("Auto choices", m_autoPathChooser);
-		SmartDashboard.putData("DriveFeet", new Drive(4.0, 0.7));
+		SmartDashboard.putData("DriveFeet", new Drive(4.0));
 		SmartDashboard.putData("TurnHeadingRight", new TurnRight(90,0.4));
 		SmartDashboard.putData("TurnHeadingLeft", new TurnLeft(90,0.4));
 	
