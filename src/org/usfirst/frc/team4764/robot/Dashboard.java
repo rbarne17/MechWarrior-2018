@@ -7,13 +7,19 @@ import org.usfirst.frc.team4764.robot.commands.FlipityFlopUp;
 import org.usfirst.frc.team4764.robot.commands.Lift;
 import org.usfirst.frc.team4764.robot.commands.LiftHome;
 import org.usfirst.frc.team4764.robot.commands.PickUpCube;
-import org.usfirst.frc.team4764.robot.commands.Turn;
+import org.usfirst.frc.team4764.robot.commands.TurnLeft;
+import org.usfirst.frc.team4764.robot.commands.TurnRight;
 
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Dashboard {
 
+	final String DriveFeet = "DriveFeet";
+	final String TurnHeadingRight = "TurnHeadingRight";
+	final String TurnHeadingLeft = "TurnHeadingLeft";
+	SendableChooser<Command> m_commandChooser = new SendableChooser<>();
 	SendableChooser<String> m_ScoringMechanismChooser = new SendableChooser<>();
 	SendableChooser<String> m_allianceModeChooser = new SendableChooser<>();
 
@@ -26,22 +32,33 @@ public class Dashboard {
 		SmartDashboard.putData(Robot.gripper);
 
 		// commands
-		SmartDashboard.putData("DriveFeet", new Drive(5, 0.5));
-		SmartDashboard.putData("Drop Cube", new DropCube());
-		SmartDashboard.putData("Turn 45 Degrees", new Turn(45.0, .5));
-		SmartDashboard.putData("Turn 90 Degrees", new Turn(90.0, .5));
-		SmartDashboard.putData("Turn 180 Degrees", new Turn(180.0, .5));
-		SmartDashboard.putData("Turn 360 Degrees", new Turn(360.0, .5));
-
-		SmartDashboard.putData("Pick Up Cube", new PickUpCube());
-		SmartDashboard.putData("Lift To Home", new LiftHome(.5));
-		SmartDashboard.putData("Lift 12 Inches", new Lift(12, .5));
-		SmartDashboard.putData("FlipityFlop Up", new FlipityFlopUp());
-		SmartDashboard.putData("FlipityFlop Level", new FlipityFlopLevel());
-
 		// choosers
 		m_ScoringMechanismChooser = new SendableChooser<>();
 		m_allianceModeChooser = new SendableChooser<>();
+		m_commandChooser = new SendableChooser<>();
+
+		m_commandChooser.addObject(DriveFeet, new Drive(4.0, 0.7));
+		m_commandChooser.addObject("TurnHeadingRight", new TurnRight(90,0.4));
+		m_commandChooser.addObject("TurnHeadingLeft", new TurnLeft(90,0.4));
+		m_commandChooser.addObject("Drop Cube", new DropCube());
+		m_commandChooser.addObject("Turn Left 45 Degrees", new TurnLeft(45.0, .5));
+		m_commandChooser.addObject("Turn Right 45 Degrees", new TurnRight(45.0, .5));
+		m_commandChooser.addObject("Turn Left 90 Degrees", new TurnLeft(90.0, .5));
+		m_commandChooser.addObject("Turn Right 90 Degrees", new TurnRight(90.0, .5));
+		m_commandChooser.addObject("Turn Left 180 Degrees", new TurnLeft(180.0, .5));
+		m_commandChooser.addObject("Turn Right 360 Degrees", new TurnRight(360.0, .5));
+		m_commandChooser.addObject("Pick Up Cube", new PickUpCube());
+		m_commandChooser.addObject("Lift To Home", new LiftHome(.5));
+		m_commandChooser.addObject("Lift 12 Inches", new Lift(12, .5));
+		m_commandChooser.addObject("FlipityFlop Up", new FlipityFlopUp());
+		m_commandChooser.addObject("FlipityFlop Level", new FlipityFlopLevel());
+
+		SmartDashboard.putData(Robot.driveTrain);
+		SmartDashboard.putData("Commands", m_commandChooser);
+		SmartDashboard.putData("DriveFeet", new Drive(4.0, 0.7));
+		SmartDashboard.putData("TurnHeadingRight", new TurnRight(90,0.4));
+		SmartDashboard.putData("TurnHeadingLeft", new TurnLeft(90,0.4));
+	
 
 		m_ScoringMechanismChooser.addDefault("Switch", new String());
 		m_ScoringMechanismChooser.addObject("Scale", new String());

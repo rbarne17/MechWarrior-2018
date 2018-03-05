@@ -33,6 +33,7 @@ public class FlipityFlopUp extends Command {
 			return true;
 		}
 		return false;
+
 	}
 
 	// Called once after isFinished returns true

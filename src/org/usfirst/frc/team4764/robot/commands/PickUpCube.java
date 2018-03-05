@@ -11,7 +11,7 @@ public class PickUpCube extends Command {
     public PickUpCube() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.gripper);
+    	
     }
 
     // Called just before this Command runs the first time
@@ -28,11 +28,13 @@ public class PickUpCube extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	
-    	if (Robot.gripper.gripperLimitSwitchClose.get()){
-    		
+    	if (Robot.gripper.gripperLimitSwitchClose.get())
+    	{
+    	
         return true;
        }
     	return false;
+    
     }
 
     // Called once after isFinished returns true
