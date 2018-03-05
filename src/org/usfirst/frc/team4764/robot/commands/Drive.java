@@ -16,28 +16,23 @@ public class Drive extends Command {
 	private double m_driveAngle;
 	private double m_integral;
 
-	public Drive(double feetToTravel, double speed) {
+	public Drive(double distanceToTravel, double speed, char unitOfTravel) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 
-		m_ticksToTravel = feetToTravel * Robot.driveTrain.ticksPerFoot;
-		if (feetToTravel < 0) {
-			m_speed = speed;
-		} else {
-			m_speed = -speed;
+		// distanceToTravel in inches
+		if (unitOfTravel == 'i') {
+			m_ticksToTravel = distanceToTravel * Robot.driveTrain.ticksPerFoot / 12;
 		}
-		requires(Robot.driveTrain);
-	}
-
-	public Drive(int inchesToTravel, double speed) {
-		// Use requires() here to declare subsystem dependencies
-		// eg. requires(chassis);
-
-		m_ticksToTravel = inchesToTravel * Robot.driveTrain.ticksPerFoot / 12;
-		if (inchesToTravel < 0) {
-			m_speed = -speed;
-		} else {
+		// distanceToTravel in feet
+		else {
+			m_ticksToTravel = distanceToTravel * Robot.driveTrain.ticksPerFoot;
+		}
+		
+		if (distanceToTravel < 0) {
 			m_speed = speed;
+		} else {
+			m_speed = -speed;
 		}
 		requires(Robot.driveTrain);
 	}
@@ -49,18 +44,17 @@ public class Drive extends Command {
 		Robot.driveTrain.gyro.reset();
 		m_finalTickTargetLeft = m_ticksToTravel - Robot.driveTrain.getEncoderLeft();
 		m_finalTickTargetRight = m_ticksToTravel - Robot.driveTrain.getEncoderRight();
-		
 
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-   	 double angle = Robot.driveTrain.getHeading();
-   	 double error=angle;
-   	 double Kp = 0.3;
-   	 this.m_integral += (error*.02);
-   	 double Ki=0;
-   	 m_driveAngle = (Kp*error)+(Ki*this.m_integral);
+		double angle = Robot.driveTrain.getHeading();
+		double error = angle;
+		double Kp = 0.3;
+		this.m_integral += (error * .02);
+		double Ki = 0;
+		m_driveAngle = (Kp * error) + (Ki * this.m_integral);
 		Robot.driveTrain.driveByArcade(m_speed, m_driveAngle);
 	}
 

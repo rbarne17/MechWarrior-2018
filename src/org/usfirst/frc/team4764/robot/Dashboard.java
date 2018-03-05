@@ -34,7 +34,7 @@ public class Dashboard {
 		m_allianceModeChooser = new SendableChooser<>();
 
 		// add commands to m_commandChooser
-		m_commandChooser.addObject("Drive 4 Feet", new Drive(4.0, 0.7));
+		m_commandChooser.addObject("Drive 4 Feet", new Drive(4.0, 0.7, 'f'));
 		m_commandChooser.addObject("Drop Cube", new DropCube());
 		m_commandChooser.addObject("Pick Up Cube", new PickUpCube());
 		m_commandChooser.addObject("Turn Left 45 Degrees", new TurnLeft(45.0, .5));
@@ -83,9 +83,9 @@ public class Dashboard {
 		SmartDashboard.putNumber("Percent Rotation", Robot.operatorInput.getJoystickX());
 		SmartDashboard.putNumber("GyroHeading", Robot.driveTrain.getHeading());
 
-		SmartDashboard.putNumber("TEST:ACTUAL Percent Throttle",
+		SmartDashboard.putNumber("ACTUAL Percent Throttle",
 				Robot.driveTrain.scalingSpeed(Robot.operatorInput.getJoystickY()));
-		SmartDashboard.putNumber("TEST:ACTUAL Percent Rotation",
+		SmartDashboard.putNumber("ACTUAL Percent Rotation",
 				Robot.driveTrain.scalingSpeed(Robot.operatorInput.getJoystickX()));
 
 	}

@@ -14,12 +14,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class DriveTrain extends Subsystem {
-	
-	public final int ticksPerFoot=135;
+
+	// competition robot: ticksPerFoot = 166
+	// test robot: ticksPerFoot=135
+	public final int ticksPerFoot = 135;
 
 	public Spark leftMotor = new Spark(RobotMap.driveTrainMotorLeft);
 	public Spark rightMotor = new Spark(RobotMap.driveTrainMotorRight);
-	public ADXRS450_Gyro gyro = new ADXRS450_Gyro();  
+	public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 
 	public Encoder leftEncoder = new Encoder(RobotMap.leftEncoderChannel1, RobotMap.leftEncoderChannel2, true,
 			EncodingType.k4X);
@@ -35,17 +37,11 @@ public class DriveTrain extends Subsystem {
 	}
 
 	public int getEncoderLeft() {
-		// Return Encoder Values Need to be fixed
-
 		return leftEncoder.get();
 	}
 
 	public int getEncoderRight() {
-		// Value reversed for clarity
-		// Return Encoder Values Need to be fixed
-
 		return rightEncoder.get();
-
 	}
 
 	public void initDefaultCommand() {
@@ -56,8 +52,8 @@ public class DriveTrain extends Subsystem {
 	// Drives the robot using s inputs for the left and right side motors.
 	// Inputs are percentages of maxeperateimum motor output.
 	public void driveByTank(double LeftpercentThrottle, double RightpercentThrottle) {
-				leftMotor.set(LeftpercentThrottle);
-				rightMotor.set(RightpercentThrottle);
+		leftMotor.set(LeftpercentThrottle);
+		rightMotor.set(RightpercentThrottle);
 
 	}
 
@@ -71,39 +67,36 @@ public class DriveTrain extends Subsystem {
 		percentThrottle = scalingSpeed(percentThrottle);
 		percentRotationOutput = scalingSpeed(percentRotationOutput);
 
-		SmartDashboard.putNumber("ACTUAL Percent Throttle", percentThrottle);
-		SmartDashboard.putNumber("ACTUAL Percent Rotation", percentRotationOutput);
-
 		leftMotor.set(-percentThrottle - percentRotationOutput);
 
 		rightMotor.set(percentThrottle - percentRotationOutput);
 
 	}
 
-	public double scalingSpeed (double joystickValue) {
-//		TODO: Find better scaling system
-//		Here's a simple algorithm to add sensitivity adjustment to the joystick:
-//
-//		x' = a * x^3 + (1-a) * x
-//
-//		x is a joystick output ranging from -1 to +1
-//
-//		x' is the sensitivity-adjusted output (also will be -1 to +1)
-//
-//		"a" is a variable ranging from 0 to +1
-//
-//		When a=0, you get x' = x
-//
-//		When a=1, you get x' = x^3 which gives very fine control of small outputs
-//
-//		When a is between 0 and 1, you get something in between.
-		
-//		joystickValue is "x"
-		
-//		below is "a"
+	public double scalingSpeed(double joystickValue) {
+		// TODO: Find better scaling system
+		// Here's a simple algorithm to add sensitivity adjustment to the joystick:
+		//
+		// x' = a * x^3 + (1-a) * x
+		//
+		// x is a joystick output ranging from -1 to +1
+		//
+		// x' is the sensitivity-adjusted output (also will be -1 to +1)
+		//
+		// "a" is a variable ranging from 0 to +1
+		//
+		// When a=0, you get x' = x
+		//
+		// When a=1, you get x' = x^3 which gives very fine control of small outputs
+		//
+		// When a is between 0 and 1, you get something in between.
+
+		// joystickValue is "x"
+
+		// below is "a"
 		double scalingCutoff = .8;
-		
-//		below is "x^3"
+
+		// below is "x^3"
 
 		double joystickValueToTheThird = Math.pow(joystickValue, 3);
 
@@ -123,7 +116,7 @@ public class DriveTrain extends Subsystem {
 		rightEncoder.reset();
 
 	}
-	
+
 	public double getHeading() {
 		return gyro.getAngle();
 	}
@@ -137,6 +130,5 @@ public class DriveTrain extends Subsystem {
 			return currentValue;
 		}
 	}
-	
-	
+
 }
