@@ -17,7 +17,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Dashboard {
 
 	SendableChooser<Command> m_commandChooser;
-	SendableChooser<String> m_controllerChooser;
 	SendableChooser<String> m_scoringMechanismChooser;
 	SendableChooser<String> m_allianceModeChooser;
 
@@ -31,7 +30,6 @@ public class Dashboard {
 
 		// choosers
 		m_commandChooser = new SendableChooser<>();
-		m_controllerChooser = new SendableChooser<>();
 		m_scoringMechanismChooser = new SendableChooser<>();
 		m_allianceModeChooser = new SendableChooser<>();
 
@@ -60,15 +58,10 @@ public class Dashboard {
 		m_allianceModeChooser.addObject("WaitScore", new String());
 		m_allianceModeChooser.addObject("Defend", new String());
 
-		// add controller mode to m_controllerChooser
-		m_controllerChooser.addDefault("SingleController", "Single Controller");
-		m_controllerChooser.addDefault("DoubleController", "Double Controller");
-
 		// populate the SmartDashboard with the choosers
 		SmartDashboard.putData("Switch or Scale", m_scoringMechanismChooser);
 		SmartDashboard.putData("Alliance Mode", m_allianceModeChooser);
 		SmartDashboard.putData("Commands", m_commandChooser);
-		SmartDashboard.putData("Controller Mode Choice", m_controllerChooser);
 	}
 
 	public void teleopInit() {

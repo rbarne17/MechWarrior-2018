@@ -39,7 +39,7 @@ public class Robot extends TimedRobot {
 	public static String autonomousAllianceMode;
 	public static String autonomousScoringMechanism;
 	public static String autonomousCommandName;
-	public static String controllerMode;
+	public final static String controllerMode = "DoubleController";
 
 	/**
 	 * This function is run when the robot is first started up and should be used
@@ -127,7 +127,7 @@ public class Robot extends TimedRobot {
 		if (autonomousCommand != null) {
 			autonomousCommand.cancel();
 		}
-		controllerMode = dashboard.m_controllerChooser.getSelected();
+
 		driveTrain.reset();
 	}
 

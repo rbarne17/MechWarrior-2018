@@ -36,10 +36,15 @@ public class OI {
 	Button xboxLBumper = new JoystickButton(xbox, 5);
 
 	public OI() {
-		xboxXButton.whenPressed(new PickUpCube());
-		xboxYButton.whenPressed(new DropCube());
-		xboxBButton.whenPressed(new FlipityFlopUp());
-		xboxAButton.whenPressed(new FlipityFlopLevel());
+		if (Robot.controllerMode == "SingleController") {
+
+		} else {
+
+			xboxXButton.whenPressed(new PickUpCube());
+			xboxYButton.whenPressed(new DropCube());
+			xboxBButton.whenPressed(new FlipityFlopUp());
+			xboxAButton.whenPressed(new FlipityFlopLevel());
+		}
 
 	}
 
