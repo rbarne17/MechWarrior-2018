@@ -26,19 +26,30 @@ public class AutonomousCommand extends CommandGroup {
 		switch (autonomousCommandName) {
 		case "OneLeftSwitchScore":
 			//drive 14 feet forward
+			new Drive(14.0);
 			//turn 90 degrees right
+			new TurnRight(90,0.7);
 			//raise the lifter 2 feet
+			new Lift(2,0.7);
 			//drive 2 feet forward
+			new Drive(2.0);
 			//drop cube
+			new DropCube();
 			;
 			break;
 		case "OneLeftSwitchWaitScore":
 			//wait 5 seconds
+			Timer.delay(5);
 			//drive 14 feet forward
+			new Drive(14.0);
 			//turn 90 degrees right
+			new TurnRight(90,0.7);
 			//raise the lifter 2 feet
+			new Lift(2,0.7);
 			//drive 2 feet forward
+			new Drive(2.0);
 			//drop cube
+			new DropCube();
 			;
 			break;
 		case "OneRightSwitchDefend":
@@ -83,16 +94,21 @@ public class AutonomousCommand extends CommandGroup {
 			//drive 5ft foward
 			 new Drive(5.0);
 			//turn 90 degrees to the left
-			 new TurnLeft(-90,0.7);
+			 new TurnLeft(90,0.7);
 			//drive 3ft foward
 			 new Drive(3.0);
 			//turn 90 degrees to the right
 			 new TurnRight(90,0.7);
 			 //drive forward 8 feet
+			 new Drive(8.0);
 			 //turn 90 degrees right
+			 new TurnRight(90,0.7);
 			 //lift cube 3 feet
+			 new Lift(3.0,0.7);
 			 //drive forward 1 foot
+			 new Drive(1.0);
 			 //drop cube
+			 new DropCube()
 			;
 			break;
 		case "TwoLeftSwitchWaitScore":
@@ -100,23 +116,28 @@ public class AutonomousCommand extends CommandGroup {
 			//drive 5ft foward
 			 new Drive(5.0);
 			//turn 90 degrees to the left
-			 new TurnLeft(-90,0.7);
+			 new TurnLeft(90,0.7);
 			//drive 3ft foward
 			 new Drive(3.0);
 			//turn 90 degrees to the right
 			 new TurnRight(90,0.7);
 			 //drive forward 8 feet
+			 new Drive(8.0);
 			 //turn 90 degrees right
+			 new TurnRight(90,0.7);
 			 //lift cube 3 feet
+			 new Lift(3.0,0.7);
 			 //drive forward 1 foot
+			 new Drive(1.0);
 			 //drop cube
+			 new DropCube()
 			;
 			break;
 		case "TwoLeftSwitchDefend":
 			//drive 5ft foward
 			 new Drive(5.0);
 			//turn 90 degrees to the left
-			 new TurnLeft(-90,0.7);
+			 new TurnLeft(90,0.7);
 			//drive 3ft foward
 			 new Drive(3.0);
 			//turn 90 degrees to the right
@@ -128,16 +149,21 @@ public class AutonomousCommand extends CommandGroup {
 			//drive 5ft foward
 			 new Drive(5.0);
 			//turn 90 degrees to the right
-			 new TurnRight(-90,0.7);
+			 new TurnRight(90,0.7);
 			//drive 3ft foward
 			 new Drive(3.0);
 			//turn 90 degrees to the Left
 			 new TurnLeft(90,0.7);
 			 //drive forward 8 feet
+			 new Drive(8.0);
 			 //turn 90 degrees left
+			 new TurnLeft(90,0.7);
 			 //lift cube 3 feet
+			 new Lift(3.0,0.7);
 			 //drive forward 1 foot
+			 new Drive(1.0);
 			 //drop cube
+			 new DropCube();
 			;
 			break;
 		case "TwoRightSwitchWaitScore":
@@ -150,11 +176,16 @@ public class AutonomousCommand extends CommandGroup {
 			 new Drive(3.0);
 			//turn 90 degrees to the Left
 			 new TurnLeft(90,0.7);
-			 //drive forward 8 feet
+			//drive forward 8 feet
+			 new Drive(8.0);
 			 //turn 90 degrees left
+			 new TurnLeft(90,0.7);
 			 //lift cube 3 feet
+			 new Lift(3.0,0.7);
 			 //drive forward 1 foot
+			 new Drive(1.0);
 			 //drop cube
+			 new DropCube();
 			;
 			break;
 		case "TwoRightSwitchDefend":
@@ -198,7 +229,7 @@ public class AutonomousCommand extends CommandGroup {
 			//drive 5ft foward
 			new Drive(5.0);
 			//turn 90 degrees to the left
-			new TurnLeft(-90.0,0.7);
+			new TurnLeft(90.0,0.7);
 			//drive 3ft foward
 			new Drive(3.0);
 			//turn 90 degrees to the righ
@@ -220,12 +251,13 @@ public class AutonomousCommand extends CommandGroup {
 			//drive 5ft foward
 			 new Drive(5.0);
 			//turn 90 degrees to the right
-			 new TurnRight(-90,0.7);
+			 new TurnRight(90,0.7);
 			//drive 3ft foward
 			 new Drive(3.0);
 			//turn 90 degrees to the Left
 			 new TurnLeft(90,0.7);
 			 //drive 18 feet forward
+			 new Drive(18.0);
 			;
 			break;
 		case "TwoRightScaleScore":
@@ -283,23 +315,35 @@ public class AutonomousCommand extends CommandGroup {
 			//turn 90 degrees to the Left
 			 new TurnLeft(90,0.7);
 			 //drive 18 feet forward
+			 new Drive(18.0);
 			;
 			break;
 		case "ThreeRightSwitchScore":
 			//drive 14 feet forward
+			new Drive(14.0);
 			//turn 90 degrees left
+			new TurnLeft(90,0.7);
 			//raise the lifter 3 feet
+			new Lift(3.0,0.7);
 			//drive 2 feet forward
+			new Drive(2.0);
 			//drop cube
+			new DropCube();
 			;
 			break;
 		case "ThreeRightSwitchWaitScore":
 			//wait 5 seconds
+			Timer.delay(5);
 			//drive 14 feet forward
+			new Drive(14.0);
 			//turn 90 degrees left
+			new TurnLeft(90,0.7);
 			//raise the lifter 3 feet
+			new Lift(3.0,0.7);
 			//drive 2 feet forward
+			new Drive(2.0);
 			//drop cube
+			new DropCube();
 			;
 			break;
 		case "ThreeLeftSwitchDefend":
