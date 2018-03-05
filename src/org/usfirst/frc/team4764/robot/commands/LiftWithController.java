@@ -1,17 +1,18 @@
 package org.usfirst.frc.team4764.robot.commands;
 
 import org.usfirst.frc.team4764.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class GripperWithTrigger extends Command {
+public class LiftWithController extends Command {
 
-    public GripperWithTrigger() {
+    public LiftWithController() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.gripper);
+    	requires(Robot.lift);
     }
     	
 
@@ -22,7 +23,7 @@ public class GripperWithTrigger extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 
-    	Robot.gripper.gripperAdjust(Robot.operatorInput.getXboxTrigger());
+    	Robot.lift.liftAdjust(-Robot.operatorInput.getControllerLiftValue());
 
     }
     

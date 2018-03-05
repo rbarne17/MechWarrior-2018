@@ -1,7 +1,7 @@
 package org.usfirst.frc.team4764.robot.subsystems;
 
 import org.usfirst.frc.team4764.robot.RobotMap;
-import org.usfirst.frc.team4764.robot.commands.DriveWithJoy;
+import org.usfirst.frc.team4764.robot.commands.DriveWithController;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Encoder;
@@ -50,7 +50,7 @@ public class DriveTrain extends Subsystem {
 
 	public void initDefaultCommand() {
 
-		setDefaultCommand(new DriveWithJoy());
+		setDefaultCommand(new DriveWithController());
 	}
 
 	// Drives the robot using s inputs for the left and right side motors.

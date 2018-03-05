@@ -40,7 +40,6 @@ public class OI {
 		xboxYButton.whenPressed(new DropCube());
 		xboxBButton.whenPressed(new FlipityFlopUp());
 		xboxAButton.whenPressed(new FlipityFlopLevel());
-		
 
 	}
 
@@ -75,9 +74,42 @@ public class OI {
 	public double getXboxRightTrigger() {
 		return xbox.getTriggerAxis(Hand.kRight);
 	}
-	
+
 	public double getXboxTrigger() {
-		return getXboxLeftTrigger()- getXboxRightTrigger();
+		return getXboxLeftTrigger() - getXboxRightTrigger();
+	}
+
+	public double getControllerDriveTrainValue() {
+		return getJoystickY();
+	}
+
+	public double getControllerGripperValue() {
+		if (Robot.controllerMode == "SingleController") {
+			return 0.0;
+
+		} else {
+			return Robot.operatorInput.getXboxTrigger();
+		}
+	}
+
+	public double getControllerLiftValue() {
+		if (Robot.controllerMode == "SingleController") {
+			return 0.0;
+
+		} else {
+			return Robot.operatorInput.getXboxLeftStickY();
+		}
+
+	}
+
+	public double getControllerFlipityFlopValue() {
+		if (Robot.controllerMode == "SingleController") {
+			return 0.0;
+
+		} else {
+			return Robot.operatorInput.getXboxLeftStickY();
+		}
+
 	}
 
 }

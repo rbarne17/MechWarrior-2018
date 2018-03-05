@@ -39,6 +39,7 @@ public class Robot extends TimedRobot {
 	public static String autonomousAllianceMode;
 	public static String autonomousScoringMechanism;
 	public static String autonomousCommandName;
+	public static String controllerMode;
 
 	/**
 	 * This function is run when the robot is first started up and should be used
@@ -81,7 +82,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 
-		autonomousScoringMechanism = dashboard.m_ScoringMechanismChooser.getSelected();
+		autonomousScoringMechanism = dashboard.m_scoringMechanismChooser.getSelected();
 		autonomousAllianceMode = dashboard.m_allianceModeChooser.getSelected();
 
 		if ((FieldData.location == 1 && (FieldData.scaleSide == 'R' || FieldData.switchSide == 'R'))
@@ -126,7 +127,7 @@ public class Robot extends TimedRobot {
 		if (autonomousCommand != null) {
 			autonomousCommand.cancel();
 		}
-
+		controllerMode = dashboard.m_controllerChooser.getSelected();
 		driveTrain.reset();
 	}
 

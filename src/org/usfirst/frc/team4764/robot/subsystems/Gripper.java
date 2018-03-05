@@ -1,7 +1,7 @@
 package org.usfirst.frc.team4764.robot.subsystems;
 
 import org.usfirst.frc.team4764.robot.RobotMap;
-import org.usfirst.frc.team4764.robot.commands.GripperWithTrigger;
+import org.usfirst.frc.team4764.robot.commands.GripperWithController;
 
 import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.Spark;
@@ -50,7 +50,7 @@ public class Gripper extends Subsystem {
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
-		setDefaultCommand(new GripperWithTrigger());
+		setDefaultCommand(new GripperWithController());
 	}
 
 }

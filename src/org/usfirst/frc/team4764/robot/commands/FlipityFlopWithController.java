@@ -1,18 +1,17 @@
 package org.usfirst.frc.team4764.robot.commands;
 
 import org.usfirst.frc.team4764.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class LiftWithJoy extends Command {
+public class FlipityFlopWithController extends Command {
 
-    public LiftWithJoy() {
+    public FlipityFlopWithController() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.lift);
+    	requires(Robot.flipityFlop);
     }
     	
 
@@ -23,7 +22,7 @@ public class LiftWithJoy extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 
-    	Robot.lift.liftAdjust(-Robot.operatorInput.getXboxLeftStickY());
+    	Robot.flipityFlop.flopAdjust(Robot.operatorInput.getControllerFlipityFlopValue());
 
     }
     

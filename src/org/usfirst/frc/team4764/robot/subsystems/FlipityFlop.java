@@ -1,7 +1,7 @@
 package org.usfirst.frc.team4764.robot.subsystems;
 
 import org.usfirst.frc.team4764.robot.RobotMap;
-import org.usfirst.frc.team4764.robot.commands.FlopWithJoy;
+import org.usfirst.frc.team4764.robot.commands.FlipityFlopWithController;
 import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -41,7 +41,7 @@ public class FlipityFlop extends Subsystem {
 
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new FlopWithJoy());
+		setDefaultCommand(new FlipityFlopWithController());
 	}
 
 }

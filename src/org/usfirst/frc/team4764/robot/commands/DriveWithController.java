@@ -6,14 +6,14 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class DriveWithJoy extends Command
+public class DriveWithController extends Command
 {
 //	double rightStickYValue = Robot.OperatorInput.getRightStickY();
 //	double leftStickXValue = Robot.OperatorInput.getLeftStickX();
 
 //	double leftStickYValue = Robot.OperatorInput.getLeftStickY();
 
-	public DriveWithJoy() 
+	public DriveWithController() 
 	{
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);

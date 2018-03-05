@@ -16,12 +16,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Dashboard {
 
-	final String DriveFeet = "DriveFeet";
-	final String TurnHeadingRight = "TurnHeadingRight";
-	final String TurnHeadingLeft = "TurnHeadingLeft";
-	SendableChooser<Command> m_commandChooser = new SendableChooser<>();
-	SendableChooser<String> m_ScoringMechanismChooser = new SendableChooser<>();
-	SendableChooser<String> m_allianceModeChooser = new SendableChooser<>();
+	SendableChooser<Command> m_commandChooser;
+	SendableChooser<String> m_controllerChooser;
+	SendableChooser<String> m_scoringMechanismChooser;
+	SendableChooser<String> m_allianceModeChooser;
 
 	public void robotInit() {
 
@@ -31,16 +29,16 @@ public class Dashboard {
 		SmartDashboard.putData(Robot.flipityFlop);
 		SmartDashboard.putData(Robot.gripper);
 
-		// commands
 		// choosers
-		m_ScoringMechanismChooser = new SendableChooser<>();
-		m_allianceModeChooser = new SendableChooser<>();
 		m_commandChooser = new SendableChooser<>();
+		m_controllerChooser = new SendableChooser<>();
+		m_scoringMechanismChooser = new SendableChooser<>();
+		m_allianceModeChooser = new SendableChooser<>();
 
-		m_commandChooser.addObject(DriveFeet, new Drive(4.0, 0.7));
-		m_commandChooser.addObject("TurnHeadingRight", new TurnRight(90,0.4));
-		m_commandChooser.addObject("TurnHeadingLeft", new TurnLeft(90,0.4));
+		// add commands to m_commandChooser
+		m_commandChooser.addObject("Drive 4 Feet", new Drive(4.0, 0.7));
 		m_commandChooser.addObject("Drop Cube", new DropCube());
+		m_commandChooser.addObject("Pick Up Cube", new PickUpCube());
 		m_commandChooser.addObject("Turn Left 45 Degrees", new TurnLeft(45.0, .5));
 		m_commandChooser.addObject("Turn Right 45 Degrees", new TurnRight(45.0, .5));
 		m_commandChooser.addObject("Turn Left 90 Degrees", new TurnLeft(90.0, .5));
@@ -53,23 +51,24 @@ public class Dashboard {
 		m_commandChooser.addObject("FlipityFlop Up", new FlipityFlopUp());
 		m_commandChooser.addObject("FlipityFlop Level", new FlipityFlopLevel());
 
-		SmartDashboard.putData(Robot.driveTrain);
-		SmartDashboard.putData("Commands", m_commandChooser);
-		SmartDashboard.putData("DriveFeet", new Drive(4.0, 0.7));
-		SmartDashboard.putData("TurnHeadingRight", new TurnRight(90,0.4));
-		SmartDashboard.putData("TurnHeadingLeft", new TurnLeft(90,0.4));
-	
+		// add scoring mechanism to m_scoringMechanismChooser
+		m_scoringMechanismChooser.addDefault("Switch", new String());
+		m_scoringMechanismChooser.addObject("Scale", new String());
 
-		m_ScoringMechanismChooser.addDefault("Switch", new String());
-		m_ScoringMechanismChooser.addObject("Scale", new String());
-
+		// add alliance mode to m_allianceModeChooser
 		m_allianceModeChooser.addDefault("Score", new String());
 		m_allianceModeChooser.addObject("WaitScore", new String());
 		m_allianceModeChooser.addObject("Defend", new String());
-		
-		SmartDashboard.putData("Switch or Scale", m_ScoringMechanismChooser);
-		SmartDashboard.putData("Alliance Mode", m_allianceModeChooser);
 
+		// add controller mode to m_controllerChooser
+		m_controllerChooser.addDefault("SingleController", "Single Controller");
+		m_controllerChooser.addDefault("DoubleController", "Double Controller");
+
+		// populate the SmartDashboard with the choosers
+		SmartDashboard.putData("Switch or Scale", m_scoringMechanismChooser);
+		SmartDashboard.putData("Alliance Mode", m_allianceModeChooser);
+		SmartDashboard.putData("Commands", m_commandChooser);
+		SmartDashboard.putData("Controller Mode Choice", m_controllerChooser);
 	}
 
 	public void teleopInit() {

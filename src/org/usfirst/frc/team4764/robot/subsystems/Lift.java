@@ -1,7 +1,7 @@
 package org.usfirst.frc.team4764.robot.subsystems;
 
 import org.usfirst.frc.team4764.robot.RobotMap;
-import org.usfirst.frc.team4764.robot.commands.LiftWithJoy;
+import org.usfirst.frc.team4764.robot.commands.LiftWithController;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
@@ -63,7 +63,7 @@ public class Lift extends Subsystem {
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
-		setDefaultCommand(new LiftWithJoy());
+		setDefaultCommand(new LiftWithController());
 
 	}
 
