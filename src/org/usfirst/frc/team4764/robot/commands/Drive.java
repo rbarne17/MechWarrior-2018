@@ -16,7 +16,12 @@ public class Drive extends Command {
 	private double m_driveAngle;
 	private double m_integral;
 
-	public Drive(double distanceToTravel, double speed, char unitOfTravel) {
+	public Drive(double distanceToTravel, double speed) {
+		//distance to travel in feet
+		this(distanceToTravel, speed, 'f');
+	}
+	
+	public Drive(double distanceToTravel, double speed,char unitOfTravel) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 
