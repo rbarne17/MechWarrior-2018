@@ -35,11 +35,13 @@ public class FlipityFlop extends Subsystem {
 	}
 
 	public boolean flipityFlopUp() {
-		return flipityFlopLimitSwitchUp.get();
+		// limit switches return false when triggered
+		return !flipityFlopLimitSwitchUp.get();
 	}
 
 	public boolean flipityFlopLevel() {
-		return flipityFlopLimitSwitchLevel.get();
+		// limit switches return false when triggered
+		return !flipityFlopLimitSwitchLevel.get();
 	}
 
 	public void reset() {

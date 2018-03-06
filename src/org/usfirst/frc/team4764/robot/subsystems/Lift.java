@@ -45,7 +45,8 @@ public class Lift extends Subsystem {
 	}
 
 	public boolean liftAtHome() {
-		return this.liftLimitSwitchHome.get();
+		// limit switches return false when triggered
+		return !liftLimitSwitchHome.get();
 	}
 
 	public void reset() {

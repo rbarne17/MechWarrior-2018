@@ -43,11 +43,13 @@ public class Gripper extends Subsystem {
 	}
 
 	public boolean gripperClosed() {
-		return gripperLimitSwitchClose.get();
+		// limit switches return false when triggered
+		return !gripperLimitSwitchClose.get();
 	}
 
 	public boolean gripperOpen() {
-		return gripperLimitSwitchOpen.get();
+		// limit switches return false when triggered
+		return !gripperLimitSwitchOpen.get();
 	}
 
 	public void reset() {
