@@ -27,7 +27,7 @@ public class FlipityFlopLevel extends Command {
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		if (Robot.flipityFlop.flopLevel.get()) {
+		if (Robot.flipityFlop.flipityFlopLevel()) {
 			return true;
 		}
 		return false;

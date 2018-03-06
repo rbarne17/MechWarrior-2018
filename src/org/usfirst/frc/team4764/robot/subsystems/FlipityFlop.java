@@ -14,8 +14,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class FlipityFlop extends Subsystem {
 	Spark flopMotor = new Spark(RobotMap.flipityFlopMotor);
-	public DigitalOutput flopUp = new DigitalOutput(RobotMap.flipityFlopLimitSwitchUp);
-	public DigitalOutput flopLevel = new DigitalOutput(RobotMap.flipityFlopLimitSwitchLevel);
+	DigitalOutput flipityFlopLimitSwitchUp = new DigitalOutput(RobotMap.flipityFlopLimitSwitchUp);
+	DigitalOutput flipityFlopLimitSwitchLevel = new DigitalOutput(RobotMap.flipityFlopLimitSwitchLevel);
 
 	public FlipityFlop() {
 		flopMotor.set(0.0);
@@ -30,10 +30,17 @@ public class FlipityFlop extends Subsystem {
 		flopMotor.set(-1);
 	}
 
-	public void flopAdjust(double speed){
+	public void flopAdjust(double speed) {
 		flopMotor.set(speed);
 	}
 
+	public boolean flipityFlopUp() {
+		return flipityFlopLimitSwitchUp.get();
+	}
+
+	public boolean flipityFlopLevel() {
+		return flipityFlopLimitSwitchLevel.get();
+	}
 
 	public void reset() {
 		flopMotor.set(0.0);

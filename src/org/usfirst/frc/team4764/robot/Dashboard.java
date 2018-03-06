@@ -75,19 +75,31 @@ public class Dashboard {
 	public void teleopPeriodic()
 
 	{
+		// DriveTrain
 		SmartDashboard.putNumber("DriveTrain Encoder Right", Robot.driveTrain.getEncoderRight());
 		SmartDashboard.putNumber("DriveTrain Encoder Left", Robot.driveTrain.getEncoderLeft());
-		SmartDashboard.putNumber("Lift Encoder", Robot.lift.getEncoderLift());
-
 		SmartDashboard.putNumber("Percent Throttle", Robot.operatorInput.getJoystickY());
 		SmartDashboard.putNumber("Percent Rotation", Robot.operatorInput.getJoystickX());
 		SmartDashboard.putNumber("GyroHeading", Robot.driveTrain.getHeading());
-
 		SmartDashboard.putNumber("ACTUAL Percent Throttle",
 				Robot.driveTrain.scalingSpeed(Robot.operatorInput.getJoystickY()));
 		SmartDashboard.putNumber("ACTUAL Percent Rotation",
 				Robot.driveTrain.scalingSpeed(Robot.operatorInput.getJoystickX()));
 
+		// Lift
+		SmartDashboard.putNumber("Lift Encoder", Robot.lift.getEncoderLift());
+		SmartDashboard.putBoolean("LiftAtHome", Robot.lift.liftAtHome());
+
+		// Gripper
+		SmartDashboard.putBoolean("GripperClosed", Robot.gripper.gripperClosed());
+		SmartDashboard.putBoolean("GripperOpen", Robot.gripper.gripperOpen());
+		
+		//FlipityFlop
+		SmartDashboard.putBoolean("FlipityFlopUp", Robot.flipityFlop.flipityFlopUp());
+		SmartDashboard.putBoolean("FlipityFlopLevel", Robot.flipityFlop.flipityFlopLevel());
+
+		
+		
 	}
 
 	public void autonomousPeriodic() {
