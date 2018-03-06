@@ -3,7 +3,7 @@ package org.usfirst.frc.team4764.robot.subsystems;
 import org.usfirst.frc.team4764.robot.RobotMap;
 import org.usfirst.frc.team4764.robot.commands.LiftWithController;
 
-import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
@@ -17,7 +17,7 @@ public class Lift extends Subsystem {
 	public final int m_ticksPerInch = 14;
 
 	private Spark liftMotor = new Spark(RobotMap.liftMotor);
-	private DigitalInput liftLimitSwitchHome = new DigitalInput(RobotMap.liftLimitSwitchHome);
+	private DigitalOutput liftLimitSwitchHome = new DigitalOutput(RobotMap.liftLimitSwitchHome);
 	private Encoder liftEncoder = new Encoder(RobotMap.liftEncoderChannel1, RobotMap.liftEncoderChannel2, true,
 			EncodingType.k4X);
 
@@ -45,7 +45,7 @@ public class Lift extends Subsystem {
 	}
 
 	public boolean liftAtHome() {
-		return liftLimitSwitchHome.get();
+		return this.liftLimitSwitchHome.get();
 	}
 
 	public void reset() {
