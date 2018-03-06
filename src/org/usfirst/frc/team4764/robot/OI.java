@@ -112,7 +112,7 @@ public class OI {
 			return 0.0;
 
 		} else {
-			return Robot.operatorInput.getXboxLeftStickY();
+			return Robot.operatorInput.getXboxRightStickY();
 		}
 
 	}

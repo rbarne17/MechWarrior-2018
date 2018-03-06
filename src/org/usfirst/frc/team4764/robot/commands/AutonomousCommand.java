@@ -13,13 +13,13 @@ public class AutonomousCommand extends CommandGroup {
 	}
 
 	/*
-	 * possible paths: OneLeftSwitch OneLeftSwitchWait OneRightSwitchDefense
-	 * OneLeftScale OneLeftScaleWait OneRightScaleDefense TwoLeftSwitch
-	 * TwoLeftSwitchWait TwoLeftSwitchDefense TwoRightSwitch TwoRightSwitchWait
-	 * TwoRightSwitchDefense TwoLeftScale TwoLeftScaleWait TwoLeftScaleDefense
-	 * TwoRightScale TwoRightScaleWait TwoRightScaleDefense ThreeRightSwitch
-	 * ThreeRightSwitchWait ThreeLeftSwitchDefense ThreeRightScale
-	 * ThreeRightScaleWait ThreeLeftScaleDefense
+	 * possible paths: OneLeftSwitchScore OneLeftSwitchWaitScore OneRightSwitchDefense
+	 * OneLeftScaleScore OneLeftScaleWaitScore OneRightScaleDefense TwoLeftSwitchScore
+	 * TwoLeftSwitchWaitScore TwoLeftSwitchDefense TwoRightSwitchScore TwoRightSwitchWaitScore
+	 * TwoRightSwitchDefense TwoLeftScaleScore TwoLeftScaleWaitScore TwoLeftScaleDefense
+	 * TwoRightScaleScore TwoRightScaleWaitScore TwoRightScaleDefense ThreeRightSwitchScore
+	 * ThreeRightSwitchWaitScore ThreeLeftSwitchDefense ThreeRightScaleScore
+	 * ThreeRightScaleWaitScore ThreeLeftScaleDefense
 	 */
 
 	public AutonomousCommand(String autonomousCommandName) {

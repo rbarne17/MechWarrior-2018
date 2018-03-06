@@ -1,13 +1,12 @@
 package org.usfirst.frc.team4764.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class Climb extends Command {
+public class Climb extends CommandGroup {
 
-	@Override
-	protected boolean isFinished() {
-		// TODO Auto-generated method stub
-		return false;
+	public Climb() {
+		new FlipityFlopUp();
+		new Lift(40.0, .5);
+		new LiftHome(.5);
 	}
-
 }
