@@ -3,7 +3,7 @@ package org.usfirst.frc.team4764.robot.subsystems;
 import org.usfirst.frc.team4764.robot.RobotMap;
 import org.usfirst.frc.team4764.robot.commands.GripperWithController;
 
-import edu.wpi.first.wpilibj.DigitalOutput;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -12,8 +12,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Gripper extends Subsystem {
 	Spark gripperMotor = new Spark(RobotMap.gripperMotor);
-	DigitalOutput gripperLimitSwitchOpen = new DigitalOutput(RobotMap.gripperLimitSwitchOpen);
-	DigitalOutput gripperLimitSwitchClose = new DigitalOutput(RobotMap.gripperLimitSwitchClose);
+	DigitalInput gripperLimitSwitchOpen = new DigitalInput(RobotMap.gripperLimitSwitchOpen);
+	DigitalInput gripperLimitSwitchClose = new DigitalInput(RobotMap.gripperLimitSwitchClose);
 
 	public Gripper() {
 		gripperMotor.set(0.0);
