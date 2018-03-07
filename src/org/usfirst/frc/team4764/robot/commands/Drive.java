@@ -17,11 +17,15 @@ public class Drive extends Command {
 	private double m_integral;
 
 	public Drive(double distanceToTravel, double speed) {
-		//distance to travel in feet
+		// distance to travel in feet
 		this(distanceToTravel, speed, 'f');
 	}
-	
-	public Drive(double distanceToTravel, double speed,char unitOfTravel) {
+
+	public Drive(double distanceToTravel) {
+		this(distanceToTravel, .7, 'f');
+	}
+
+	public Drive(double distanceToTravel, double speed, char unitOfTravel) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 
@@ -33,7 +37,7 @@ public class Drive extends Command {
 		else {
 			m_ticksToTravel = distanceToTravel * Robot.driveTrain.ticksPerFoot;
 		}
-		
+
 		if (distanceToTravel < 0) {
 			m_speed = speed;
 		} else {

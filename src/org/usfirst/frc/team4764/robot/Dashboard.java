@@ -23,6 +23,10 @@ public class Dashboard {
 	public void robotInit() {
 
 		// subsystems display
+		m_commandChooser = new SendableChooser<>();
+		m_scoringMechanismChooser = new SendableChooser<>();
+		m_allianceModeChooser = new SendableChooser<>();
+
 		SmartDashboard.putData(Robot.driveTrain);
 		SmartDashboard.putData(Robot.lift);
 		SmartDashboard.putData(Robot.flipityFlop);
