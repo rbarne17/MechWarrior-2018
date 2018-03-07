@@ -84,8 +84,12 @@ public class OI {
 		return getXboxLeftTrigger() - getXboxRightTrigger();
 	}
 
-	public double getControllerDriveTrainValue() {
+	public double getControllerDriveTrainThrottleValue() {
 		return getJoystickY();
+	}
+
+	public double getControllerDriveTrainRotationValue() {
+		return getJoystickX();
 	}
 
 	public double getControllerGripperValue() {

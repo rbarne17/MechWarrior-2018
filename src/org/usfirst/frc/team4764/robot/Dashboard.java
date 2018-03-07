@@ -38,7 +38,8 @@ public class Dashboard {
 		m_allianceModeChooser = new SendableChooser<>();
 
 		// add commands to m_commandChooser
-		m_commandChooser.addObject("Drive 4 Feet", new Drive(4.0, 0.7, 'f'));
+		m_commandChooser.addObject("Drive 1 Foot", new Drive(1.0));
+		m_commandChooser.addObject("Drive 4 Feet", new Drive(4.0));
 		m_commandChooser.addObject("Drop Cube", new DropCube());
 		m_commandChooser.addObject("Pick Up Cube", new PickUpCube());
 		m_commandChooser.addObject("Turn Left 45 Degrees", new TurnLeft(45.0, .5));
@@ -82,31 +83,56 @@ public class Dashboard {
 		// DriveTrain
 		SmartDashboard.putNumber("DriveTrain Encoder Right", Robot.driveTrain.getEncoderRight());
 		SmartDashboard.putNumber("DriveTrain Encoder Left", Robot.driveTrain.getEncoderLeft());
-		SmartDashboard.putNumber("Percent Throttle", Robot.operatorInput.getJoystickY());
-		SmartDashboard.putNumber("Percent Rotation", Robot.operatorInput.getJoystickX());
+		SmartDashboard.putNumber("Percent Throttle", Robot.operatorInput.getControllerDriveTrainThrottleValue());
+		SmartDashboard.putNumber("Percent Rotation", Robot.operatorInput.getControllerDriveTrainRotationValue());
 		SmartDashboard.putNumber("GyroHeading", Robot.driveTrain.getHeading());
 		SmartDashboard.putNumber("ACTUAL Percent Throttle",
-				Robot.driveTrain.scalingSpeed(Robot.operatorInput.getJoystickY()));
+				Robot.driveTrain.scalingSpeed(Robot.operatorInput.getControllerDriveTrainThrottleValue()));
 		SmartDashboard.putNumber("ACTUAL Percent Rotation",
-				Robot.driveTrain.scalingSpeed(Robot.operatorInput.getJoystickX()));
+				Robot.driveTrain.scalingSpeed(Robot.operatorInput.getControllerDriveTrainRotationValue()));
 
 		// Lift
 		SmartDashboard.putNumber("Lift Encoder", Robot.lift.getEncoderLift());
 		SmartDashboard.putBoolean("LiftAtHome", Robot.lift.liftAtHome());
+		SmartDashboard.putNumber("LiftControllerValue", Robot.operatorInput.getControllerLiftValue());
 
 		// Gripper
 		SmartDashboard.putBoolean("GripperClosed", Robot.gripper.gripperClosed());
 		SmartDashboard.putBoolean("GripperOpen", Robot.gripper.gripperOpen());
+		SmartDashboard.putNumber("GripperControllerValue", Robot.operatorInput.getControllerGripperValue());
 		
 		//FlipityFlop
 		SmartDashboard.putBoolean("FlipityFlopUp", Robot.flipityFlop.flipityFlopUp());
 		SmartDashboard.putBoolean("FlipityFlopLevel", Robot.flipityFlop.flipityFlopLevel());
-
-		
-		
+		SmartDashboard.putNumber("FlipityFlopControllerValue", Robot.operatorInput.getControllerFlipityFlopValue());
 	}
 
 	public void autonomousPeriodic() {
+		// DriveTrain
+		SmartDashboard.putNumber("DriveTrain Encoder Right", Robot.driveTrain.getEncoderRight());
+		SmartDashboard.putNumber("DriveTrain Encoder Left", Robot.driveTrain.getEncoderLeft());
+		SmartDashboard.putNumber("Percent Throttle", Robot.operatorInput.getControllerDriveTrainThrottleValue());
+		SmartDashboard.putNumber("Percent Rotation", Robot.operatorInput.getControllerDriveTrainRotationValue());
+		SmartDashboard.putNumber("GyroHeading", Robot.driveTrain.getHeading());
+		SmartDashboard.putNumber("ACTUAL Percent Throttle",
+				Robot.driveTrain.scalingSpeed(Robot.operatorInput.getControllerDriveTrainThrottleValue()));
+		SmartDashboard.putNumber("ACTUAL Percent Rotation",
+				Robot.driveTrain.scalingSpeed(Robot.operatorInput.getControllerDriveTrainRotationValue()));
+
+		// Lift
+		SmartDashboard.putNumber("Lift Encoder", Robot.lift.getEncoderLift());
+		SmartDashboard.putBoolean("LiftAtHome", Robot.lift.liftAtHome());
+		SmartDashboard.putNumber("LiftControllerValue", Robot.operatorInput.getControllerLiftValue());
+
+		// Gripper
+		SmartDashboard.putBoolean("GripperClosed", Robot.gripper.gripperClosed());
+		SmartDashboard.putBoolean("GripperOpen", Robot.gripper.gripperOpen());
+		SmartDashboard.putNumber("GripperControllerValue", Robot.operatorInput.getControllerGripperValue());
+		
+		//FlipityFlop
+		SmartDashboard.putBoolean("FlipityFlopUp", Robot.flipityFlop.flipityFlopUp());
+		SmartDashboard.putBoolean("FlipityFlopLevel", Robot.flipityFlop.flipityFlopLevel());
+		SmartDashboard.putNumber("FlipityFlopControllerValue", Robot.operatorInput.getControllerFlipityFlopValue());
 
 	}
 }
