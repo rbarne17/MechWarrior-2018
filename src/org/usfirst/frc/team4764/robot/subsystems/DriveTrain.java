@@ -30,6 +30,8 @@ public class DriveTrain extends Subsystem {
 
 	public DriveTrain() {
 
+		gyro.calibrate();
+
 		leftMotor.set(0.0);
 
 		rightMotor.set(0.0);

@@ -94,7 +94,7 @@ public class AutonomousCommand extends CommandGroup {
 			//drive 5ft foward
 			 new Drive(5.0);
 			//turn 90 degrees to the left
-			 new TurnLeft(90,0.7);
+			 new TurnLeft(-90,0.7);
 			//drive 3ft foward
 			 new Drive(3.0);
 			//turn 90 degrees to the right
@@ -116,7 +116,7 @@ public class AutonomousCommand extends CommandGroup {
 			//drive 5ft foward
 			 new Drive(5.0);
 			//turn 90 degrees to the left
-			 new TurnLeft(90,0.7);
+			 new TurnLeft(-90,0.7);
 			//drive 3ft foward
 			 new Drive(3.0);
 			//turn 90 degrees to the right
@@ -137,7 +137,7 @@ public class AutonomousCommand extends CommandGroup {
 			//drive 5ft foward
 			 new Drive(5.0);
 			//turn 90 degrees to the left
-			 new TurnLeft(90,0.7);
+			 new TurnLeft(-90,0.7);
 			//drive 3ft foward
 			 new Drive(3.0);
 			//turn 90 degrees to the right
@@ -153,11 +153,11 @@ public class AutonomousCommand extends CommandGroup {
 			//drive 3ft foward
 			 new Drive(3.0);
 			//turn 90 degrees to the Left
-			 new TurnLeft(90,0.7);
+			 new TurnLeft(-90,0.7);
 			 //drive forward 8 feet
 			 new Drive(8.0);
 			 //turn 90 degrees left
-			 new TurnLeft(90,0.7);
+			 new TurnLeft(-90,0.7);
 			 //lift cube 3 feet
 			 new Lift(3.0,0.7);
 			 //drive forward 1 foot
@@ -175,11 +175,11 @@ public class AutonomousCommand extends CommandGroup {
 			//drive 3ft foward
 			 new Drive(3.0);
 			//turn 90 degrees to the Left
-			 new TurnLeft(90,0.7);
+			 new TurnLeft(-90,0.7);
 			//drive forward 8 feet
 			 new Drive(8.0);
 			 //turn 90 degrees left
-			 new TurnLeft(90,0.7);
+			 new TurnLeft(-90,0.7);
 			 //lift cube 3 feet
 			 new Lift(3.0,0.7);
 			 //drive forward 1 foot
@@ -197,7 +197,7 @@ public class AutonomousCommand extends CommandGroup {
 			//drive 3ft foward
 			 new Drive(3.0);
 			//turn 90 degrees to the Left
-			 new TurnLeft(90,0.7);
+			 new TurnLeft(-90,0.7);
 			 //drive 18 feet forward
 			 new Drive(18.0);
 			;
@@ -229,7 +229,7 @@ public class AutonomousCommand extends CommandGroup {
 			//drive 5ft foward
 			new Drive(5.0);
 			//turn 90 degrees to the left
-			new TurnLeft(90.0,0.7);
+			new TurnLeft(-90.0,0.7);
 			//drive 3ft foward
 			new Drive(3.0);
 			//turn 90 degrees to the righ
@@ -255,7 +255,7 @@ public class AutonomousCommand extends CommandGroup {
 			//drive 3ft foward
 			 new Drive(3.0);
 			//turn 90 degrees to the Left
-			 new TurnLeft(90,0.7);
+			 new TurnLeft(-90,0.7);
 			 //drive 18 feet forward
 			 new Drive(18.0);
 			;
@@ -313,7 +313,7 @@ public class AutonomousCommand extends CommandGroup {
 			//drive 3ft foward
 			 new Drive(3.0);
 			//turn 90 degrees to the Left
-			 new TurnLeft(90,0.7);
+			 new TurnLeft(-90,0.7);
 			 //drive 18 feet forward
 			 new Drive(18.0);
 			;
@@ -322,7 +322,7 @@ public class AutonomousCommand extends CommandGroup {
 			//drive 14 feet forward
 			new Drive(14.0);
 			//turn 90 degrees left
-			new TurnLeft(90,0.7);
+			new TurnLeft(-90,0.7);
 			//raise the lifter 3 feet
 			new Lift(3.0,0.7);
 			//drive 2 feet forward
@@ -337,7 +337,7 @@ public class AutonomousCommand extends CommandGroup {
 			//drive 14 feet forward
 			new Drive(14.0);
 			//turn 90 degrees left
-			new TurnLeft(90,0.7);
+			new TurnLeft(-90,0.7);
 			//raise the lifter 3 feet
 			new Lift(3.0,0.7);
 			//drive 2 feet forward

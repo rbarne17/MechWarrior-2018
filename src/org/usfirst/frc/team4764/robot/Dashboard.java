@@ -38,21 +38,21 @@ public class Dashboard {
 		m_allianceModeChooser = new SendableChooser<>();
 
 		// add commands to m_commandChooser
-		m_commandChooser.addObject("Drive 1 Foot", new Drive(1.0));
-		m_commandChooser.addObject("Drive 4 Feet", new Drive(4.0));
-		m_commandChooser.addObject("Drop Cube", new DropCube());
-		m_commandChooser.addObject("Pick Up Cube", new PickUpCube());
-		m_commandChooser.addObject("Turn Left 45 Degrees", new TurnLeft(45.0, .5));
-		m_commandChooser.addObject("Turn Right 45 Degrees", new TurnRight(45.0, .5));
-		m_commandChooser.addObject("Turn Left 90 Degrees", new TurnLeft(90.0, .5));
-		m_commandChooser.addObject("Turn Right 90 Degrees", new TurnRight(90.0, .5));
-		m_commandChooser.addObject("Turn Left 180 Degrees", new TurnLeft(180.0, .5));
-		m_commandChooser.addObject("Turn Right 360 Degrees", new TurnRight(360.0, .5));
-		m_commandChooser.addObject("Pick Up Cube", new PickUpCube());
-		m_commandChooser.addObject("Lift To Home", new LiftHome(.5));
-		m_commandChooser.addObject("Lift 12 Inches", new Lift(12, .5));
-		m_commandChooser.addObject("FlipityFlop Up", new FlipityFlopUp());
-		m_commandChooser.addObject("FlipityFlop Level", new FlipityFlopLevel());
+		SmartDashboard.putData("Drive 1 Foot", new Drive(1.0));
+		SmartDashboard.putData("Drive 4 Feet", new Drive(4.0));
+		SmartDashboard.putData("Drop Cube", new DropCube());
+		SmartDashboard.putData("Pick Up Cube", new PickUpCube());
+		SmartDashboard.putData("Turn Left 45 Degrees", new TurnLeft(-45.0, .5));
+		SmartDashboard.putData("Turn Right 45 Degrees", new TurnRight(45.0, .5));
+		SmartDashboard.putData("Turn Left 90 Degrees", new TurnLeft(-90.0, .5));
+		SmartDashboard.putData("Turn Right 90 Degrees", new TurnRight(90.0, .5));
+		SmartDashboard.putData("Turn Left 180 Degrees", new TurnLeft(-180.0, .5));
+		SmartDashboard.putData("Turn Right 360 Degrees", new TurnRight(360.0, .5));
+		SmartDashboard.putData("Pick Up Cube", new PickUpCube());
+		SmartDashboard.putData("Lift To Home", new LiftHome(.5));
+		SmartDashboard.putData("Lift 12 Inches", new Lift(12, .5));
+		SmartDashboard.putData("FlipityFlop Up", new FlipityFlopUp());
+		SmartDashboard.putData("FlipityFlop Level", new FlipityFlopLevel());
 
 		// add scoring mechanism to m_scoringMechanismChooser
 		m_scoringMechanismChooser.addDefault("Switch", new String());
