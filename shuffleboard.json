@@ -1,5 +1,5 @@
 {
-  "dividerPosition": 0.006299212598425197,
+  "dividerPosition": 0.003955696202531646,
   "tabPane": [
     {
       "title": "SmartDashboard",
@@ -88,7 +88,7 @@
           "2,0": {
             "size": [
               1,
-              3
+              4
             ],
             "content": {
               "_type": "List Layout",
@@ -105,6 +105,11 @@
                   "_title": "Lift Encoder"
                 },
                 {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/LiftControllerValue",
+                  "_title": "LiftControllerValue"
+                },
+                {
                   "_type": "Boolean Box",
                   "_source0": "network_table:///SmartDashboard/LiftAtHome",
                   "_title": "LiftAtHome",
@@ -114,21 +119,10 @@
               ]
             }
           },
-          "0,2": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "ComboBox Chooser",
-              "_source0": "network_table:///SmartDashboard/Commands",
-              "_title": "Commands"
-            }
-          },
           "4,0": {
             "size": [
               1,
-              3
+              4
             ],
             "content": {
               "_type": "List Layout",
@@ -138,6 +132,11 @@
                   "_type": "Basic Subsystem",
                   "_source0": "network_table:///SmartDashboard/FlipityFlop",
                   "_title": "FlipityFlop"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/FlipityFlopControllerValue",
+                  "_title": "FlipityFlopControllerValue"
                 },
                 {
                   "_type": "Boolean Box",
@@ -159,7 +158,7 @@
           "3,0": {
             "size": [
               1,
-              3
+              4
             ],
             "content": {
               "_type": "List Layout",
@@ -169,6 +168,11 @@
                   "_type": "Basic Subsystem",
                   "_source0": "network_table:///SmartDashboard/Gripper",
                   "_title": "Gripper"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/GripperControllerValue",
+                  "_title": "GripperControllerValue"
                 },
                 {
                   "_type": "Boolean Box",
@@ -183,6 +187,88 @@
                   "_title": "GripperClosed",
                   "colorWhenTrue": "#7CFC00FF",
                   "colorWhenFalse": "#8B0000FF"
+                }
+              ]
+            }
+          },
+          "5,0": {
+            "size": [
+              1,
+              4
+            ],
+            "content": {
+              "_type": "List Layout",
+              "_title": "Commands",
+              "_children": [
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Drive 1 Foot",
+                  "_title": "Drive 1 Foot"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Drive 4 Feet",
+                  "_title": "Drive 4 Feet"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Pick Up Cube",
+                  "_title": "Pick Up Cube"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Drop Cube",
+                  "_title": "Drop Cube"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Turn Left 45 Degrees",
+                  "_title": "Turn Left 45 Degrees"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Turn Right 45 Degrees",
+                  "_title": "Turn Right 45 Degrees"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Turn Left 90 Degrees",
+                  "_title": "Turn Left 90 Degrees"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Turn Right 90 Degrees",
+                  "_title": "Turn Right 90 Degrees"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Turn Left 180 Degrees",
+                  "_title": "Turn Left 180 Degrees"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Turn Right 360 Degrees",
+                  "_title": "Turn Right 360 Degrees"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Lift To Home",
+                  "_title": "Lift To Home"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Lift 12 Inches",
+                  "_title": "Lift 12 Inches"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/FlipityFlop Up",
+                  "_title": "FlipityFlop Up"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/FlipityFlop Level",
+                  "_title": "FlipityFlop Level"
                 }
               ]
             }
@@ -307,6 +393,48 @@
                   "_type": "Boolean Box",
                   "_source0": "network_table:///LiveWindow/Ungrouped/DigitalInput[9]/Value",
                   "_title": "DigitalInput[9]/Value",
+                  "colorWhenTrue": "#7CFC00FF",
+                  "colorWhenFalse": "#8B0000FF"
+                },
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/DigitalInput[4]/Value",
+                  "_title": "DigitalInput[4]/Value",
+                  "colorWhenTrue": "#7CFC00FF",
+                  "colorWhenFalse": "#8B0000FF"
+                },
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/DigitalOutput[9]/Value",
+                  "_title": "DigitalOutput[9]/Value",
+                  "colorWhenTrue": "#7CFC00FF",
+                  "colorWhenFalse": "#8B0000FF"
+                },
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/DigitalOutput[8]/Value",
+                  "_title": "DigitalOutput[8]/Value",
+                  "colorWhenTrue": "#7CFC00FF",
+                  "colorWhenFalse": "#8B0000FF"
+                },
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/DigitalInput[7]/Value",
+                  "_title": "DigitalInput[7]/Value",
+                  "colorWhenTrue": "#7CFC00FF",
+                  "colorWhenFalse": "#8B0000FF"
+                },
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/DigitalInput[6]/Value",
+                  "_title": "DigitalInput[6]/Value",
+                  "colorWhenTrue": "#7CFC00FF",
+                  "colorWhenFalse": "#8B0000FF"
+                },
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/DigitalInput[5]/Value",
+                  "_title": "DigitalInput[5]/Value",
                   "colorWhenTrue": "#7CFC00FF",
                   "colorWhenFalse": "#8B0000FF"
                 }
