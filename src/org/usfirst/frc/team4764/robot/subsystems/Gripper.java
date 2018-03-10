@@ -21,21 +21,20 @@ public class Gripper extends Subsystem {
 	}
 
 	public void openGripper() {
-		gripperMotor.set(-1);
-
+		this.gripperAdjustOpen(.5);
 	}
 
 	public void closeGripper() {
-		gripperMotor.set(1);
+		this.gripperAdjustClose(.5);
 
 	}
 
 	public void gripperAdjustClose(double speed) {
-		gripperMotor.set(speed);
+		gripperMotor.set(-speed);
 	}
 
 	public void gripperAdjustOpen(double speed) {
-		gripperMotor.set(-speed);
+		gripperMotor.set(speed);
 	}
 
 	public void gripperAdjust(double speed) {

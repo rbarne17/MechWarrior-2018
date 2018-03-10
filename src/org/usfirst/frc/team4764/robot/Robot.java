@@ -8,12 +8,19 @@
 package org.usfirst.frc.team4764.robot;
 
 import org.usfirst.frc.team4764.robot.commands.AutonomousCommand;
+import org.usfirst.frc.team4764.robot.subsystems.Camera;
 import org.usfirst.frc.team4764.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4764.robot.subsystems.Gripper;
 import org.usfirst.frc.team4764.robot.subsystems.Lift;
 import org.usfirst.frc.team4764.robot.subsystems.FlipityFlop;
+import org.opencv.core.Mat;
+import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team4764.robot.OI;
 
+import edu.wpi.cscore.CvSink;
+import edu.wpi.cscore.CvSource;
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -32,6 +39,7 @@ public class Robot extends TimedRobot {
 	public static final Lift lift = new Lift();
 	public static final Gripper gripper = new Gripper();
 	public static final FlipityFlop flipityFlop = new FlipityFlop();
+	public static final Camera camera = new Camera();
 	public static OI operatorInput;
 	public static Dashboard dashboard;
 
@@ -50,6 +58,24 @@ public class Robot extends TimedRobot {
 		operatorInput = new OI();
 		dashboard = new Dashboard();
 		dashboard.robotInit();
+
+		new Thread(() -> {
+			UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+			camera.setResolution(640, 480);
+
+			CvSink cvSink = CameraServer.getInstance().getVideo();
+			CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);
+
+			Mat source = new Mat();
+			Mat output = new Mat();
+
+			while (!Thread.interrupted()) {
+				cvSink.grabFrame(source);
+				Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
+				outputStream.putFrame(output);
+			}
+		}).start();
+
 	}
 
 	/**

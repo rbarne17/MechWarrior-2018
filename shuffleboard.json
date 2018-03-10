@@ -1,5 +1,5 @@
 {
-  "dividerPosition": 0.003955696202531646,
+  "dividerPosition": 0.003946329913180742,
   "tabPane": [
     {
       "title": "SmartDashboard",
@@ -272,6 +272,41 @@
                 }
               ]
             }
+          },
+          "0,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Auto Selector",
+              "_title": "Auto Selector"
+            }
+          },
+          "0,3": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/DB/Button 0",
+              "_title": "DB/Button 0",
+              "colorWhenTrue": "#7CFC00FF",
+              "colorWhenFalse": "#8B0000FF"
+            }
+          },
+          "6,0": {
+            "size": [
+              2,
+              2
+            ],
+            "content": {
+              "_type": "Camera Stream",
+              "_source0": "camera_server://USB Camera 0",
+              "_title": "USB Camera 0"
+            }
           }
         }
       }
@@ -288,7 +323,7 @@
         "tiles": {
           "0,0": {
             "size": [
-              1,
+              2,
               4
             ],
             "content": {
@@ -441,7 +476,7 @@
               ]
             }
           },
-          "1,0": {
+          "4,0": {
             "size": [
               1,
               4
@@ -453,7 +488,7 @@
               "_children": []
             }
           },
-          "2,0": {
+          "5,0": {
             "size": [
               1,
               4
@@ -465,7 +500,7 @@
               "_children": []
             }
           },
-          "3,0": {
+          "2,0": {
             "size": [
               1,
               4
@@ -477,7 +512,7 @@
               "_children": []
             }
           },
-          "4,0": {
+          "3,0": {
             "size": [
               1,
               4
