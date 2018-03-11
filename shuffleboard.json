@@ -1,5 +1,5 @@
 {
-  "dividerPosition": 0.003946329913180742,
+  "dividerPosition": 0.003955696202531646,
   "tabPane": [
     {
       "title": "SmartDashboard",
@@ -35,272 +35,8 @@
           },
           "1,0": {
             "size": [
-              1,
+              7,
               4
-            ],
-            "content": {
-              "_type": "List Layout",
-              "_title": "DriveTrain",
-              "_children": [
-                {
-                  "_type": "Basic Subsystem",
-                  "_source0": "network_table:///SmartDashboard/DriveTrain",
-                  "_title": "DriveTrain"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///SmartDashboard/DriveTrain Encoder Left",
-                  "_title": "DriveTrain Encoder Left"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///SmartDashboard/DriveTrain Encoder Right",
-                  "_title": "DriveTrain Encoder Right"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///SmartDashboard/GyroHeading",
-                  "_title": "Gyro Heading"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///SmartDashboard/Percent Throttle",
-                  "_title": "Percent Throttle"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///SmartDashboard/Percent Rotation",
-                  "_title": "Percent Rotation"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///SmartDashboard/ACTUAL Percent Throttle",
-                  "_title": "ACTUAL Percent Throttle"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///SmartDashboard/ACTUAL Percent Rotation",
-                  "_title": "ACTUAL Percent Rotation"
-                }
-              ]
-            }
-          },
-          "2,0": {
-            "size": [
-              1,
-              4
-            ],
-            "content": {
-              "_type": "List Layout",
-              "_title": "Lift",
-              "_children": [
-                {
-                  "_type": "Basic Subsystem",
-                  "_source0": "network_table:///SmartDashboard/Lift",
-                  "_title": "Lift"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///SmartDashboard/Lift Encoder",
-                  "_title": "Lift Encoder"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///SmartDashboard/LiftControllerValue",
-                  "_title": "LiftControllerValue"
-                },
-                {
-                  "_type": "Boolean Box",
-                  "_source0": "network_table:///SmartDashboard/LiftAtHome",
-                  "_title": "LiftAtHome",
-                  "colorWhenTrue": "#7CFC00FF",
-                  "colorWhenFalse": "#8B0000FF"
-                }
-              ]
-            }
-          },
-          "4,0": {
-            "size": [
-              1,
-              4
-            ],
-            "content": {
-              "_type": "List Layout",
-              "_title": "FlipityFlop",
-              "_children": [
-                {
-                  "_type": "Basic Subsystem",
-                  "_source0": "network_table:///SmartDashboard/FlipityFlop",
-                  "_title": "FlipityFlop"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///SmartDashboard/FlipityFlopControllerValue",
-                  "_title": "FlipityFlopControllerValue"
-                },
-                {
-                  "_type": "Boolean Box",
-                  "_source0": "network_table:///SmartDashboard/FlipityFlopUp",
-                  "_title": "FlipityFlopUp",
-                  "colorWhenTrue": "#7CFC00FF",
-                  "colorWhenFalse": "#8B0000FF"
-                },
-                {
-                  "_type": "Boolean Box",
-                  "_source0": "network_table:///SmartDashboard/FlipityFlopLevel",
-                  "_title": "FlipityFlopLevel",
-                  "colorWhenTrue": "#7CFC00FF",
-                  "colorWhenFalse": "#8B0000FF"
-                }
-              ]
-            }
-          },
-          "3,0": {
-            "size": [
-              1,
-              4
-            ],
-            "content": {
-              "_type": "List Layout",
-              "_title": "Gripper",
-              "_children": [
-                {
-                  "_type": "Basic Subsystem",
-                  "_source0": "network_table:///SmartDashboard/Gripper",
-                  "_title": "Gripper"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///SmartDashboard/GripperControllerValue",
-                  "_title": "GripperControllerValue"
-                },
-                {
-                  "_type": "Boolean Box",
-                  "_source0": "network_table:///SmartDashboard/GripperOpen",
-                  "_title": "GripperOpen",
-                  "colorWhenTrue": "#7CFC00FF",
-                  "colorWhenFalse": "#8B0000FF"
-                },
-                {
-                  "_type": "Boolean Box",
-                  "_source0": "network_table:///SmartDashboard/GripperClosed",
-                  "_title": "GripperClosed",
-                  "colorWhenTrue": "#7CFC00FF",
-                  "colorWhenFalse": "#8B0000FF"
-                }
-              ]
-            }
-          },
-          "5,0": {
-            "size": [
-              1,
-              4
-            ],
-            "content": {
-              "_type": "List Layout",
-              "_title": "Commands",
-              "_children": [
-                {
-                  "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Drive 1 Foot",
-                  "_title": "Drive 1 Foot"
-                },
-                {
-                  "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Drive 4 Feet",
-                  "_title": "Drive 4 Feet"
-                },
-                {
-                  "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Pick Up Cube",
-                  "_title": "Pick Up Cube"
-                },
-                {
-                  "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Drop Cube",
-                  "_title": "Drop Cube"
-                },
-                {
-                  "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Turn Left 45 Degrees",
-                  "_title": "Turn Left 45 Degrees"
-                },
-                {
-                  "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Turn Right 45 Degrees",
-                  "_title": "Turn Right 45 Degrees"
-                },
-                {
-                  "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Turn Left 90 Degrees",
-                  "_title": "Turn Left 90 Degrees"
-                },
-                {
-                  "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Turn Right 90 Degrees",
-                  "_title": "Turn Right 90 Degrees"
-                },
-                {
-                  "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Turn Left 180 Degrees",
-                  "_title": "Turn Left 180 Degrees"
-                },
-                {
-                  "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Turn Right 360 Degrees",
-                  "_title": "Turn Right 360 Degrees"
-                },
-                {
-                  "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Lift To Home",
-                  "_title": "Lift To Home"
-                },
-                {
-                  "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/Lift 12 Inches",
-                  "_title": "Lift 12 Inches"
-                },
-                {
-                  "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/FlipityFlop Up",
-                  "_title": "FlipityFlop Up"
-                },
-                {
-                  "_type": "Command",
-                  "_source0": "network_table:///SmartDashboard/FlipityFlop Level",
-                  "_title": "FlipityFlop Level"
-                }
-              ]
-            }
-          },
-          "0,2": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Auto Selector",
-              "_title": "Auto Selector"
-            }
-          },
-          "0,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/DB/Button 0",
-              "_title": "DB/Button 0",
-              "colorWhenTrue": "#7CFC00FF",
-              "colorWhenFalse": "#8B0000FF"
-            }
-          },
-          "6,0": {
-            "size": [
-              2,
-              2
             ],
             "content": {
               "_type": "Camera Stream",
@@ -521,6 +257,18 @@
               "_type": "Subsystem Layout",
               "_source0": "network_table:///LiveWindow/FlipityFlop",
               "_title": "FlipityFlop",
+              "_children": []
+            }
+          },
+          "6,0": {
+            "size": [
+              2,
+              4
+            ],
+            "content": {
+              "_type": "Subsystem Layout",
+              "_source0": "network_table:///LiveWindow/Camera",
+              "_title": "Camera",
               "_children": []
             }
           }
