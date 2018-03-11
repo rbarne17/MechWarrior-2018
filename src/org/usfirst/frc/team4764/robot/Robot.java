@@ -117,9 +117,12 @@ public class Robot extends TimedRobot {
 		}
 
 		dashboard.autonomousInit();
+		autonomousCommand = dashboard.m_autonomousCommandChooser.getSelected();
 		autonomousCommandName = FieldData.locationString + autonomousScoringMechanism + autonomousAllianceMode;
 
-		autonomousCommand = new AutonomousCommand(autonomousCommandName);
+		if (autonomousCommand == null) {
+			autonomousCommand = new AutonomousCommand(autonomousCommandName);
+		}
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
 		 * switch(autoSelected) { case "My Auto": autonomousCommand = new

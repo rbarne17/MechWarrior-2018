@@ -12,12 +12,13 @@ import org.usfirst.frc.team4764.robot.commands.TurnLeft;
 import org.usfirst.frc.team4764.robot.commands.TurnRight;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Dashboard {
 
-	SendableChooser<Command> m_autonomousCommandChooser;
+	SendableChooser<CommandGroup> m_autonomousCommandChooser;
 	SendableChooser<String> m_scoringMechanismChooser;
 	SendableChooser<String> m_allianceModeChooser;
 
