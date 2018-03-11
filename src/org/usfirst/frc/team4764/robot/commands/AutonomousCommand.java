@@ -30,7 +30,7 @@ public class AutonomousCommand extends CommandGroup {
 			//turn 90 degrees right
 			new TurnRight(90,0.7);
 			//raise the lifter 2 feet
-			new Lift(2,0.7);
+			new Lift(24,0.7);
 			//drive 2 feet forward
 			new Drive(2.0);
 			//drop cube
@@ -45,7 +45,7 @@ public class AutonomousCommand extends CommandGroup {
 			//turn 90 degrees right
 			new TurnRight(90,0.7);
 			//raise the lifter 2 feet
-			new Lift(2,0.7);
+			new Lift(24.0,0.7);
 			//drive 2 feet forward
 			new Drive(2.0);
 			//drop cube
@@ -61,7 +61,7 @@ public class AutonomousCommand extends CommandGroup {
 			//drive foward 275ft
 			new Drive(27.0);
 			//raise the lifter 5.5 high
-			new Lift(5.5,0.7);
+			new Lift(66,0.7);
 			//turn 90 degrees to the right
 			new TurnRight(90,0.7);
 			//drive foward 1ft
@@ -76,7 +76,7 @@ public class AutonomousCommand extends CommandGroup {
 			//drive foward 27ft
 			new Drive(27.0);
 			//raise the lifter 5.5 high
-			new Lift(5.5,0.7);
+			new Lift(66,0.7);
 			//turn 90 degrees to the right
 			new TurnRight(90,0.7);
 			//drive foward 1ft
@@ -104,7 +104,7 @@ public class AutonomousCommand extends CommandGroup {
 			 //turn 90 degrees right
 			 new TurnRight(90,0.7);
 			 //lift cube 3 feet
-			 new Lift(3.0,0.7);
+			 new Lift(36.0,0.7);
 			 //drive forward 1 foot
 			 new Drive(1.0);
 			 //drop cube
@@ -126,7 +126,7 @@ public class AutonomousCommand extends CommandGroup {
 			 //turn 90 degrees right
 			 new TurnRight(90,0.7);
 			 //lift cube 3 feet
-			 new Lift(3.0,0.7);
+			 new Lift(36,0.7);
 			 //drive forward 1 foot
 			 new Drive(1.0);
 			 //drop cube
@@ -159,7 +159,7 @@ public class AutonomousCommand extends CommandGroup {
 			 //turn 90 degrees left
 			 new TurnLeft(-90,0.7);
 			 //lift cube 3 feet
-			 new Lift(3.0,0.7);
+			 new Lift(36.0,0.7);
 			 //drive forward 1 foot
 			 new Drive(1.0);
 			 //drop cube
@@ -171,7 +171,7 @@ public class AutonomousCommand extends CommandGroup {
 			//drive 5ft foward
 			 new Drive(5.0);
 			//turn 90 degrees to the right
-			 new TurnRight(-90,0.7);
+			 new TurnRight(90,0.7);
 			//drive 3ft foward
 			 new Drive(3.0);
 			//turn 90 degrees to the Left
@@ -181,7 +181,7 @@ public class AutonomousCommand extends CommandGroup {
 			 //turn 90 degrees left
 			 new TurnLeft(-90,0.7);
 			 //lift cube 3 feet
-			 new Lift(3.0,0.7);
+			 new Lift(36.0,0.7);
 			 //drive forward 1 foot
 			 new Drive(1.0);
 			 //drop cube
@@ -193,7 +193,7 @@ public class AutonomousCommand extends CommandGroup {
 			//drive 5ft foward
 			 new Drive(5.0);
 			//turn 90 degrees to the right
-			 new TurnRight(-90,0.7);
+			 new TurnRight(90,0.7);
 			//drive 3ft foward
 			 new Drive(3.0);
 			//turn 90 degrees to the Left
@@ -216,7 +216,7 @@ public class AutonomousCommand extends CommandGroup {
 			//turn 90 degrees to the right
 			 new TurnRight(90,0.7);
 			//raise lifter 5.5 ft high
-			 new Lift(5.5,0.7);
+			 new Lift(66,0.7);
 			//drive foward 1ft
 			 new Drive(1.0);
 			//drop cube.
@@ -239,7 +239,7 @@ public class AutonomousCommand extends CommandGroup {
 			//turn 90 degrees to the right
 			new TurnRight(90,0.7);
 			//raise lifter 5.5 ft high
-			new Lift(5.5,0.7);
+			new Lift(66,0.7);
 			//drive foward 1ft
 			new Drive(1.0);
 			//drop cube
@@ -274,7 +274,7 @@ public class AutonomousCommand extends CommandGroup {
 			//turn 90 degrees to the left
 			new TurnLeft(-90,0.7);
 			//raise lifter 5.5 ft high
-			new Lift(5.5,0.7);
+			new Lift(66,0.7);
 			//drive foward 1ft
 			new Drive(1.0);
 			//drop cube
@@ -297,7 +297,7 @@ public class AutonomousCommand extends CommandGroup {
 			//turn 90 degrees to the left
 			new TurnLeft(-90,0.7);
 			//raise lifter 5.5 ft high
-			new Lift(5.5,0.7);
+			new Lift(66,0.7);
 			//drive foward 1ft
 			new Drive(1.0);
 			//drop cube
@@ -309,7 +309,7 @@ public class AutonomousCommand extends CommandGroup {
 			//drive 5ft foward
 			 new Drive(5.0);
 			//turn 90 degrees to the right
-			 new TurnRight(-90,0.7);
+			new TurnRight(90,0.7);
 			//drive 3ft foward
 			 new Drive(3.0);
 			//turn 90 degrees to the Left
@@ -324,7 +324,7 @@ public class AutonomousCommand extends CommandGroup {
 			//turn 90 degrees left
 			new TurnLeft(-90,0.7);
 			//raise the lifter 3 feet
-			new Lift(3.0,0.7);
+			new Lift(36.0,0.7);
 			//drive 2 feet forward
 			new Drive(2.0);
 			//drop cube
@@ -339,7 +339,7 @@ public class AutonomousCommand extends CommandGroup {
 			//turn 90 degrees left
 			new TurnLeft(-90,0.7);
 			//raise the lifter 3 feet
-			new Lift(3.0,0.7);
+			new Lift(36.0,0.7);
 			//drive 2 feet forward
 			new Drive(2.0);
 			//drop cube
@@ -355,7 +355,7 @@ public class AutonomousCommand extends CommandGroup {
 			//drive foward 27ft
 			new Drive(27.0);
 			//raise the lifter 5.5 high
-			new Lift(5.5,0.7);
+			new Lift(66.0,0.7);
 			//turn 90 degrees to the left
 			new TurnLeft(-90,0.7);
 			//drive foward 1ft
@@ -369,7 +369,7 @@ public class AutonomousCommand extends CommandGroup {
 			//drive foward 27ft
 			new Drive(27.0);
 			//raise the lifter 5.5 high
-			new Lift(5.5,0.7);
+			new Lift(66.0,0.7);
 			//turn 90 degrees to the left
 			new TurnLeft(-90,0.7);
 			//drive foward 1ft

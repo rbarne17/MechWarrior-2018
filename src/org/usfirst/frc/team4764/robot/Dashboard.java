@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4764.robot;
 
+import org.usfirst.frc.team4764.robot.commands.AutonomousCommand;
 import org.usfirst.frc.team4764.robot.commands.Drive;
 import org.usfirst.frc.team4764.robot.commands.DropCube;
 import org.usfirst.frc.team4764.robot.commands.FlipityFlopLevel;
@@ -16,14 +17,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Dashboard {
 
-	SendableChooser<Command> m_commandChooser;
+	SendableChooser<Command> m_autonomousCommandChooser;
 	SendableChooser<String> m_scoringMechanismChooser;
 	SendableChooser<String> m_allianceModeChooser;
 
 	public void robotInit() {
 
 		// subsystems display
-		m_commandChooser = new SendableChooser<>();
+		m_autonomousCommandChooser = new SendableChooser<>();
 		m_scoringMechanismChooser = new SendableChooser<>();
 		m_allianceModeChooser = new SendableChooser<>();
 
@@ -33,11 +34,11 @@ public class Dashboard {
 		SmartDashboard.putData(Robot.gripper);
 
 		// choosers
-		m_commandChooser = new SendableChooser<>();
+		m_autonomousCommandChooser = new SendableChooser<>();
 		m_scoringMechanismChooser = new SendableChooser<>();
 		m_allianceModeChooser = new SendableChooser<>();
 
-		// add commands to m_commandChooser
+		//various commands
 		SmartDashboard.putData("Drive 1 Foot", new Drive(1.0));
 		SmartDashboard.putData("Drive 4 Feet", new Drive(4.0));
 		SmartDashboard.putData("Drop Cube", new DropCube());
@@ -53,6 +54,50 @@ public class Dashboard {
 		SmartDashboard.putData("Lift 12 Inches", new Lift(12, .5));
 		SmartDashboard.putData("FlipityFlop Up", new FlipityFlopUp());
 		SmartDashboard.putData("FlipityFlop Level", new FlipityFlopLevel());
+		
+		//commands from autonomous commands
+		SmartDashboard.putData("Drive 1.0",new Drive(1.0));
+		SmartDashboard.putData("Drive 1.2",new Drive(1.2));
+		SmartDashboard.putData("Drive 2.0",new Drive(2.0));
+		SmartDashboard.putData("Drive 3.0",new Drive(3.0));
+		SmartDashboard.putData("Drive 5.0",new Drive(5.0));
+		SmartDashboard.putData("Drive 8.0",new Drive(8.0));
+		SmartDashboard.putData("Drive 14.0",new Drive(14.0));
+		SmartDashboard.putData("Drive 18.0",new Drive(18.0));
+		SmartDashboard.putData("Drive 22.0",new Drive(22.0));
+		SmartDashboard.putData("Drive 27.0",new Drive(27.0));
+		SmartDashboard.putData("Drop Cube",new DropCube());
+		SmartDashboard.putData("Lift 24 ",new Lift(2,0.7));
+		SmartDashboard.putData("Lift 36",new Lift(3.0,0.7));
+		SmartDashboard.putData("Lift 66",new Lift(5.5,0.7));
+		SmartDashboard.putData("Turn Left 90",new TurnLeft(-90,0.7));
+		SmartDashboard.putData("Turn Right 90",new TurnRight(90,0.7));
+
+		//add autonomous commands to m_autonomousCommandChooser
+		m_autonomousCommandChooser.addObject("OneLeftSwitchScore",new AutonomousCommand("OneLeftSwitchScore"));
+		m_autonomousCommandChooser.addObject("OneLeftSwitchWaitScore",new AutonomousCommand("OneLeftSwitchWaitScore"));
+		m_autonomousCommandChooser.addObject("OneRightSwitchDefend",new AutonomousCommand("OneRightSwitchDefend"));
+		m_autonomousCommandChooser.addObject("OneLeftScaleScore",new AutonomousCommand("OneLeftScaleScore"));
+		m_autonomousCommandChooser.addObject("OneLeftScaleWaitScore",new AutonomousCommand("OneLeftScaleWaitScore"));
+		m_autonomousCommandChooser.addObject("OneRightScaleDefend",new AutonomousCommand("OneRightScaleDefend"));
+		m_autonomousCommandChooser.addObject("TwoLeftSwitchScore",new AutonomousCommand("TwoLeftSwitchScore"));
+		m_autonomousCommandChooser.addObject("TwoLeftSwitchWaitScore",new AutonomousCommand("TwoLeftSwitchWaitScore"));
+		m_autonomousCommandChooser.addObject("TwoLeftSwitchDefend",new AutonomousCommand("TwoLeftSwitchDefend"));
+		m_autonomousCommandChooser.addObject("TwoRightSwitchScore",new AutonomousCommand("TwoRightSwitchScore"));
+		m_autonomousCommandChooser.addObject("TwoRightSwitchWaitScore",new AutonomousCommand("TwoRightSwitchWaitScore"));
+		m_autonomousCommandChooser.addObject("TwoRightSwitchDefend",new AutonomousCommand("TwoRightSwitchDefend"));
+		m_autonomousCommandChooser.addObject("TwoLeftScaleScore",new AutonomousCommand("TwoLeftScaleScore"));
+		m_autonomousCommandChooser.addObject("TwoLeftScaleWaitScore",new AutonomousCommand("TwoLeftScaleWaitScore"));
+		m_autonomousCommandChooser.addObject("TwoLeftScaleDefend",new AutonomousCommand("TwoLeftScaleDefend"));
+		m_autonomousCommandChooser.addObject("TwoRightScaleScore",new AutonomousCommand("TwoRightScaleScore"));
+		m_autonomousCommandChooser.addObject("TwoRightScaleWaitScore",new AutonomousCommand("TwoRightScaleWaitScore"));
+		m_autonomousCommandChooser.addObject("TwoRightScaleDefend",new AutonomousCommand("TwoRightScaleDefend"));
+		m_autonomousCommandChooser.addObject("ThreeRightSwitchScore",new AutonomousCommand("ThreeRightSwitchScore"));
+		m_autonomousCommandChooser.addObject("ThreeRightSwitchWaitScore",new AutonomousCommand("ThreeRightSwitchWaitScore"));
+		m_autonomousCommandChooser.addObject("ThreeLeftSwitchDefend",new AutonomousCommand("ThreeLeftSwitchDefend"));
+		m_autonomousCommandChooser.addObject("ThreeRightScaleScore",new AutonomousCommand("ThreeRightScaleScore"));
+		m_autonomousCommandChooser.addObject("ThreeRightScaleWaitScore",new AutonomousCommand("ThreeRightScaleWaitScore"));
+		m_autonomousCommandChooser.addObject("ThreeLeftScaleDefend",new AutonomousCommand("ThreeLeftScaleDefend"));
 
 		// add scoring mechanism to m_scoringMechanismChooser
 		m_scoringMechanismChooser.addDefault("Switch", new String());
@@ -66,7 +111,7 @@ public class Dashboard {
 		// populate the SmartDashboard with the choosers
 		SmartDashboard.putData("Switch or Scale", m_scoringMechanismChooser);
 		SmartDashboard.putData("Alliance Mode", m_allianceModeChooser);
-		SmartDashboard.putData("Commands", m_commandChooser);
+		SmartDashboard.putData("Commands", m_autonomousCommandChooser);
 	}
 
 	public void teleopInit() {
