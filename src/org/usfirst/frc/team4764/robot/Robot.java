@@ -33,7 +33,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
  * project.
  */
 public class Robot extends TimedRobot {
-	public static OI oi;
 
 	public static final DriveTrain driveTrain = new DriveTrain();
 	public static final Lift lift = new Lift();
@@ -42,10 +41,12 @@ public class Robot extends TimedRobot {
 	public static final Camera camera = new Camera();
 	public static OI operatorInput;
 	public static Dashboard dashboard;
+	public static FieldData fieldData;
 
 	public static CommandGroup autonomousCommand;
 	public static String autonomousAllianceMode;
 	public static String autonomousScoringMechanism;
+	public static String autonomousScoringMechanismWithSide;
 	public static String autonomousCommandName;
 	public final static String controllerMode = "DoubleController";
 
@@ -57,6 +58,7 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		operatorInput = new OI();
 		dashboard = new Dashboard();
+		fieldData = new FieldData();
 		dashboard.robotInit();
 
 		new Thread(() -> {
@@ -111,14 +113,21 @@ public class Robot extends TimedRobot {
 		autonomousScoringMechanism = dashboard.m_scoringMechanismChooser.getSelected();
 		autonomousAllianceMode = dashboard.m_allianceModeChooser.getSelected();
 
-		if ((FieldData.location == 1 && (FieldData.scaleSide == 'R' || FieldData.switchSide == 'R'))
-				|| (FieldData.location == 3 && (FieldData.scaleSide == 'L' || FieldData.switchSide == 'L'))) {
+		if ((Robot.fieldData.location == 1 && (Robot.fieldData.scaleSide == 'R' || fieldData.switchSide == 'R'))
+				|| (Robot.fieldData.location == 3
+						&& (Robot.fieldData.scaleSide == 'L' || Robot.fieldData.switchSide == 'L'))) {
 			autonomousAllianceMode = "Defend";
 		}
 
 		dashboard.autonomousInit();
 		autonomousCommand = dashboard.m_autonomousCommandChooser.getSelected();
-		autonomousCommandName = FieldData.locationString + autonomousScoringMechanism + autonomousAllianceMode;
+
+		if (autonomousScoringMechanism == "Scale") {
+			autonomousScoringMechanismWithSide = fieldData.scaleSideString + autonomousScoringMechanism;
+		} else if (autonomousScoringMechanism == "Switch") {
+			autonomousScoringMechanismWithSide = fieldData.switchSideString + autonomousScoringMechanism;
+		}
+		autonomousCommandName = fieldData.locationString + autonomousScoringMechanismWithSide + autonomousAllianceMode;
 
 		if (autonomousCommand == null) {
 			autonomousCommand = new AutonomousCommand(autonomousCommandName);
