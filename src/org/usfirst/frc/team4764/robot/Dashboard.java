@@ -12,12 +12,13 @@ import org.usfirst.frc.team4764.robot.commands.TurnLeft;
 import org.usfirst.frc.team4764.robot.commands.TurnRight;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Dashboard {
 
-	SendableChooser<Command> m_autonomousCommandChooser;
+	SendableChooser<CommandGroup> m_autonomousCommandChooser;
 	SendableChooser<String> m_scoringMechanismChooser;
 	SendableChooser<String> m_allianceModeChooser;
 
@@ -34,9 +35,9 @@ public class Dashboard {
 		SmartDashboard.putData(Robot.gripper);
 
 		// choosers
-		m_autonomousCommandChooser = new SendableChooser<>();
-		m_scoringMechanismChooser = new SendableChooser<>();
-		m_allianceModeChooser = new SendableChooser<>();
+		m_autonomousCommandChooser = new SendableChooser<CommandGroup>();
+		m_scoringMechanismChooser = new SendableChooser<String>();
+		m_allianceModeChooser = new SendableChooser<String>();
 
 		//various commands
 		SmartDashboard.putData("Drive 1 Foot", new Drive(1.0));
@@ -100,13 +101,13 @@ public class Dashboard {
 		m_autonomousCommandChooser.addObject("ThreeLeftScaleDefend",new AutonomousCommand("ThreeLeftScaleDefend"));
 
 		// add scoring mechanism to m_scoringMechanismChooser
-		m_scoringMechanismChooser.addDefault("Switch", new String());
-		m_scoringMechanismChooser.addObject("Scale", new String());
+		m_scoringMechanismChooser.addDefault("Switch", "Switch");
+		m_scoringMechanismChooser.addObject("Scale", "Scale");
 
 		// add alliance mode to m_allianceModeChooser
-		m_allianceModeChooser.addDefault("Score", new String());
-		m_allianceModeChooser.addObject("WaitScore", new String());
-		m_allianceModeChooser.addObject("Defend", new String());
+		m_allianceModeChooser.addDefault("Score", "Score");
+		m_allianceModeChooser.addObject("WaitScore", "WaitScore");
+		m_allianceModeChooser.addObject("Defend", "Defend");
 
 		// populate the SmartDashboard with the choosers
 		SmartDashboard.putData("Switch or Scale", m_scoringMechanismChooser);
