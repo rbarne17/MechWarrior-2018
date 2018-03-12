@@ -1,8 +1,54 @@
 {
-  "dividerPosition": 0.003946329913180742,
+  "dividerPosition": 0.003955696202531646,
   "tabPane": [
     {
-      "title": "SmartDashboard",
+      "title": "Competition",
+      "autoPopulate": false,
+      "autoPopulatePrefix": "",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "tiles": {
+          "0,0": {
+            "size": [
+              1,
+              2
+            ],
+            "content": {
+              "_type": "List Layout",
+              "_title": "Startup",
+              "_children": [
+                {
+                  "_type": "ComboBox Chooser",
+                  "_source0": "network_table:///SmartDashboard/Alliance Mode",
+                  "_title": "SmartDashboard/Alliance Mode"
+                },
+                {
+                  "_type": "ComboBox Chooser",
+                  "_source0": "network_table:///SmartDashboard/Switch or Scale",
+                  "_title": "SmartDashboard/Switch or Scale"
+                }
+              ]
+            }
+          },
+          "1,0": {
+            "size": [
+              7,
+              4
+            ],
+            "content": {
+              "_type": "Camera Stream",
+              "_source0": "camera_server://USB Camera 0",
+              "_title": "USB Camera 0"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Testing",
       "autoPopulate": true,
       "autoPopulatePrefix": "SmartDashboard/",
       "widgetPane": {
@@ -273,39 +319,128 @@
               ]
             }
           },
-          "0,2": {
+          "7,0": {
             "size": [
               1,
               1
             ],
             "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Auto Selector",
-              "_title": "Auto Selector"
-            }
-          },
-          "0,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/DB/Button 0",
-              "_title": "DB/Button 0",
-              "colorWhenTrue": "#7CFC00FF",
-              "colorWhenFalse": "#8B0000FF"
+              "_type": "ComboBox Chooser",
+              "_source0": "network_table:///SmartDashboard/Commands",
+              "_title": "Autonomous Full Commands"
             }
           },
           "6,0": {
             "size": [
-              2,
-              2
+              1,
+              4
             ],
             "content": {
-              "_type": "Camera Stream",
-              "_source0": "camera_server://USB Camera 0",
-              "_title": "USB Camera 0"
+              "_type": "List Layout",
+              "_title": "Component Commands",
+              "_children": [
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Drive 1.0",
+                  "_title": "Drive 1.0"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Drive 27.0",
+                  "_title": "Drive 27.0"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Turn Left 90",
+                  "_title": "Turn Left 90"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Drive 1.2",
+                  "_title": "SmartDashboard/Drive 1.2"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Drive 2.0",
+                  "_title": "SmartDashboard/Drive 2.0"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Drive 3.0",
+                  "_title": "SmartDashboard/Drive 3.0"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Drive 4 Feet",
+                  "_title": "SmartDashboard/Drive 4 Feet"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Drive 5.0",
+                  "_title": "SmartDashboard/Drive 5.0"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Drive 8.0",
+                  "_title": "SmartDashboard/Drive 8.0"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Drive 14.0",
+                  "_title": "SmartDashboard/Drive 14.0"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Drive 22.0",
+                  "_title": "SmartDashboard/Drive 22.0"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Drive 27.0",
+                  "_title": "SmartDashboard/Drive 27.0"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Lift 12 Inches",
+                  "_title": "SmartDashboard/Lift 12 Inches"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Lift 24 ",
+                  "_title": "SmartDashboard/Lift 24 "
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Lift 36",
+                  "_title": "SmartDashboard/Lift 36"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Lift 66",
+                  "_title": "SmartDashboard/Lift 66"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Turn Left 90",
+                  "_title": "SmartDashboard/Turn Left 90"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Turn Right 90",
+                  "_title": "SmartDashboard/Turn Right 90"
+                }
+              ]
+            }
+          },
+          "7,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Command",
+              "_source0": "network_table:///SmartDashboard/Drive 18.0",
+              "_title": "Drive 18.0"
             }
           }
         }
@@ -521,6 +656,18 @@
               "_type": "Subsystem Layout",
               "_source0": "network_table:///LiveWindow/FlipityFlop",
               "_title": "FlipityFlop",
+              "_children": []
+            }
+          },
+          "6,0": {
+            "size": [
+              2,
+              4
+            ],
+            "content": {
+              "_type": "Subsystem Layout",
+              "_source0": "network_table:///LiveWindow/Camera",
+              "_title": "Camera",
               "_children": []
             }
           }
