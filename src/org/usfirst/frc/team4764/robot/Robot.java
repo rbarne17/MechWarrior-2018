@@ -39,6 +39,7 @@ public class Robot extends TimedRobot {
 	public static final Gripper gripper = new Gripper();
 	public static final FlipityFlop flipityFlop = new FlipityFlop();
 	public static final Camera camera = new Camera();
+	public static final Camera camera2 = new Camera();
 	public static OI operatorInput;
 	public static Dashboard dashboard;
 	public static FieldData fieldData;
@@ -64,6 +65,22 @@ public class Robot extends TimedRobot {
 		new Thread(() -> {
 			UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
 			camera.setResolution(640, 480);
+
+			CvSink cvSink = CameraServer.getInstance().getVideo();
+			CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);
+
+			Mat source = new Mat();
+			Mat output = new Mat();
+
+			while (!Thread.interrupted()) {
+				cvSink.grabFrame(source);
+				Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
+				outputStream.putFrame(output);
+			}
+		}).start();
+		new Thread(() -> {
+			UsbCamera camera2 = CameraServer.getInstance().startAutomaticCapture();
+			camera2.setResolution(640, 480);
 
 			CvSink cvSink = CameraServer.getInstance().getVideo();
 			CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);

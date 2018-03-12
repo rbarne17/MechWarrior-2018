@@ -28,10 +28,10 @@ public class OI {
 	XboxController xbox = new XboxController(1);
 	Joystick joystick = new Joystick(0);
 
-	Button xboxXButton = new JoystickButton(xbox, 1);
+	Button xboxXButton = new JoystickButton(xbox, 3);
 	Button xboxYButton = new JoystickButton(xbox, 4);
-	Button xboxBButton = new JoystickButton(xbox, 3);
-	Button xboxAButton = new JoystickButton(xbox, 2);
+	Button xboxBButton = new JoystickButton(xbox, 2);
+	Button xboxAButton = new JoystickButton(xbox, 1);
 	Button xboxRBumper = new JoystickButton(xbox, 6);
 	Button xboxLBumper = new JoystickButton(xbox, 5);
 
