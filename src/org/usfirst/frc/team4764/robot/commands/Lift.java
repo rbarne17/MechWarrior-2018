@@ -12,12 +12,12 @@ public class Lift extends Command {
 	private double m_finalticks;
 	private double m_speed;
 
-	public Lift(double inches, double speed) {
+	public Lift(double feet, double speed) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 		requires(Robot.lift);
 
-		m_ticksToTravel = inches * (Robot.lift.m_ticksPerInch);
+		m_ticksToTravel = feet * (Robot.lift.m_ticksPerFoot);
 		m_speed = speed;
 
 	}
