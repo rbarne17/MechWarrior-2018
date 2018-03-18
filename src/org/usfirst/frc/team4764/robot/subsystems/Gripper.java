@@ -12,8 +12,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Gripper extends Subsystem {
 	Spark gripperMotor = new Spark(RobotMap.gripperMotor);
-	DigitalInput gripperLimitSwitchOpen = new DigitalInput(RobotMap.gripperLimitSwitchOpen);
-	DigitalInput gripperLimitSwitchClose = new DigitalInput(RobotMap.gripperLimitSwitchClose);
+	//DigitalInput gripperLimitSwitchOpen = new DigitalInput(RobotMap.gripperLimitSwitchOpen);
+	//DigitalInput gripperLimitSwitchClose = new DigitalInput(RobotMap.gripperLimitSwitchClose);
 
 	public Gripper() {
 		gripperMotor.set(0.0);
@@ -41,7 +41,7 @@ public class Gripper extends Subsystem {
 		gripperMotor.set(speed);
 	}
 
-	public boolean gripperClosed() {
+	/*public boolean gripperClosed() {
 		// limit switches return false when triggered
 		return !gripperLimitSwitchClose.get();
 	}
@@ -49,7 +49,7 @@ public class Gripper extends Subsystem {
 	public boolean gripperOpen() {
 		// limit switches return false when triggered
 		return !gripperLimitSwitchOpen.get();
-	}
+	}*/
 
 	public void reset() {
 		gripperMotor.set(0.0);

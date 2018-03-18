@@ -143,8 +143,8 @@ public class Dashboard {
 		SmartDashboard.putNumber("LiftControllerValue", Robot.operatorInput.getControllerLiftValue());
 
 		// Gripper
-		SmartDashboard.putBoolean("GripperClosed", Robot.gripper.gripperClosed());
-		SmartDashboard.putBoolean("GripperOpen", Robot.gripper.gripperOpen());
+		//SmartDashboard.putBoolean("GripperClosed", Robot.gripper.gripperClosed());
+		//SmartDashboard.putBoolean("GripperOpen", Robot.gripper.gripperOpen());
 		SmartDashboard.putNumber("GripperControllerValue", Robot.operatorInput.getControllerGripperValue());
 		
 		//FlipityFlop
@@ -171,8 +171,8 @@ public class Dashboard {
 		SmartDashboard.putNumber("LiftControllerValue", Robot.operatorInput.getControllerLiftValue());
 
 		// Gripper
-		SmartDashboard.putBoolean("GripperClosed", Robot.gripper.gripperClosed());
-		SmartDashboard.putBoolean("GripperOpen", Robot.gripper.gripperOpen());
+		//SmartDashboard.putBoolean("GripperClosed", Robot.gripper.gripperClosed());
+		//SmartDashboard.putBoolean("GripperOpen", Robot.gripper.gripperOpen());
 		SmartDashboard.putNumber("GripperControllerValue", Robot.operatorInput.getControllerGripperValue());
 		
 		//FlipityFlop
