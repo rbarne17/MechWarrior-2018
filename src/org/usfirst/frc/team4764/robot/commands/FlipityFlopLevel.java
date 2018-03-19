@@ -1,6 +1,10 @@
 package org.usfirst.frc.team4764.robot.commands;
 
 import org.usfirst.frc.team4764.robot.Robot;
+
+
+import edu.wpi.first.wpilibj.Timer;
+
 import org.usfirst.frc.team4764.robot.subsystems.FlipityFlop;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -10,6 +14,8 @@ import edu.wpi.first.wpilibj.Timer;
  *
  */
 public class FlipityFlopLevel extends Command {
+
+
 	Timer floptimer=new Timer();
 
 	public FlipityFlopLevel() {
@@ -20,6 +26,9 @@ public class FlipityFlopLevel extends Command {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
+
+		
+
 		floptimer.reset();
 
 	}
@@ -32,6 +41,8 @@ public class FlipityFlopLevel extends Command {
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
+
+
 		if (floptimer.get()>5) {
 			return true;
 		}

@@ -84,8 +84,10 @@ public class AutonomousCommand extends CommandGroup {
 			addSequential(new Drive(25.0));
 			addSequential(new TurnRight(90,0.7));
 			// raise the lifter 5.5 high
+			new Lift(5.5, 0.7);
+			// turn 90 degrees to the right
+			new TurnRight(90, 0.7);
 			addSequential(new Lift(5.5, 0.7));
-			// drive foward 1ft
 			addSequential(new Drive(3.0));
 			// drop the cube
 			addSequential(new DropCube());
@@ -93,10 +95,8 @@ public class AutonomousCommand extends CommandGroup {
 			;
 			break;
 		case "OneRightScaleDefend":
-			addSequential(new FlipityFlopLevel());
 			// drive 27 feet forwards
-			addSequential(new Drive(8.0));
-			addSequential(new DoNothing());
+			new Drive(27.0);
 		case "OneLeftSwitchDefend":
 			//addSequential(new FlipityFlopLevel());
 			// drive 27 feet forwards
@@ -382,10 +382,8 @@ public class AutonomousCommand extends CommandGroup {
 			;
 			break;
 		case "ThreeLeftSwitchDefend":
-			//addSequential(new FlipityFlopLevel());
 			// drive 27 feet forwards
-			addSequential(new Drive(23.0));
-			;
+			new Drive(27.0);
 		case "ThreeRightSwitchDefend":
 			//addSequential(new FlipityFlopLevel());
 			// drive 27 feet forwards
@@ -408,7 +406,6 @@ public class AutonomousCommand extends CommandGroup {
 			addSequential(new Drive(3.0));
 						// drop the cube
 			addSequential(new DropCube());
-						
 			;
 			break;
 		case "ThreeRightScaleWaitScore":
