@@ -8,6 +8,7 @@ import org.usfirst.frc.team4764.robot.commands.FlipityFlopUp;
 import org.usfirst.frc.team4764.robot.commands.Lift;
 import org.usfirst.frc.team4764.robot.commands.LiftHome;
 import org.usfirst.frc.team4764.robot.commands.PickUpCube;
+import org.usfirst.frc.team4764.robot.commands.TimerRegular;
 import org.usfirst.frc.team4764.robot.commands.TurnLeft;
 import org.usfirst.frc.team4764.robot.commands.TurnRight;
 
@@ -59,6 +60,7 @@ public class Dashboard {
 		SmartDashboard.putData("Lift 12 Inches", new Lift(12, .5));
 		SmartDashboard.putData("FlipityFlop Up", new FlipityFlopUp());
 		SmartDashboard.putData("FlipityFlop Level", new FlipityFlopLevel());
+		SmartDashboard.putData("Timer", new TimerRegular());
 		
 		//commands from autonomous commands
 		SmartDashboard.putData("Drive 1.0",new Drive(1.0));

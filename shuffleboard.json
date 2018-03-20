@@ -1,4 +1,5 @@
-viderPosition": 0.003955696202531646,
+{
+  "dividerPosition": 0.003955696202531646,
   "tabPane": [
     {
       "title": "Competition",
@@ -13,7 +14,7 @@ viderPosition": 0.003955696202531646,
           "0,0": {
             "size": [
               1,
-              2
+              3
             ],
             "content": {
               "_type": "List Layout",
@@ -28,13 +29,18 @@ viderPosition": 0.003955696202531646,
                   "_type": "ComboBox Chooser",
                   "_source0": "network_table:///SmartDashboard/Switch or Scale",
                   "_title": "SmartDashboard/Switch or Scale"
+                },
+                {
+                  "_type": "ComboBox Chooser",
+                  "_source0": "network_table:///SmartDashboard/Robot Position",
+                  "_title": "SmartDashboard/Robot Position"
                 }
               ]
             }
           },
           "1,0": {
             "size": [
-              7,
+              5,
               4
             ],
             "content": {
@@ -257,6 +263,11 @@ viderPosition": 0.003955696202531646,
                 },
                 {
                   "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Drive 18.0",
+                  "_title": "Drive 18.0"
+                },
+                {
+                  "_type": "Command",
                   "_source0": "network_table:///SmartDashboard/Pick Up Cube",
                   "_title": "Pick Up Cube"
                 },
@@ -314,6 +325,11 @@ viderPosition": 0.003955696202531646,
                   "_type": "Command",
                   "_source0": "network_table:///SmartDashboard/FlipityFlop Level",
                   "_title": "FlipityFlop Level"
+                },
+                {
+                  "_type": "Command",
+                  "_source0": "network_table:///SmartDashboard/Timer",
+                  "_title": "Timer"
                 }
               ]
             }
@@ -431,15 +447,15 @@ viderPosition": 0.003955696202531646,
               ]
             }
           },
-          "7,1": {
+          "0,2": {
             "size": [
               1,
               1
             ],
             "content": {
-              "_type": "Command",
-              "_source0": "network_table:///SmartDashboard/Drive 18.0",
-              "_title": "Drive 18.0"
+              "_type": "ComboBox Chooser",
+              "_source0": "network_table:///SmartDashboard/Robot Position",
+              "_title": "Robot Position"
             }
           }
         }
@@ -457,7 +473,7 @@ viderPosition": 0.003955696202531646,
         "tiles": {
           "0,0": {
             "size": [
-              2,
+              1,
               4
             ],
             "content": {
@@ -610,7 +626,7 @@ viderPosition": 0.003955696202531646,
               ]
             }
           },
-          "4,0": {
+          "3,0": {
             "size": [
               1,
               4
@@ -622,7 +638,7 @@ viderPosition": 0.003955696202531646,
               "_children": []
             }
           },
-          "5,0": {
+          "4,0": {
             "size": [
               1,
               4
@@ -634,7 +650,7 @@ viderPosition": 0.003955696202531646,
               "_children": []
             }
           },
-          "2,0": {
+          "1,0": {
             "size": [
               1,
               4
@@ -646,7 +662,7 @@ viderPosition": 0.003955696202531646,
               "_children": []
             }
           },
-          "3,0": {
+          "2,0": {
             "size": [
               1,
               4
@@ -658,9 +674,9 @@ viderPosition": 0.003955696202531646,
               "_children": []
             }
           },
-          "6,0": {
+          "5,0": {
             "size": [
-              2,
+              1,
               4
             ],
             "content": {
