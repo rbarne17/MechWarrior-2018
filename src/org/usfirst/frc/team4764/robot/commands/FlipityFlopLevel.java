@@ -26,16 +26,12 @@ public class FlipityFlopLevel extends Command {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-
-		
-
 		floptimer.reset();
-
+		floptimer.start();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		floptimer.start();
 		Robot.flipityFlop.setLevel();
 	}
 
