@@ -13,7 +13,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Lift extends Subsystem {
-	public final int m_ticksPerFoot = 166;
+	public final int m_ticksPerFoot = 5069/9;
+	//public final int m_ticksPerFoot = 5069/3;
 	public final int m_ticksPerInch = 14;
 
 	private Spark liftMotor = new Spark(RobotMap.liftMotor);

@@ -17,7 +17,7 @@ public class DriveTrain extends Subsystem {
 
 	// competition robot: ticksPerFoot = 166
 	// test robot: ticksPerFoot=135
-	public final int ticksPerFoot = 135;
+	public final int ticksPerFoot = 166;
 
 	public Spark leftMotor = new Spark(RobotMap.driveTrainMotorLeft);
 	public Spark rightMotor = new Spark(RobotMap.driveTrainMotorRight);
@@ -43,7 +43,7 @@ public class DriveTrain extends Subsystem {
 	}
 
 	public int getEncoderRight() {
-		return rightEncoder.get();
+		return -rightEncoder.get();
 	}
 
 	public void initDefaultCommand() {

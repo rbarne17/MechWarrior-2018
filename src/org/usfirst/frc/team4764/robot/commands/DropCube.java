@@ -31,11 +31,11 @@ public class DropCube extends Command {
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-
+/*
 		if (Robot.gripper.gripperOpen()) {
 
 			return true;
-		}
+		}*/
 		return false;
 	}
 

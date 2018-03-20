@@ -59,41 +59,18 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		operatorInput = new OI();
 		dashboard = new Dashboard();
-		fieldData = new FieldData();
 		dashboard.robotInit();
 
-		new Thread(() -> {
-			UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-			camera.setResolution(640, 480);
-
-			CvSink cvSink = CameraServer.getInstance().getVideo();
-			CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);
-
-			Mat source = new Mat();
-			Mat output = new Mat();
-
-			while (!Thread.interrupted()) {
-				cvSink.grabFrame(source);
-				Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
-				outputStream.putFrame(output);
-			}
-		}).start();
-		new Thread(() -> {
+		
+			// camera = CameraServer.getInstance().startAutomaticCapture();
+			//camera.setFPS(15);
+			//camera.setResolution(320,  240);
+		
+		
 			UsbCamera camera2 = CameraServer.getInstance().startAutomaticCapture();
-			camera2.setResolution(640, 480);
+			camera2.setResolution(320, 240);
+			camera2.setFPS(15);
 
-			CvSink cvSink = CameraServer.getInstance().getVideo();
-			CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);
-
-			Mat source = new Mat();
-			Mat output = new Mat();
-
-			while (!Thread.interrupted()) {
-				cvSink.grabFrame(source);
-				Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
-				outputStream.putFrame(output);
-			}
-		}).start();
 
 	}
 
@@ -126,12 +103,13 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		fieldData = new FieldData();
 
 		autonomousScoringMechanism = dashboard.m_scoringMechanismChooser.getSelected();
 		autonomousAllianceMode = dashboard.m_allianceModeChooser.getSelected();
 
-		if ((Robot.fieldData.location == 1 && (Robot.fieldData.scaleSide == 'R' || fieldData.switchSide == 'R'))
-				|| (Robot.fieldData.location == 3
+		if ((dashboard.m_robotPositionChooser.getSelected() == "One" && (Robot.fieldData.scaleSide == 'R' || fieldData.switchSide == 'R'))
+				|| (dashboard.m_robotPositionChooser.getSelected() == "Three"
 						&& (Robot.fieldData.scaleSide == 'L' || Robot.fieldData.switchSide == 'L'))) {
 			autonomousAllianceMode = "Defend";
 		}
@@ -144,7 +122,7 @@ public class Robot extends TimedRobot {
 		} else if (autonomousScoringMechanism == "Switch") {
 			autonomousScoringMechanismWithSide = fieldData.switchSideString + autonomousScoringMechanism;
 		}
-		autonomousCommandName = fieldData.locationString + autonomousScoringMechanismWithSide + autonomousAllianceMode;
+		autonomousCommandName = dashboard.m_robotPositionChooser.getSelected() + autonomousScoringMechanismWithSide + autonomousAllianceMode;
 
 		if (autonomousCommand == null) {
 			autonomousCommand = new AutonomousCommand(autonomousCommandName);

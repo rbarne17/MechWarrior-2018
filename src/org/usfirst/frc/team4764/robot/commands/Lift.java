@@ -24,19 +24,19 @@ public class Lift extends Command {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		Robot.lift.reset();
+		Robot.lift.reset(); 
 
-		m_finalticks = Robot.lift.getEncoderLift() + m_ticksToTravel;
+		m_finalticks = -Robot.lift.getEncoderLift() + m_ticksToTravel;
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.lift.liftAdjust(m_speed);
+		Robot.lift.liftAdjust(-m_speed);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return (Math.abs(m_finalticks - Robot.lift.getEncoderLift()) <= 0);
+		return (m_finalticks - (-Robot.lift.getEncoderLift())) <= 0;
 	}
 
 	// Called once after isFinished returns true

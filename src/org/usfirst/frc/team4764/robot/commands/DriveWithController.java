@@ -38,7 +38,7 @@ public class DriveWithController extends Command
 //		Robot.driveTrain.driveByTank(-Robot.operatorInput.getRightStickY(), Robot.operatorInput.getLeftStickY());
 
 	
-		Robot.driveTrain.driveByArcade(Robot.operatorInput.getJoystickY(), -Robot.operatorInput.getJoystickX());
+		Robot.driveTrain.driveByArcade(-Robot.operatorInput.getJoystickY(), -Robot.operatorInput.getJoystickX());
 
 	
 //		Robot.driveTrain.driveByArcade(-Robot.operatorInput.getLeftStickY(), -Robot.operatorInput.getLeftStickX());

@@ -18,17 +18,21 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Dashboard {
 
+	SendableChooser<String> m_robotPositionChooser;
 	SendableChooser<CommandGroup> m_autonomousCommandChooser;
 	SendableChooser<String> m_scoringMechanismChooser;
 	SendableChooser<String> m_allianceModeChooser;
+	
 
 	public void robotInit() {
 
-		// subsystems display
+		//create choosers
+		m_robotPositionChooser = new SendableChooser<>();
 		m_autonomousCommandChooser = new SendableChooser<>();
 		m_scoringMechanismChooser = new SendableChooser<>();
 		m_allianceModeChooser = new SendableChooser<>();
 
+		// subsystems display
 		SmartDashboard.putData(Robot.driveTrain);
 		SmartDashboard.putData(Robot.lift);
 		SmartDashboard.putData(Robot.flipityFlop);
@@ -100,6 +104,11 @@ public class Dashboard {
 		m_autonomousCommandChooser.addObject("ThreeRightScaleWaitScore",new AutonomousCommand("ThreeRightScaleWaitScore"));
 		m_autonomousCommandChooser.addObject("ThreeLeftScaleDefend",new AutonomousCommand("ThreeLeftScaleDefend"));
 
+		//add positions to m_robotPositionChooser
+		m_robotPositionChooser.addDefault("One","One");
+		m_robotPositionChooser.addObject("Two","Two");
+		m_robotPositionChooser.addObject("Three","Three");
+		
 		// add scoring mechanism to m_scoringMechanismChooser
 		m_scoringMechanismChooser.addDefault("Switch", "Switch");
 		m_scoringMechanismChooser.addObject("Scale", "Scale");
@@ -110,6 +119,7 @@ public class Dashboard {
 		m_allianceModeChooser.addObject("Defend", "Defend");
 
 		// populate the SmartDashboard with the choosers
+		SmartDashboard.putData("Robot Position", m_robotPositionChooser);
 		SmartDashboard.putData("Switch or Scale", m_scoringMechanismChooser);
 		SmartDashboard.putData("Alliance Mode", m_allianceModeChooser);
 		SmartDashboard.putData("Commands", m_autonomousCommandChooser);
@@ -143,8 +153,8 @@ public class Dashboard {
 		SmartDashboard.putNumber("LiftControllerValue", Robot.operatorInput.getControllerLiftValue());
 
 		// Gripper
-		SmartDashboard.putBoolean("GripperClosed", Robot.gripper.gripperClosed());
-		SmartDashboard.putBoolean("GripperOpen", Robot.gripper.gripperOpen());
+		//SmartDashboard.putBoolean("GripperClosed", Robot.gripper.gripperClosed());
+		//SmartDashboard.putBoolean("GripperOpen", Robot.gripper.gripperOpen());
 		SmartDashboard.putNumber("GripperControllerValue", Robot.operatorInput.getControllerGripperValue());
 		
 		//FlipityFlop
@@ -171,8 +181,8 @@ public class Dashboard {
 		SmartDashboard.putNumber("LiftControllerValue", Robot.operatorInput.getControllerLiftValue());
 
 		// Gripper
-		SmartDashboard.putBoolean("GripperClosed", Robot.gripper.gripperClosed());
-		SmartDashboard.putBoolean("GripperOpen", Robot.gripper.gripperOpen());
+		//SmartDashboard.putBoolean("GripperClosed", Robot.gripper.gripperClosed());
+		//SmartDashboard.putBoolean("GripperOpen", Robot.gripper.gripperOpen());
 		SmartDashboard.putNumber("GripperControllerValue", Robot.operatorInput.getControllerGripperValue());
 		
 		//FlipityFlop

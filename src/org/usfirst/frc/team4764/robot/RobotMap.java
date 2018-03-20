@@ -19,7 +19,7 @@ public final class RobotMap {
 	public static final int driveTrainMotorLeft = 0;
 	public static final int driveTrainMotorRight = 1;
 	public static final int liftMotor = 2;
-	public static final int flipityFlopMotor = 3;
+	public static final int flipityFlopMotor = 3; 
 	public static final int gripperMotor=4;
 
 
@@ -34,11 +34,11 @@ public final class RobotMap {
 	// encoders
 	public static final int leftEncoderChannel1 = 0;
 	public static final int leftEncoderChannel2 = 1;
-	public static final int rightEncoderChannel1 = 3;
-	public static final int rightEncoderChannel2 = 2;
+	public static final int rightEncoderChannel1 = 2;
+	public static final int rightEncoderChannel2 = 3;
 
-	public static final int liftEncoderChannel1 = 9;
-	public static final int liftEncoderChannel2 = 10;
+	public static final int liftEncoderChannel1 = 4;
+	public static final int liftEncoderChannel2 = 5;
 	
 
 

@@ -28,13 +28,9 @@ public class TurnRight extends Command {
 	protected void execute() {
 		double heading = Robot.driveTrain.getHeading();
 		System.out.println(_angle - heading);
-		if (_angle - heading < 60) {
-			Robot.driveTrain.leftMotor.set(_speed / 2);
-			Robot.driveTrain.rightMotor.set(_speed / 2);
-		} else {
 			Robot.driveTrain.leftMotor.set(_speed);
 			Robot.driveTrain.rightMotor.set(_speed);
-		}
+		
 
 	}
 

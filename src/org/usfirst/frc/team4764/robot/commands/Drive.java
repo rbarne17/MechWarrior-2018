@@ -22,7 +22,7 @@ public class Drive extends Command {
 	}
 
 	public Drive(double distanceToTravel) {
-		this(distanceToTravel, .7, 'f');
+		this(distanceToTravel, .55, 'f');
 	}
 
 	public Drive(double distanceToTravel, double speed, char unitOfTravel) {
@@ -69,8 +69,8 @@ public class Drive extends Command {
 
 	// Make this return true when this Command no longer needs to run execu te()
 	protected boolean isFinished() {
-		return m_finalTickTargetLeft + Robot.driveTrain.getEncoderLeft() <= 0
-				&& m_finalTickTargetRight + Robot.driveTrain.getEncoderRight() <= 0;
+		return (m_finalTickTargetLeft - Robot.driveTrain.getEncoderLeft() <= 0
+				&& m_finalTickTargetRight - Robot.driveTrain.getEncoderRight() <= 0);
 	}
 
 	// Called once after isFinished returns true
