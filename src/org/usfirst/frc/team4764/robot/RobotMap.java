@@ -34,11 +34,11 @@ public final class RobotMap {
 	// encoders
 	public static final int leftEncoderChannel1 = 0;
 	public static final int leftEncoderChannel2 = 1;
-	public static final int rightEncoderChannel1 = 2;
-	public static final int rightEncoderChannel2 = 3;
+	public static final int rightEncoderChannel1 = 3;
+	public static final int rightEncoderChannel2 = 2;
 
-	public static final int liftEncoderChannel1 = 4;
-	public static final int liftEncoderChannel2 = 5;
+	public static final int liftEncoderChannel1 = 9;
+	public static final int liftEncoderChannel2 = 10;
 	
 
 
