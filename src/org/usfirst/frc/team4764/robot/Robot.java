@@ -13,6 +13,7 @@ import org.usfirst.frc.team4764.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4764.robot.subsystems.Gripper;
 import org.usfirst.frc.team4764.robot.subsystems.Lift;
 import org.usfirst.frc.team4764.robot.subsystems.FlipityFlop;
+import org.usfirst.frc.team4764.robot.subsystems.FlyWheel;
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team4764.robot.OI;
@@ -38,6 +39,7 @@ public class Robot extends TimedRobot {
 	public static final Lift lift = new Lift();
 	public static final Gripper gripper = new Gripper();
 	public static final FlipityFlop flipityFlop = new FlipityFlop();
+	public static final FlyWheel flyWheel = new FlyWheel();
 	public static final Camera camera = new Camera();
 	public static final Camera camera2 = new Camera();
 	public static OI operatorInput;

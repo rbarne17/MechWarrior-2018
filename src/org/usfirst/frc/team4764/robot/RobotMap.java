@@ -21,6 +21,7 @@ public final class RobotMap {
 	public static final int liftMotor = 2;
 	public static final int flipityFlopMotor = 3; 
 	public static final int gripperMotor=4;
+	public static final int flyWheelMotor=5;
 
 
 	// limit switches
