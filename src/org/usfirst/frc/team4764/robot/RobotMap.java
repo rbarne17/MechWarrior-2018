@@ -26,8 +26,8 @@ public final class RobotMap {
 
 	// limit switches
 	public static final int liftLimitSwitchHome = 8;
-	public static final int gripperLimitSwitchClose=4;
-	public static final int gripperLimitSwitchOpen=5;
+	public static final int gripperLimitSwitchClose=9;
+	public static final int gripperLimitSwitchOpen=10;
 	public static final int flipityFlopLimitSwitchUp=7;
 	public static final int flipityFlopLimitSwitchLevel=6;
 	
