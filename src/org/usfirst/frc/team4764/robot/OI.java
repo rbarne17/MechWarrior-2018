@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 import org.usfirst.frc.team4764.robot.commands.DropCube;
 import org.usfirst.frc.team4764.robot.commands.FlipityFlopLevel;
 import org.usfirst.frc.team4764.robot.commands.FlipityFlopUp;
-import org.usfirst.frc.team4764.robot.commands.GrabCube;
+import org.usfirst.frc.team4764.robot.commands.PullCube;
 import org.usfirst.frc.team4764.robot.commands.PickUpCube;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -45,7 +45,8 @@ public class OI {
 			xboxYButton.whenPressed(new DropCube());
 			xboxBButton.whenPressed(new FlipityFlopUp());
 			xboxAButton.whenPressed(new FlipityFlopLevel());
-			xboxLBumper.whileHeld(new GrabCube());
+			xboxLBumper.whileHeld(new PullCube());
+			xboxRBumper.whileHeld(new PushCube());
 			
 		}
 
