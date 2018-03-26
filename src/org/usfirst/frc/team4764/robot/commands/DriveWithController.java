@@ -37,12 +37,14 @@ public class DriveWithController extends Command
 
 //		Robot.driveTrain.driveByTank(-Robot.operatorInput.getRightStickY(), Robot.operatorInput.getLeftStickY());
 
-	
-		Robot.driveTrain.driveByArcade(-Robot.operatorInput.getJoystickY(), -Robot.operatorInput.getJoystickX());
-
-	
+	if(Robot.lift.getEncoderLift()>1500){
+		Robot.driveTrain.driveByArcade((-Robot.operatorInput.getJoystickY()/2),(-Robot.operatorInput.getJoystickX()/2));
+	}
+	else {
+		Robot.driveTrain.driveByArcade((-Robot.operatorInput.getJoystickY()),( -Robot.operatorInput.getJoystickX()));
+	}
 //		Robot.driveTrain.driveByArcade(-Robot.operatorInput.getLeftStickY(), -Robot.operatorInput.getLeftStickX());
-
+		
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

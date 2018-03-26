@@ -27,27 +27,26 @@ public class AutonomousCommand extends CommandGroup {
 	public AutonomousCommand(String autonomousCommandName) {
 		switch (autonomousCommandName) {
 		case "OneLeftSwitchScore":
-			addSequential(new FlipityFlopLevel());
 			// drive 14 feet forward
+			//addParallel(new Drive(8.0));
 			addSequential(new Drive(8.0));
-			addSequential(new Drive(6.0));
 			// turn 90 degrees right
-			addSequential(new TurnRight(90, 0.7));
+			//addSequential(new TurnRight(90, 0.5));
 			// raise the lifter 2 feet
 			addSequential(new Lift(3.0, 0.7));
 			// drive 2 feet forward
 			addSequential(new Drive(4.0));
 			// drop cube
 			addSequential(new DropCube());
+			addSequential(new FlipityFlopLevel());
 			addSequential(new DoNothing());
 			;
 			break;
 		case "OneLeftSwitchWaitScore":
-			addSequential(new FlipityFlopLevel());
-			// wait 5 seconds
 			addSequential(new TimerRegular());
+			addParallel(new FlipityFlopLevel());
 			// drive 14 feet forward
-			addSequential(new Drive(8.0));
+			addParallel(new Drive(8.0));
 			addSequential(new Drive(6.0));
 			// turn 90 degrees right
 			addSequential(new TurnRight(90, 0.7));
@@ -61,17 +60,17 @@ public class AutonomousCommand extends CommandGroup {
 			;
 			break;
 		case "OneRightSwitchDefend":
-			addSequential(new FlipityFlopLevel());
-			// drive 27 feet forwards
-			addSequential(new Drive(8.0));
+			// drive 14 feet forward
+			addParallel(new Drive(8.0));
 			addSequential(new Drive(6.0));
+			addSequential(new FlipityFlopLevel());
 			addSequential(new DoNothing());
 			;
 			break;
 		case "OneLeftScaleScore":
-			addSequential(new FlipityFlopLevel());
+			addParallel(new FlipityFlopLevel());
 			// drive foward 275ft
-			addSequential(new Drive(5.0));
+			addParallel(new Drive(5.0));
 			addSequential(new Drive(5.0));
 			addSequential(new Drive(5.0));
 			addSequential(new Drive(5.0));
@@ -90,9 +89,9 @@ public class AutonomousCommand extends CommandGroup {
 		case "OneLeftScaleWaitScore":
 			// wait 2.5 seconds
 			addSequential(new TimerRegular());
-			addSequential(new FlipityFlopLevel());
+			addParallel(new FlipityFlopLevel());
 			// drive foward 275ft
-			addSequential(new Drive(5.0));
+			addParallel(new Drive(5.0));
 			addSequential(new Drive(5.0));
 			addSequential(new Drive(5.0));
 			addSequential(new Drive(5.0));
@@ -106,24 +105,23 @@ public class AutonomousCommand extends CommandGroup {
 			;
 			break;
 		case "OneRightScaleDefend":
-			addSequential(new FlipityFlopLevel());
-			// drive 27 feet forwards
-			addSequential(new Drive(5.0));
+			addParallel(new FlipityFlopLevel());
+			// drive foward 275ft
+			addParallel(new Drive(5.0));
 			addSequential(new Drive(5.0));
 			addSequential(new Drive(5.0));
 			addSequential(new Drive(5.0));
 			addSequential(new Drive(6.0));
 			addSequential(new DoNothing());
 		case "OneLeftSwitchDefend":
-			addSequential(new FlipityFlopLevel());
 			// drive 27 feet forwards
 			addSequential(new Drive(8.0));
-			addSequential(new Drive(6.0));
+			addSequential(new FlipityFlopLevel());
 			addSequential(new DoNothing());
 		case "OneLeftScaleDefend":
-			addSequential(new FlipityFlopLevel());
-			// drive 27 feet forwards
-			addSequential(new Drive(5.0));
+			addParallel(new FlipityFlopLevel());
+			// drive foward 275ft
+			addParallel(new Drive(5.0));
 			addSequential(new Drive(5.0));
 			addSequential(new Drive(5.0));
 			addSequential(new Drive(5.0));
@@ -131,9 +129,9 @@ public class AutonomousCommand extends CommandGroup {
 			addSequential(new DoNothing());
 			break;
 		case "TwoLeftSwitchScore":
-			addSequential(new FlipityFlopLevel());
+			addParallel(new FlipityFlopLevel());
 			// drive 5ft foward
-			addSequential(new Drive(6.0));
+			addParallel(new Drive(6.0));
 			// turn 90 degrees to the left
 			addSequential(new TurnLeft(90, 0.7));
 			// drive 3ft foward
@@ -147,10 +145,10 @@ public class AutonomousCommand extends CommandGroup {
 			addSequential(new DoNothing());
 			break;
 		case "TwoLeftSwitchWaitScore":
-			addSequential(new FlipityFlopLevel());
-			// drive 5ft foward
 			addSequential(new TimerRegular());
-			addSequential(new Drive(6.0));
+			addParallel(new FlipityFlopLevel());
+			// drive 5ft foward
+			addParallel(new Drive(6.0));
 			// turn 90 degrees to the left
 			addSequential(new TurnLeft(90, 0.7));
 			// drive 3ft foward
@@ -165,10 +163,10 @@ public class AutonomousCommand extends CommandGroup {
 			addSequential(new DoNothing());
 			break;
 		case "TwoLeftSwitchDefend":
-			addSequential(new FlipityFlopLevel());
-			// drive 5ft foward
 			addSequential(new TimerRegular());
-			addSequential(new Drive(6.0));
+			addParallel(new FlipityFlopLevel());
+			// drive 5ft foward
+			addParallel(new Drive(6.0));
 			// turn 90 degrees to the left
 			addSequential(new TurnLeft(90, 0.7));
 			// drive 3ft foward
@@ -182,9 +180,9 @@ public class AutonomousCommand extends CommandGroup {
 			;
 			break;
 		case "TwoRightSwitchScore":
-			addSequential(new FlipityFlopLevel());
+			addParallel(new FlipityFlopLevel());
 			// drive 5ft foward
-			addSequential(new Drive(6.0));
+			addParallel(new Drive(6.0));
 			// turn 90 degrees to the left
 			addSequential(new TurnRight(90, 0.7));
 			// drive 3ft foward
@@ -199,10 +197,10 @@ public class AutonomousCommand extends CommandGroup {
 			;
 			break;
 		case "TwoRightSwitchWaitScore":
-			addSequential(new FlipityFlopLevel());
-			// drive 5ft foward
 			addSequential(new TimerRegular());
-			addSequential(new Drive(6.0));
+			addParallel(new FlipityFlopLevel());
+			// drive 5ft foward
+			addParallel(new Drive(6.0));
 			// turn 90 degrees to the left
 			addSequential(new TurnLeft(90, 0.7));
 			// drive 3ft foward
@@ -218,10 +216,9 @@ public class AutonomousCommand extends CommandGroup {
 			;
 			break;
 		case "TwoRightSwitchDefend":
-			addSequential(new FlipityFlopLevel());
+			addParallel(new FlipityFlopLevel());
 			// drive 5ft foward
-			addSequential(new TimerRegular());
-			addSequential(new Drive(6.0));
+			addParallel(new Drive(6.0));
 			// turn 90 degrees to the left
 			addSequential(new TurnRight(90, 0.7));
 			// drive 3ft foward
@@ -258,9 +255,9 @@ public class AutonomousCommand extends CommandGroup {
 			;
 			break;
 		case "ThreeRightSwitchScore":
-			addSequential(new FlipityFlopLevel());
+			addParallel(new FlipityFlopLevel());
 			// drive 14 feet forward
-			addSequential(new Drive(8.0));
+			addParallel(new Drive(8.0));
 			addSequential(new Drive(6.0));
 			// turn 90 degrees right
 			addSequential(new TurnLeft(90, 0.7));
@@ -275,11 +272,10 @@ public class AutonomousCommand extends CommandGroup {
 			;
 			break;
 		case "ThreeRightSwitchWaitScore":
-			addSequential(new FlipityFlopLevel());
-			// wait 5 seconds
 			addSequential(new TimerRegular());
+			addParallel(new FlipityFlopLevel());
 			// drive 14 feet forward
-			addSequential(new Drive(8.0));
+			addParallel(new Drive(8.0));
 			addSequential(new Drive(6.0));
 			// turn 90 degrees right
 			addSequential(new TurnLeft(90, 0.7));
@@ -294,32 +290,30 @@ public class AutonomousCommand extends CommandGroup {
 			;
 			break;
 		case "ThreeLeftSwitchDefend":
-			addSequential(new FlipityFlopLevel());
-			// drive 27 feet forwards
-			addSequential(new Drive(8.0));
+			addParallel(new FlipityFlopLevel());
+			// drive 14 feet forward
+			addParallel(new Drive(8.0));
 			addSequential(new Drive(6.0));
+			addSequential(new DoNothing());
 		case "ThreeRightSwitchDefend":
-			addSequential(new FlipityFlopLevel());
-			// drive 27 feet forwards
-			addSequential(new Drive(8.0));
+			addParallel(new FlipityFlopLevel());
+			// drive 14 feet forward
+			addParallel(new Drive(8.0));
 			addSequential(new Drive(6.0));
 			addSequential(new DoNothing());
 			;
 		case "ThreeRightScaleDefend":
-			addSequential(new FlipityFlopLevel());
-			// drive 27 feet forwards
-			addSequential(new Drive(5.0));
-			addSequential(new Drive(5.0));
-			addSequential(new Drive(5.0));
-			addSequential(new Drive(5.0));
+			addParallel(new FlipityFlopLevel());
+			// drive 14 feet forward
+			addParallel(new Drive(8.0));
 			addSequential(new Drive(6.0));
 			addSequential(new DoNothing());
 			;
 			break;
 		case "ThreeRightScaleScore":
-			addSequential(new FlipityFlopLevel());
-			// drive foward 275ft
-			addSequential(new Drive(5.0));
+			addParallel(new FlipityFlopLevel());
+			// drive 27 feet forwards
+			addParallel(new Drive(5.0));
 			addSequential(new Drive(5.0));
 			addSequential(new Drive(5.0));
 			addSequential(new Drive(5.0));
@@ -335,9 +329,10 @@ public class AutonomousCommand extends CommandGroup {
 			;
 			break;
 		case "ThreeRightScaleWaitScore":
-			addSequential(new FlipityFlopLevel());
 			addSequential(new TimerRegular());
-			addSequential(new Drive(5.0));
+			addParallel(new FlipityFlopLevel());
+			// drive 27 feet forwards
+			addParallel(new Drive(5.0));
 			addSequential(new Drive(5.0));
 			addSequential(new Drive(5.0));
 			addSequential(new Drive(5.0));
@@ -353,12 +348,9 @@ public class AutonomousCommand extends CommandGroup {
 			;
 			break;
 		case "ThreeLeftScaleDefend":
-			addSequential(new FlipityFlopLevel());
-			// drive 27 feet forwards
-			addSequential(new Drive(5.0));
-			addSequential(new Drive(5.0));
-			addSequential(new Drive(5.0));
-			addSequential(new Drive(5.0));
+			addParallel(new FlipityFlopLevel());
+			// drive 14 feet forward
+			addParallel(new Drive(8.0));
 			addSequential(new Drive(6.0));
 			addSequential(new DoNothing());
 			;

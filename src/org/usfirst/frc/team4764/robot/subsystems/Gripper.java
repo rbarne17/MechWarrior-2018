@@ -21,11 +21,11 @@ public class Gripper extends Subsystem {
 	}
 
 	public void openGripper() {
-		this.gripperAdjustOpen(.5);
+		this.gripperAdjustOpen(1);
 	}
 
 	public void closeGripper() {
-		this.gripperAdjustClose(.5);
+		this.gripperAdjustClose(1);
 
 	}
 

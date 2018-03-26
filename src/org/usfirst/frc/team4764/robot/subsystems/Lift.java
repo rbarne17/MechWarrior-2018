@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Lift extends Subsystem {
-	public final int m_ticksPerFoot = 5069/9;
+	public final double m_ticksPerFoot = 0.15;
 	//public final int m_ticksPerFoot = 5069/3;
 	public final int m_ticksPerInch = 14;
 

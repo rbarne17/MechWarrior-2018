@@ -57,7 +57,7 @@ public class Dashboard {
 		SmartDashboard.putData("Turn Right 360 Degrees", new TurnRight(360.0, .5));
 		SmartDashboard.putData("Pick Up Cube", new PickUpCube());
 		SmartDashboard.putData("Lift To Home", new LiftHome(.5));
-		SmartDashboard.putData("Lift 12 Inches", new Lift(12, .5));
+		SmartDashboard.putData("Lift 12 Inches", new Lift(1, .5));
 		SmartDashboard.putData("FlipityFlop Up", new FlipityFlopUp());
 		SmartDashboard.putData("FlipityFlop Level", new FlipityFlopLevel());
 		SmartDashboard.putData("Timer", new TimerRegular());
@@ -155,8 +155,8 @@ public class Dashboard {
 		SmartDashboard.putNumber("LiftControllerValue", Robot.operatorInput.getControllerLiftValue());
 
 		// Gripper
-		//SmartDashboard.putBoolean("GripperClosed", Robot.gripper.gripperClosed());
-		//SmartDashboard.putBoolean("GripperOpen", Robot.gripper.gripperOpen());
+		SmartDashboard.putBoolean("GripperClosed", Robot.gripper.gripperClosed());
+		SmartDashboard.putBoolean("GripperOpen", Robot.gripper.gripperOpen());
 		SmartDashboard.putNumber("GripperControllerValue", Robot.operatorInput.getControllerGripperValue());
 		
 		//FlipityFlop

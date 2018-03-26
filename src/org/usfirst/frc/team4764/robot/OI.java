@@ -42,12 +42,12 @@ public class OI {
 
 		} else {
 
-			xboxXButton.whenPressed(new PickUpCube());
-			xboxYButton.whenPressed(new DropCube());
-			xboxBButton.whenPressed(new FlipityFlopUp());
+			xboxXButton.whenPressed(new DropCube());
+			xboxYButton.whenPressed(new FlipityFlopUp());
+			xboxBButton.whenPressed(new PickUpCube());
 			xboxAButton.whenPressed(new FlipityFlopLevel());
-			xboxLBumper.whileHeld(new PullCube());
-			xboxRBumper.whileHeld(new PushCube());
+			//xboxLBumper.whileHeld(new PullCube());
+			//xboxRBumper.whileHeld(new PushCube());
 			
 		}
 
