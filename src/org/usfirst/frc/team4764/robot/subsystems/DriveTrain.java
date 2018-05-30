@@ -30,7 +30,9 @@ public class DriveTrain extends Subsystem {
 
 	public DriveTrain() {
 
-		gyro.calibrate();
+		if (gyro != null) {
+			gyro.calibrate();
+		}
 
 		leftMotor.set(0.0);
 
@@ -109,7 +111,12 @@ public class DriveTrain extends Subsystem {
 	public void reset() {
 		driveByTank(0.0, 0.0);
 		encoderReset();
-		gyro.reset();
+		if (gyro != null) {
+			gyro.reset();
+		}
+		else {
+			System.out.println("WARNING: No gyro present.");
+		}
 
 	}
 
@@ -120,7 +127,13 @@ public class DriveTrain extends Subsystem {
 	}
 
 	public double getHeading() {
-		return gyro.getAngle();
+		if (gyro != null) {
+			return gyro.getAngle();
+		}		else {
+			System.out.println("WARNING: No gyro present.");
+			return 0.00;
+		}
+
 	}
 
 	private double valueAfterDeadzone(double currentValue) {
