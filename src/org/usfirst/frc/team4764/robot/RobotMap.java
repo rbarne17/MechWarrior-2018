@@ -17,11 +17,11 @@ public final class RobotMap {
 
 	// speed controllers
 	public static final int driveTrainMotorLeft = 0;
-	public static final int driveTrainMotorRight = 1;
+	public static final int driveTrainMotorRight = 1; //pin might be fried
 	public static final int liftMotor = 2;
 	public static final int flipityFlopMotor = 3; 
 	public static final int gripperMotor=4;
-	public static final int flyWheelMotor=5;
+	public static final int flyWheelMotor=5; //not currently used
 
 
 	// limit switches
@@ -32,14 +32,14 @@ public final class RobotMap {
 	public static final int flipityFlopLimitSwitchLevel=9;
 	
 
-	// encoders
-	public static final int leftEncoderChannel1 = 0;
-	public static final int leftEncoderChannel2 = 1;
-	public static final int rightEncoderChannel1 = 2;
-	public static final int rightEncoderChannel2 = 3;
+	// encoders                                      //sig   power/ground 
+	public static final int leftEncoderChannel1 = 0; //blue, orange
+	public static final int leftEncoderChannel2 = 1; //yellow, black
+	public static final int rightEncoderChannel1 = 2; //blue orange
+	public static final int rightEncoderChannel2 = 3; //yellow, black
 
-	public static final int liftEncoderChannel1 = 4;
-	public static final int liftEncoderChannel2 = 5;
+	public static final int liftEncoderChannel1 = 4; //??
+	public static final int liftEncoderChannel2 = 5; //??
 	
 
 

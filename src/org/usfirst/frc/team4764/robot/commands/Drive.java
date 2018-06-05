@@ -22,7 +22,7 @@ public class Drive extends Command {
 	}
 
 	public Drive(double distanceToTravel) {
-		this(distanceToTravel, .6, 'f');
+		this(distanceToTravel, .7, 'f');
 	}
 
 	public Drive(double distanceToTravel, double speed, char unitOfTravel) {
